@@ -18,17 +18,4 @@ public abstract class Biped extends LandAnimal {
       super(w,x,y,tame);
       SetLeg(2);
     }
-    /**
-     *  Mengembalikan string yang menggambarkan interaksi user dengan hewan
-     * @return String sesuai implementasi pada kelas riil turunan
-     */
-    public String Interact () {
-      return "No Interact";
-    }
-    /**
-     *  Mencetak semua informasi hewan
-     */
-    public void GetInfo() {
-
-    }
 }

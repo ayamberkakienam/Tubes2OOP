@@ -5,6 +5,10 @@ import animal.animal_classification.QuadrupedMeat;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
+
+/** Harimau
+ * Hewan kucing-kucingan yang memiliki tubuh besar dan memakan daging
+ */
 public class Harimau  extends QuadrupedMeat {
   /**  Constructor.
    * Melakukan inisialisasi kelas Harimau dengan parameter absis dan ordinat lokasi
@@ -24,6 +28,6 @@ public class Harimau  extends QuadrupedMeat {
   /**  Mencetak informasi spesifik hewan
    */
   public void GetInfo() {
-    PrintInfo(habitat, type);
+    PrintInfo();
   }
 }

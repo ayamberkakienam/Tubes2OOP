@@ -17,27 +17,6 @@ public abstract class LandAnimal extends Animal {
    */
   public LandAnimal(float w,int x,int y,boolean tame) {
     super(w, x, y, tame, 'Z');
-    habitat = "Land";
+    SetHabitat("Land");
   }
-  /**Getter untuk habitat
-   * @return habitat dari Kelas Habitat
-   */
-  public String GetHabitat() {
-    return habitat;
-  }
-  /**Mengembalikan String yang menggambarkan interaksi
-   * user dengan hewan
-   * @return suara hewan
-   */
-  public String Interact() {
-    return "No Interact";
-  }
-  /** Menamplkan informasi tentang hewan
-   */
-  public void GetInfo() {
-
-  }
-  /** Habitat dari hewan
-   */
-  protected String habitat;
 }

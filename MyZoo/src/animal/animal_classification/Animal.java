@@ -1,126 +1,137 @@
-package animal;
+/**
+ * Created by Diki Ardian W (13515092) on 3/27/17.
+ */
+
+package animal.animal_classification;
 
 public abstract class Animal {
-    static {
-        consumerate = 0;
-        n_animal = 0;
-    }
-    public Animal(float w, int x, int y,boolean tame, char _content) {
-        weight = w;
-        loc_x = x;
-        loc_y = y;
-        tamed = tame;
-        content = _content;
-    }
+  static {
+    consumerate = 0;
+    n_animal = 0;
+  }
+  public Animal(float w, int x, int y,boolean tame, char _content) {
+    weight = w;
+    loc_x = x;
+    loc_y = y;
+    tamed = tame;
+    content = _content;
+  }
 
-    public void SetName(String names) {
-        name = names;
-    }
+  public void SetName(String names) {
+    name = names;
+  }
 
-    public void SetLoc(int x, int y) {
-        loc_x = x;
-        loc_y = y;
-    }
+  public void SetHabitat(String habitat) {
+    this.habitat = habitat;
+  }
 
-    public void SetDiet(String food) {
-        diet = food;
-    }
+  public void SetLoc(int x, int y) {
+    loc_x = x;
+    loc_y = y;
+  }
 
-    public void SetTamed(boolean tame) {
-        tamed = tame;
-    }
+  public void SetDiet(String food) {
+    diet = food;
+  }
 
-    public void SetLeg(int nleg) {
-        legs = nleg;
-    }
-    public void SetContent(char _content) {
-        content =  _content;
-    }
-    public String GetName() {
-        return  name;
-    }
+  public void SetType(String type) {
+    this.type = type;
+  }
 
-    public int GetLocX() {
-        return loc_x;
-    }
+  public void SetTamed(boolean tame) {
+    tamed = tame;
+  }
 
-    public int GetLocY() {
-        return loc_y;
-    }
+  public void SetLeg(int nleg) {
+    legs = nleg;
+  }
+  public void SetContent(char _content) {
+    content =  _content;
+  }
+  public String GetName() {
+    return  name;
+  }
 
-    public double GetFodder() {
-        return 0.025 * weight;
-    }
+  public int GetLocX() {
+    return loc_x;
+  }
 
-    char GetContent() {
-        return content;
-    }
+  public int GetLocY() {
+    return loc_y;
+  }
 
-    public boolean IsTamed() {
-        return tamed;
-    }
+  public double GetFodder() {
+    return 0.025 * weight;
+  }
 
-    public int GetLegs() {
-        return legs;
-    }
+  char GetContent() {
+    return content;
+  }
 
-    public boolean DistLocX(Animal an) {
-        return (loc_x != an.loc_x);
-    }
+  public boolean IsTamed() {
+    return tamed;
+  }
 
-    public boolean DistLocY(Animal an) {
-        return (loc_y != an.loc_y);
-    }
+  public int GetLegs() {
+    return legs;
+  }
 
-    public boolean DistLoc(Animal an) {
-        return (DistLocX(an) || DistLocY(an));
-    }
+  public boolean DistLocX(Animal an) {
+    return (loc_x != an.loc_x);
+  }
 
-    abstract public String Interact();
+  public boolean DistLocY(Animal an) {
+    return (loc_y != an.loc_y);
+  }
 
-    abstract public void GetInfo();
+  public boolean DistLoc(Animal an) {
+    return (DistLocX(an) || DistLocY(an));
+  }
 
-    public void PrintInfo(String habitat,String type) {
-        System.out.println(Interact());
-        System.out.println("Content        : "+content);
-        System.out.println("Name           : "+name);
-        System.out.println("Location       : ("+loc_x+","+loc_y+")");
-        System.out.println("Weight         : "+String.format("%.5f",weight)+" kg");
-        System.out.println("Habitat        : "+habitat);
-        System.out.println("Type           : "+type);
-        System.out.println("Diet           : "+diet);
-        System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg/day");
-        System.out.println(tamed ? "Tame           : Yes " : "Tame           : No ");
-        System.out.println("Number of Legs : "+legs);
-    }
+  public void PrintInfo() {
+    System.out.println("Content        : "+content);
+    System.out.println("Name           : "+name);
+    System.out.println("Location       : ("+loc_x+","+loc_y+")");
+    System.out.println("Weight         : "+String.format("%.5f",weight)+" kg");
+    System.out.println("Habitat        : "+habitat);
+    System.out.println("Type           : "+type);
+    System.out.println("Diet           : "+diet);
+    System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg");
+    System.out.println(tamed ? "Tame           : Yes " : "Tame           : No ");
+    System.out.println("Number of Legs : "+legs);
+  }
 
-    static public float GetConsumeRate() {
-        return consumerate;
-    }
+  static public float GetConsumeRate() {
+    return consumerate;
+  }
 
-    static public int GetNAnimal() {
-        return  n_animal;
-    }
+  static public int GetNAnimal() {
+    return  n_animal;
+  }
 
-    protected String name;
+  protected String name;
 
-    protected float weight;
+  protected String habitat;
 
-    protected float fodder;
+  protected float weight;
 
-    protected boolean tamed;
+  protected float fodder;
 
-    protected String diet;
+  protected String type;
 
-    protected int loc_x;
+  protected boolean tamed;
 
-    protected int loc_y;
+  protected String diet;
 
-    protected int legs;
+  protected int loc_x;
 
-    protected char content;
+  protected int loc_y;
 
-    static public int n_animal;
+  protected int legs;
 
-    static public float consumerate;
+  protected char content;
+
+  static public int n_animal;
+
+  static public float consumerate;
 }

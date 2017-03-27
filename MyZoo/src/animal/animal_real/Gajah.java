@@ -1,29 +1,29 @@
 package animal.animal_real;
 
-import animal.animal_classification.Primata;
+import animal.animal_classification.QuadrupedLeaf;
 
 /**
- * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
+ * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
 
-/**  OwaOwa
- * Hewan primata yang tidak berekor dan dn bertangan panjang
+/** Gajah
+ * Hewan yang berukuran besar dan memiliki belalai
  */
-public class OwaOwa extends Primata {
+public class Gajah extends QuadrupedLeaf {
   /**  Constructor.
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
    */
-  public OwaOwa(int i, int j) {
-    super(70, i, j, true);
-    SetName("OwaOwa");
-    SetContent('S');
+  public Gajah(int i, int j) {
+    super(3500, i, j, true);
+    SetContent('E');
+    SetName("Gajah");
     consumerate += GetFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
   public String Interact() {
-    return "Huhuhuhu";
+    return "Ngoett";
   }
   /**  Mencetak informasi spesifik hewan
    */

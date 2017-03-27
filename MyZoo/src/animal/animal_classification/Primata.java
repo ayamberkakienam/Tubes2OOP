@@ -6,6 +6,10 @@ import animal.type.Herbivore;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
+
+/**
+ * Menangani kelas hewan dengan atribut habitat = "Land" dan legs = 2
+ */
 public abstract class Primata extends Biped implements Herbivore {
   /** Constructor
    * Melakukan inisialisasi kelas Primata
@@ -17,17 +21,5 @@ public abstract class Primata extends Biped implements Herbivore {
   public Primata(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
     SetDiet("Fruit");
-  }
-  /** Mengembalikan string yang menggambarkan interaksi
-   * user dengan hewan
-   * @return suara hewan
-   */
-  public String Interact() {
-    return "No Interact";
-  }
-  /** Menamplkan informasi tentang hewan
-   */
-  public void GetInfo() {
-
   }
 }

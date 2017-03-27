@@ -5,6 +5,10 @@ import animal.animal_classification.Primata;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
+
+/** Bekantan
+ * Hewan primata yang memiliki hidung panjang dan besar
+ */
 public class Bekantan extends Primata {
   /**  Constructor.
    * Melakukan inisialisasi kelas Bekantan dengan parameter absis dan ordinat lokasi
@@ -24,6 +28,6 @@ public class Bekantan extends Primata {
   /**  Mencetak informasi spesifik hewan
    */
   public void GetInfo() {
-    PrintInfo(habitat, type);
+    PrintInfo();
   }
 }

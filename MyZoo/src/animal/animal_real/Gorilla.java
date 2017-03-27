@@ -5,6 +5,10 @@ import animal.animal_classification.Primata;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
+
+/** Gorilla
+ *  Hewan primata yang berukuran besar
+ */
 public class Gorilla extends Primata {
   /**  Constructor.
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
@@ -24,6 +28,6 @@ public class Gorilla extends Primata {
   /**  Mencetak informasi spesifik hewan
    */
   public void GetInfo() {
-    PrintInfo(habitat, type);
+    PrintInfo();
   }
 }
