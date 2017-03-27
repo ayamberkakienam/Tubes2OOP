@@ -25,9 +25,4 @@ public class Gajah extends QuadrupedLeaf {
   public String Interact() {
     return "Ngoett";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

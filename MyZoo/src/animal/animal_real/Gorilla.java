@@ -25,9 +25,4 @@ public class Gorilla extends Primata {
   public String Interact() {
     return "Huhahuha";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

@@ -25,9 +25,4 @@ public class Kancil extends QuadrupedLeaf {
   public String Interact() {
     return "Ngik ngik ngik";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

@@ -25,9 +25,4 @@ public class MacanTutul extends QuadrupedMeat {
   public String Interact() {
     return "Aummmm";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

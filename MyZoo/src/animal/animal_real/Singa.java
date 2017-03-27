@@ -25,9 +25,4 @@ public class Singa  extends QuadrupedMeat {
   public String Interact() {
     return "Groarrr";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

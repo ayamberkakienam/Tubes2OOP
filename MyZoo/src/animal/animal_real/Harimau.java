@@ -25,9 +25,4 @@ public class Harimau  extends QuadrupedMeat {
   public String Interact() {
     return "Roarrrr";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

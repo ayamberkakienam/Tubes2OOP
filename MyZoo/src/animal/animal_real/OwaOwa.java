@@ -25,9 +25,4 @@ public class OwaOwa extends Primata {
   public String Interact() {
     return "Huhuhuhu";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

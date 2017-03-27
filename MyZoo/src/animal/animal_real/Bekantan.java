@@ -25,9 +25,4 @@ public class Bekantan extends Primata {
   public String Interact() {
     return "Uuuuuuu";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }

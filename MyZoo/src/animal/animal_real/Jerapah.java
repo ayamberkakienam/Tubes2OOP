@@ -25,9 +25,4 @@ public class Jerapah extends QuadrupedLeaf {
   public String Interact() {
     return "Ngoet ngoet";
   }
-  /**  Mencetak informasi spesifik hewan
-   */
-  public void GetInfo() {
-    PrintInfo();
-  }
 }
