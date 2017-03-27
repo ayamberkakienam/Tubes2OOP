@@ -1,6 +1,6 @@
-package Animal.Animal_Classification;
+package animal.animal_classification;
 /**
- * Created by Husnulzaki Wibisono Har on 3/27/17.
+ * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
 
 /**
@@ -16,7 +16,7 @@ class Biped extends LandAnimal {
      */
     public Biped(float w,int x,int y,boolean tame) {
       super(w,x,y,tame);
-      //SetLeg(2);
+      SetLeg(2);
     }
     /**
      *  Mengembalikan string yang menggambarkan interaksi user dengan hewan

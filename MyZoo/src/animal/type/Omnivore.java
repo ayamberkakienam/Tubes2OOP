@@ -1,4 +1,4 @@
-package animal.type.omnivore;
+package animal.type;
 
 public interface Omnivore {
     public  String type = "Omnivore";
