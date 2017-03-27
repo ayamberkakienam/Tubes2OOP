@@ -3,19 +3,19 @@ package animal.animal_classification;
 import animal.type.Herbivore;
 
 /**
- * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
+ * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
-public abstract class Primata extends Biped implements Herbivore {
+public abstract class QuadrupedLeaf extends Quadruped implements Herbivore {
   /** Constructor
-   * Melakukan inisialisasi kelas Primata
+   * Melakukan inisialisasi kelas QuadrupedLeaf
    * @param w untuk weight
    * @param x untuk koordinat x pada map
    * @param y untuk koordinat y pada map
    * @param tame true jika jinak, false jika tidak jinak
    */
-  public Primata(float w, int x, int y, boolean tame) {
+  public QuadrupedLeaf(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetDiet("Fruit");
+    SetDiet("Leaf");
   }
   /** Mengembalikan string yang menggambarkan interaksi
    * user dengan hewan

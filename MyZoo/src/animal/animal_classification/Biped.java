@@ -6,7 +6,7 @@ package animal.animal_classification;
 /**
  *  Menangani kelas hewan dengan atribut habitat = "Land" dan legs = 2
  */
-class Biped extends LandAnimal {
+public abstract class Biped extends LandAnimal {
     /**
      *  Constructor
      * @param w Berat hewan
