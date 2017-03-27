@@ -1,4 +1,4 @@
-package animal.animal_classification;
+package animal;
 
 public abstract class Animal {
     static {
@@ -89,7 +89,7 @@ public abstract class Animal {
         System.out.println("Habitat        : "+habitat);
         System.out.println("Type           : "+type);
         System.out.println("Diet           : "+diet);
-        System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg");
+        System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg/day");
         System.out.println(tamed ? "Tame           : Yes " : "Tame           : No ");
         System.out.println("Number of Legs : "+legs);
     }

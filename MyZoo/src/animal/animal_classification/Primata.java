@@ -1,4 +1,5 @@
 package animal.animal_classification;
+import animal.type.*;
 
 import animal.type.Herbivore;
 
