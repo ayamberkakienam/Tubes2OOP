@@ -1,4 +1,4 @@
-package Animal.Animal_Classification;
+package animal.animal_classification;
 
 public abstract class Animal {
     static {

@@ -1,10 +1,12 @@
-package Animal.Animal_Classification;
+package animal.animal_real;
+
+import animal.animal_classification.Primata;
 
 /**
- * Created by root on 3/27/17.
+ * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
 public class Bekantan extends Primata {
-  /** @brief Constructor.
+  /**  Constructor.
    * Melakukan inisialisasi kelas Bekantan dengan parameter absis dan ordinat lokasi
    */
   public Bekantan(int i, int j) {
@@ -12,13 +14,13 @@ public class Bekantan extends Primata {
     SetName("Bekantan");
     SetContent('A');
   }
-  /** @brief Menghasilkan suara hewan yang khas
+  /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
   public String Interact() {
     return "Uuuuuuu";
   }
-  /** @brief Mencetak informasi spesifik hewan
+  /**  Mencetak informasi spesifik hewan
    */
   public void GetInfo() {
     PrintInfo(habitat, "Wawu");

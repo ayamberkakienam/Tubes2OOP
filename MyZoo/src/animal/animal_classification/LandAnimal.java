@@ -1,4 +1,4 @@
-package Animal.Animal_Classification;
+package animal.animal_classification;
 
 /**
  * Created by root on 3/27/17.
