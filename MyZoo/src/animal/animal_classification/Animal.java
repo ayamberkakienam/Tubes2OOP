@@ -88,7 +88,7 @@ public abstract class Animal {
         return (DistLocX(an) || DistLocY(an));
     }
 
-    public void PrintInfo() {
+    public void GetInfo() {
         System.out.println("Content        : "+content);
         System.out.println("Name           : "+name);
         System.out.println("Location       : ("+loc_x+","+loc_y+")");
@@ -101,9 +101,7 @@ public abstract class Animal {
         System.out.println("Number of Legs : "+legs);
     }
 
-    abstract void Interact();
-
-    abstract void GetInfo();
+    abstract public String Interact();
 
     static public float GetConsumeRate() {
         return consumerate;
