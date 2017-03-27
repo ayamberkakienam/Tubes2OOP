@@ -1,4 +1,8 @@
-package animal;
+/**
+ * Created by Diki Ardian W (13515092) on 3/27/17.
+ */
+
+package animal.animal_classification;
 
 public abstract class Animal {
     static {
@@ -17,6 +21,10 @@ public abstract class Animal {
         name = names;
     }
 
+    public void SetHabitat(String habitat) {
+        this.habitat = habitat;
+    }
+
     public void SetLoc(int x, int y) {
         loc_x = x;
         loc_y = y;
@@ -24,6 +32,10 @@ public abstract class Animal {
 
     public void SetDiet(String food) {
         diet = food;
+    }
+
+    public void SetType(String type) {
+        this.type = type;
     }
 
     public void SetTamed(boolean tame) {
@@ -76,12 +88,7 @@ public abstract class Animal {
         return (DistLocX(an) || DistLocY(an));
     }
 
-    abstract public String Interact();
-
-    abstract public void GetInfo();
-
-    public void PrintInfo(String habitat,String type) {
-        System.out.println(Interact());
+    public void PrintInfo() {
         System.out.println("Content        : "+content);
         System.out.println("Name           : "+name);
         System.out.println("Location       : ("+loc_x+","+loc_y+")");
@@ -89,7 +96,7 @@ public abstract class Animal {
         System.out.println("Habitat        : "+habitat);
         System.out.println("Type           : "+type);
         System.out.println("Diet           : "+diet);
-        System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg/day");
+        System.out.println("Fodder         : "+String.format("%.5f",GetFodder())+" kg");
         System.out.println(tamed ? "Tame           : Yes " : "Tame           : No ");
         System.out.println("Number of Legs : "+legs);
     }
@@ -104,9 +111,13 @@ public abstract class Animal {
 
     protected String name;
 
+    protected String habitat;
+
     protected float weight;
 
     protected float fodder;
+
+    protected String type;
 
     protected boolean tamed;
 
