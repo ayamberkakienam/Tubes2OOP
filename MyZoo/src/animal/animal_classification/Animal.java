@@ -101,6 +101,10 @@ public abstract class Animal {
         System.out.println("Number of Legs : "+legs);
     }
 
+    abstract void Interact();
+
+    abstract void GetInfo();
+
     static public float GetConsumeRate() {
         return consumerate;
     }
