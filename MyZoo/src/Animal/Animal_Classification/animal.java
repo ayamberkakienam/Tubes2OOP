@@ -1,6 +1,6 @@
 package animal;
 
-public class animal {
+public abstract class animal {
     static {
         consumerate = 0;
         n_animal = 0;
@@ -74,12 +74,12 @@ public class animal {
         return (DistLocX(an) || DistLocY(an));
     }
 
-    //abstract public String Interact();
+    abstract public String Interact();
 
-    //abstract public void GetInfo();
+    abstract public void GetInfo();
 
     public void PrintInfo(String habitat,String type) {
-        //System.out.println(Interact());
+        System.out.println(Interact());
         System.out.println("Content        : "+content);
         System.out.println("Name           : "+name);
         System.out.println("Location       : ("+loc_x+","+loc_y+")");
