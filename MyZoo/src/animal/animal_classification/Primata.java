@@ -1,9 +1,10 @@
 package animal.animal_classification;
+import animal.type.*;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
-public abstract class Primata extends Biped {
+public abstract class Primata extends Biped implements Herbivore {
   /** Constructor
    * Melakukan inisialisasi kelas Primata
    * @param w untuk weight

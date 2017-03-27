@@ -23,6 +23,6 @@ public class Bekantan extends Primata {
   /**  Mencetak informasi spesifik hewan
    */
   public void GetInfo() {
-    PrintInfo(habitat, "Wawu");
+    PrintInfo(habitat, type);
   }
 }
