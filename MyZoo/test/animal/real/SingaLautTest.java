@@ -45,7 +45,7 @@ class SingaLautTest {
     void getContent() {
         System.out.println("Test Content..");
         Animal H = new SingaLaut(5,4);
-        assertTrue(H.getContent()=='Y');
+        assertTrue(H.getContent()=='X');
     }
 
     @Test

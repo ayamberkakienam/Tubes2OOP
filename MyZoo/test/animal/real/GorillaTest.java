@@ -43,7 +43,7 @@ class GorillaTest {
   public void getContent() {
     System.out.println("Test Content..");
     Animal b = new Gorilla(1, 2);
-    assertTrue('C' == b.getContent());
+    assertTrue('F' == b.getContent());
   }
 
   @Test

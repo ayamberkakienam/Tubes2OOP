@@ -34,7 +34,7 @@ class PlatypusTest {
     void getContent() {
         System.out.println("Test getContent");
         Animal A = new Platypus(2,5);
-        assertTrue(A.getContent() == 'Z');
+        assertTrue(A.getContent() == 'V');
     }
 
     @Test
