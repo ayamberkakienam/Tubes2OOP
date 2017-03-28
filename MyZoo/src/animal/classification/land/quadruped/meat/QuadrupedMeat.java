@@ -1,4 +1,6 @@
-package animal.classification.land;
+package animal.classification.land.quadruped.meat;
+
+import animal.classification.land.quadruped.Quadruped;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.

@@ -2,7 +2,7 @@
  * Created by Diki Ardian W (13515092) on 3/27/17.
  */
 
-package animal.classification;
+package animal;
 
 public abstract class Animal {
     static {

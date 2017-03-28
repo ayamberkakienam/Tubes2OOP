@@ -1,6 +1,6 @@
 package animal.real;
 
-import animal.classification.Animal;
+import animal.Animal;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -73,5 +73,4 @@ public class BekantanTest {
     Animal b = new Bekantan(1, 2);
     assertTrue(Objects.equals("Uuuuuuu", b.Interact()));
   }
-
 }

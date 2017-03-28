@@ -4,7 +4,7 @@ package animal.classification.land;
  * Created by root on 3/27/17.
  */
 
-import animal.classification.Animal;
+import animal.Animal;
 
 /**LandAnimal
  * Kelas yang menangani hewan dengan habitat = "Land"

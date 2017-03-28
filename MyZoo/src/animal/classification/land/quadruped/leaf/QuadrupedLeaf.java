@@ -1,8 +1,10 @@
-package animal.classification.land;
+package animal.classification.land.quadruped.leaf;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
+
+import animal.classification.land.quadruped.Quadruped;
 
 /** QuadrupedLeaf
  * Kelas yang menangani hewan dengan habitat = "Land"

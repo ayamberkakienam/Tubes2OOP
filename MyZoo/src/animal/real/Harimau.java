@@ -1,6 +1,6 @@
 package animal.real;
 
-import animal.classification.land.QuadrupedMeat;
+import animal.classification.land.quadruped.meat.QuadrupedMeat;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.

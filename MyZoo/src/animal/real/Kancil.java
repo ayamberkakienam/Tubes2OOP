@@ -1,6 +1,6 @@
 package animal.real;
 
-import animal.classification.land.QuadrupedLeaf;
+import animal.classification.land.quadruped.leaf.QuadrupedLeaf;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.

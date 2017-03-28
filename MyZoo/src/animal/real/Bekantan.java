@@ -1,6 +1,6 @@
 package animal.real;
 
-import animal.classification.land.Primata;
+import animal.classification.land.biped.fruit.Primata;
 
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.

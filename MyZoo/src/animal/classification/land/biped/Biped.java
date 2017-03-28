@@ -1,7 +1,9 @@
-package animal.classification.land;
+package animal.classification.land.biped;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/27/17.
  */
+
+import animal.classification.land.LandAnimal;
 
 /**
  *  Menangani kelas hewan dengan atribut habitat = "Land" dan legs = 2
