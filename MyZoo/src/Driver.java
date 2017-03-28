@@ -60,6 +60,8 @@ public class Driver {
             kol++;
         }
         map_kol = kol;
+//        System.out.println(map_brs + " " + map_kol + " " + num_cage);
+        my_zoo = new Zoo(map_brs, map_kol, num_cage);
     }
     /**
      * @return jumlah baris map.
@@ -107,8 +109,11 @@ public class Driver {
             j = 0;
             jneff = 0;
             while (j < str_temp[i].length()) {
-                my_zoo.createCell(map[i][j], i, jneff);
-                jneff++;
+                char c = map[i][j];
+                if (c < 48 || c > 57) {
+                    my_zoo.createCell(map[i][j], i, jneff);
+                    jneff++;
+                }
                 j++;
             }
         }
