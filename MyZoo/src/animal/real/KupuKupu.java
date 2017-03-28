@@ -13,9 +13,9 @@ public class KupuKupu extends InsectNectar {
    */
   public KupuKupu(int i, int j) {
       super((float) 0.03, i, j, true);
-      SetName("Kupu-kupu");
-      SetContent('O');
-      consumerate += GetFodder();
+      setName("Kupu-kupu");
+      setContent('O');
+      consumerate += getFodder();
   }
 
   /**

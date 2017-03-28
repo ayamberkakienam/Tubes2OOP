@@ -13,9 +13,9 @@ public class Codot extends BirdFruit {
    */
   public Codot(int i, int j) {
     super((float) 0.5, i, j, false);
-    SetName("Codot");
-    SetContent('C');
-    consumerate += GetFodder();
+    setName("Codot");
+    setContent('C');
+    consumerate += getFodder();
   }
 
   /**

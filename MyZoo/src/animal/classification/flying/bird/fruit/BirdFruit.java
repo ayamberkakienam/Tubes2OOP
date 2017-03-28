@@ -17,8 +17,8 @@ public abstract class BirdFruit extends Bird {
    */
   public BirdFruit(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetType("Herbivore");
-    SetDiet("Fruit");
+    setType("Herbivore");
+    setDiet("Fruit");
   }
 
   /**

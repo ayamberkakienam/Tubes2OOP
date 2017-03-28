@@ -15,8 +15,8 @@ public abstract class QuadruppedLWInsect extends QuadruppedLW {
    */
   public QuadruppedLWInsect(float w, int x, int y, boolean tame) {
       super(w, x, y, tame);
-      SetType("Carnivore");
-      SetDiet("Insect");
+      setType("Carnivore");
+      setDiet("Insect");
   }
   /**mengembalikan string yang menggambarkan interaksi
    * user dengan hewan

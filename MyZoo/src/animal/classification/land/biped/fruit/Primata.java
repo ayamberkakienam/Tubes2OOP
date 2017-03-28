@@ -19,7 +19,7 @@ public abstract class Primata extends Biped {
    */
   public Primata(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetType("Herbivore");
-    SetDiet("Fruit");
+    setType("Herbivore");
+    setDiet("Fruit");
   }
 }

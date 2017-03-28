@@ -17,9 +17,9 @@ public class Kancil extends QuadrupedLeaf {
    */
   public Kancil(int i, int j) {
     super(60, i, j, true);
-    SetContent('K');
-    SetName("Kancil");
-    consumerate += GetFodder();
+    setContent('K');
+    setName("Kancil");
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

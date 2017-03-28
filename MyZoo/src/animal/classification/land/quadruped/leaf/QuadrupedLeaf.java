@@ -20,7 +20,7 @@ public abstract class QuadrupedLeaf extends Quadruped {
    */
   public QuadrupedLeaf(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetType("Herbivore");
-    SetDiet("Leaf");
+    setType("Herbivore");
+    setDiet("Leaf");
   }
 }

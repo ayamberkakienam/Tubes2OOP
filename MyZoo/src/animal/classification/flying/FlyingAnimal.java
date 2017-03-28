@@ -15,7 +15,7 @@ public abstract class FlyingAnimal extends Animal {
    */
   public FlyingAnimal(float w, int x, int y, boolean tame) {
     super(w, x, y, tame, 'Z');
-    SetHabitat("Air");
+    setHabitat("Air");
   }
   /**
    * Mengembalikan string yang menggambarkan interaksi user dengan hewan

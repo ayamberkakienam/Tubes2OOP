@@ -7,13 +7,13 @@ package animal.classification.water.finned.meat;
 import animal.classification.water.finned.Finned;
 
 /**
- * @class FinnedMeat
+ * FinnedMeat
  * Menangani kelas hewan dengan atrbut habitat = "Water",
  * legs = 0, type = "Carnivore" dan diet = "Meat"
  */
 public abstract class FinnedMeat extends Finned {
     /**
-     * @brief Constructor
+     * Constructor
      * @param w Berat hewan
      * @param x Letak hewan berdasarkan indeks baris map zoo
      * @param y Letak hewan berdasarkan indeks kolom map zoo
@@ -21,7 +21,7 @@ public abstract class FinnedMeat extends Finned {
      */
     public FinnedMeat(float w, int x, int y, boolean tame) {
         super(w, x, y, tame);
-        SetType("Carnivore");
-        SetDiet("Meat");
+        setType("Carnivore");
+        setDiet("Meat");
     }
 }

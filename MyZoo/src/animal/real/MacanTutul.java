@@ -17,9 +17,9 @@ public class MacanTutul extends QuadrupedMeat {
    */
   public MacanTutul(int i, int j) {
     super(350, i, j, true);
-    SetName("Macan Tutul");
-    SetContent('R');
-    consumerate += GetFodder();
+    setName("Macan Tutul");
+    setContent('R');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

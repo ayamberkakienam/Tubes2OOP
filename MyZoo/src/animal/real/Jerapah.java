@@ -17,9 +17,9 @@ public class Jerapah extends QuadrupedLeaf {
    */
   public Jerapah(int i, int j) {
     super(500, i, j, true);
-    SetName("Jerapah");
-    SetContent('J');
-    consumerate += GetFodder();
+    setName("Jerapah");
+    setContent('J');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

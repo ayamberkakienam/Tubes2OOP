@@ -3,8 +3,6 @@ package animal.real;
 import animal.Animal;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -13,37 +11,37 @@ import static org.junit.jupiter.api.Assertions.*;
 class KepikTest {
     @Test
     public void getLocX() {
-        System.out.println("Test GetLocX");
+        System.out.println("Test getLocX");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetLocX() == 2);
+        assertTrue(A.getLocX() == 2);
     }
 
     @Test
     public void getLocY() {
-        System.out.println("Test GetLocY");
+        System.out.println("Test getLocY");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetLocY() == 5);
+        assertTrue(A.getLocY() == 5);
     }
 
     @Test
     public void getFodder() {
-        System.out.println("Test GetFodder");
+        System.out.println("Test getFodder");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetFodder() == (0.025*A.GetWeight()));
+        assertTrue(A.getFodder() == (0.025*A.getWeight()));
     }
 
     @Test
     public void getContent() {
-        System.out.println("Test GetContent");
+        System.out.println("Test getContent");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetContent() == 'L');
+        assertTrue(A.getContent() == 'L');
     }
 
     @Test
     public void getWeight()  {
-        System.out.println("Test GetWeight");
+        System.out.println("Test getWeight");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetWeight() == 0.01);
+        assertTrue(A.getWeight() == 0.01);
     }
 
     @Test
@@ -54,9 +52,9 @@ class KepikTest {
     }
     @Test
     public void getLegs() {
-        System.out.println("Test GetLegs");
+        System.out.println("Test getLegs");
         Animal A = new Kepik(2,5);
-        assertTrue(A.GetLegs() == 6);
+        assertTrue(A.getLegs() == 6);
     }
 
     @Test

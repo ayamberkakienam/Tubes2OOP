@@ -13,9 +13,9 @@ public class Kepik extends InsectNectar {
    */
   public Kepik(int i, int j) {
     super((float) 0.01, i, j, true);
-    SetName("Kepik");
-    SetContent('L');
-    consumerate += GetFodder();
+    setName("Kepik");
+    setContent('L');
+    consumerate += getFodder();
   }
 
   /**

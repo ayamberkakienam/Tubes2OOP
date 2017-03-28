@@ -17,9 +17,9 @@ public class Bekantan extends Primata {
    */
   public Bekantan(int i, int j) {
     super(50, i, j, true);
-    SetName("Bekantan");
-    SetContent('A');
-    consumerate += GetFodder();
+    setName("Bekantan");
+    setContent('A');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

@@ -6,11 +6,11 @@ package animal.classification.water;
 
 import animal.Animal;
 
-/**@class WaterAnimal
+/**WaterAnimal
  * Kelas yang menangani hewan dengan habitat = "Water"
  */
 public abstract class WaterAnimal extends Animal {
-    /**@brief Constructor
+    /** Constructor
      * Melakukan inisialisasi kelas WaterAnimal
      * @param w untuk weight
      * @param x untuk koordinat x pada map
@@ -19,6 +19,6 @@ public abstract class WaterAnimal extends Animal {
      */
     public WaterAnimal(float w,int x,int y, boolean tame) {
         super (w, x, y, tame, 'Z');
-        SetHabitat("Water");
+        setHabitat("Water");
     }
 }

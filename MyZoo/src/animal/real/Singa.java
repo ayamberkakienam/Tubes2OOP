@@ -17,9 +17,9 @@ public class Singa  extends QuadrupedMeat {
    */
   public Singa(int i, int j) {
     super(400, i, j, false);
-    SetName("Singa");
-    SetContent('W');
-    consumerate += GetFodder();
+    setName("Singa");
+    setContent('W');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

@@ -13,9 +13,9 @@ public class KumbangHutan extends InsectNectar {
    */
   public KumbangHutan(int i, int j) {
       super((float) 0.05, i, j, true);
-      SetName("Kumbang Hutan");
-      SetContent('N');
-      consumerate += GetFodder();
+      setName("Kumbang Hutan");
+      setContent('N');
+      consumerate += getFodder();
     }
 
   /**

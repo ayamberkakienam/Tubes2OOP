@@ -15,42 +15,42 @@ class BekantanTest {
   void getName() {
     System.out.println("Test Name..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(Objects.equals("Bekantan", b.GetName()));
+    assertTrue(Objects.equals("Bekantan", b.getName()));
   }
 
   @Test
   void getLocX() {
     System.out.println("Test X Position..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(1 == b.GetLocX());
+    assertTrue(1 == b.getLocX());
   }
 
   @Test
   void getLocY() {
     System.out.println("Test Y Position..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(2 == b.GetLocY());
+    assertTrue(2 == b.getLocY());
   }
 
   @Test
   void getFodder() {
     System.out.println("getFodder");
     Animal b = new Bekantan(1, 2);
-    assertTrue(0.025 * b.GetWeight() == b.GetFodder());
+    assertTrue(0.025 * b.getWeight() == b.getFodder());
   }
 
   @Test
   void getContent() {
     System.out.println("Test Content..");
     Animal b = new Bekantan(1, 2);
-    assertTrue('A' == b.GetContent());
+    assertTrue('A' == b.getContent());
   }
 
   @Test
   void getWeight() {
     System.out.println("Test Weight..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(50 == b.GetWeight());
+    assertTrue(50 == b.getWeight());
   }
 
   @Test
@@ -64,7 +64,7 @@ class BekantanTest {
   void getLegs() {
     System.out.println("Test Legs..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(2 == b.GetLegs());
+    assertTrue(2 == b.getLegs());
   }
 
   @Test

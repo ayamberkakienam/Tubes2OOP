@@ -15,42 +15,42 @@ class GorillaTest {
   public void getName() {
     System.out.println("Test Name..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(Objects.equals("Gorilla", b.GetName()));
+    assertTrue(Objects.equals("Gorilla", b.getName()));
   }
 
   @Test
   public void getLocX() {
     System.out.println("Test X Position..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(1 == b.GetLocX());
+    assertTrue(1 == b.getLocX());
   }
 
   @Test
   public void getLocY() {
     System.out.println("Test Y Position..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(2 == b.GetLocY());
+    assertTrue(2 == b.getLocY());
   }
 
   @Test
   public void getFodder() {
     System.out.println("getFodder");
     Animal b = new Gorilla(1, 2);
-    assertTrue(0.025 * b.GetWeight() == b.GetFodder());
+    assertTrue(0.025 * b.getWeight() == b.getFodder());
   }
 
   @Test
   public void getContent() {
     System.out.println("Test Content..");
     Animal b = new Gorilla(1, 2);
-    assertTrue('C' == b.GetContent());
+    assertTrue('C' == b.getContent());
   }
 
   @Test
   public void getWeight() {
     System.out.println("Test Weight..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(200 == b.GetWeight());
+    assertTrue(200 == b.getWeight());
   }
 
   @Test
@@ -64,7 +64,7 @@ class GorillaTest {
   public void getLegs() {
     System.out.println("Test Legs..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(2 == b.GetLegs());
+    assertTrue(2 == b.getLegs());
   }
 
   @Test

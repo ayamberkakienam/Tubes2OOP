@@ -17,7 +17,7 @@ public abstract class FinnedWA extends AmphibiWA {
    */
   public FinnedWA(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetLeg(0);
+    setLeg(0);
   }
 
   /**

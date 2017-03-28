@@ -19,7 +19,7 @@ public abstract class Insect extends FlyingAnimal {
    */
   public Insect(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetLeg(6);
+    setLeg(6);
   }
 
   /**

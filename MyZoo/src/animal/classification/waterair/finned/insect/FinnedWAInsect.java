@@ -17,8 +17,8 @@ public abstract class FinnedWAInsect extends FinnedWA {
    */
   public FinnedWAInsect(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetType("Carnivore");
-    SetDiet("Insect");
+    setType("Carnivore");
+    setDiet("Insect");
   }
 
   /**

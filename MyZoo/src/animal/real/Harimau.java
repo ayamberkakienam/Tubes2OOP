@@ -17,9 +17,9 @@ public class Harimau  extends QuadrupedMeat {
    */
   public Harimau(int i, int j) {
     super(450, i, j, false);
-    SetName("Harimau");
-    SetContent('G');
-    consumerate += GetFodder();
+    setName("Harimau");
+    setContent('G');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

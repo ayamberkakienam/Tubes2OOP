@@ -19,14 +19,14 @@ public class Cage {
     a_cell = new Cell[300];
   }
   /**
-   * Getter ukuran cage
+   * getter ukuran cage
    * @return Ukuran cage
    */
   public int getSize() {
     return size;
   }
   /**
-   * Getter array cell yang merupakan wilayah cage
+   * getter array cell yang merupakan wilayah cage
    * @return Array cell yang menjadi wilayah cage
    */
   public Cell[] getCell() {
