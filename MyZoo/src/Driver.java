@@ -326,38 +326,19 @@ public class Driver {
             System.out.println(ioe.getMessage());
         }
 
-        int i, jneff;
-        int j;
+        int i, j, jneff;
         for (i = 0; i < map_brs; i++) {
             j = 0;
             jneff = 0;
             while (j < str_temp[i].length()) {
                 switch (map[i][j]) {
-                    case '-' : {jneff++; break;}
-                    case 'A' : {my_zoo.createAnimal('A',i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'B' : {my_zoo.createAnimal('B', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'C' : {my_zoo.createAnimal('C',i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'D' : {my_zoo.createAnimal('D', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'E' : {my_zoo.createAnimal('E', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'F' : {my_zoo.createAnimal('F', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'G' : {my_zoo.createAnimal('G', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'H' : {my_zoo.createAnimal('H', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'I' : {my_zoo.createAnimal('I', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'J' : {my_zoo.createAnimal('J', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'K' : {my_zoo.createAnimal('K', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'L' : {my_zoo.createAnimal('L', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'M' : {my_zoo.createAnimal('M', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'N' : {my_zoo.createAnimal('N', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'O' : {my_zoo.createAnimal('O', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'P' : {my_zoo.createAnimal('P', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'Q' : {my_zoo.createAnimal('Q', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'R' : {my_zoo.createAnimal('R', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'S' : {my_zoo.createAnimal('S', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'T' : {my_zoo.createAnimal('T', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'U' : {my_zoo.createAnimal('U', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'V' : {my_zoo.createAnimal('V', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'W' : {my_zoo.createAnimal('W', i, jneff, GetNAnimal()); jneff++; break;}
-                    case 'X' : {my_zoo.createAnimal('X', i, jneff, GetNAnimal()); jneff++; break;}
+                    case '-' :
+                        jneff++;
+                        break;
+                    default:
+                        my_zoo.createAnimal(map[i][j], i, jneff, GetNAnimal());
+                        jneff++;
+                        break;
                 }
                 j++;
             }
