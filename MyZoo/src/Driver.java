@@ -296,6 +296,13 @@ public class Driver {
   private Vector<Integer> vecx = new Vector<>();
   private Vector<Integer> vecy = new Vector<>();
 
+  /**
+   * Algoritma pencarian jalur dengan DFS.
+   *
+   * @param x absis
+   * @param y ordinat
+   * @return true jika jalur keluar ketemu
+   */
   private boolean solveMaze(int x, int y) {
     if (!mazeWasHere[x][y] && mazeZoo[x][y] != 2) {
       vecx.addElement(x);
@@ -331,6 +338,9 @@ public class Driver {
     return false;
   }
 
+  /**
+   * Menelusuri setiap Road yang ada pada Zoo.
+   */
   void tourZoo() {
 
     //x dan y adalah posisi awal "pengunjung"
