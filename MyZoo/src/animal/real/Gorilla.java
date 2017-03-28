@@ -19,7 +19,7 @@ public class Gorilla extends Primata {
    */
   public Gorilla(int i, int j) {
     super(200, i, j, false);
-    setContent('C');
+    setContent('F');
     setName("Gorilla");
     consumerate += getFodder();
   }

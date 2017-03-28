@@ -14,7 +14,7 @@ public class Platypus extends QuadruppedLwInsect {
   public Platypus(int i, int j) {
     super(5, i, j, true);
     setName("Platypus");
-    setContent('Z');
+    setContent('V');
     consumerate += getFodder();
   }
 

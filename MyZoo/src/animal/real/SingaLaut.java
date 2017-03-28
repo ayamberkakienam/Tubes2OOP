@@ -18,7 +18,7 @@ public class SingaLaut extends FinnedMeat {
   public SingaLaut(int i, int j) {
     super(70, i, j, false);
     setName("Singa Laut");
-    setContent('Y');
+    setContent('X');
     consumerate += getFodder();
   }
 
