@@ -1,7 +1,11 @@
-import org.junit.Test;
+package animal.real;
+
 import animal.Animal;
-import animal.real.Codot;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class CodotTest {
     @Test

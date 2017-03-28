@@ -1,9 +1,15 @@
 package animal.real;
 
+<<<<<<< HEAD
 import org.junit.Test;
+=======
+>>>>>>> 561517193c2df4541b91bc541d8b74cbb14f401d
 import animal.Animal;
-import animal.real.Platypus;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by akmalfadlurohman on 3/28/17.
