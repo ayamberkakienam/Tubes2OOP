@@ -95,5 +95,4 @@ abstract public class Cell implements Renderable {
   public char render() {
     return getContent();
   }
-
 }

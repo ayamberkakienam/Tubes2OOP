@@ -1,3 +1,5 @@
+package animal.real;
+
 import org.junit.Test;
 import animal.Animal;
 import animal.real.Platypus;
