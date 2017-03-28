@@ -8,7 +8,8 @@ import animal.Animal;
  */
 
 public abstract class AmphibiLw extends Animal {
-  /** Constructor.
+  /**
+   * Constructor.
    * Melakukan inisialisasi kelas AmphibiLw dengan parameter berat,
    * koordinat lokasi x, koordinat lokasi y, dan kejinakan
    */
@@ -17,10 +18,4 @@ public abstract class AmphibiLw extends Animal {
     super(w, x, y, tame, 'Z');
     setHabitat("Land,Water");
   }
-
-  /** Menghasilkan suara hewan yang khas.
-   * @return string suara hewan.
-   */
-
-  public abstract String interact();
 }

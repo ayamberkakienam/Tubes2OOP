@@ -16,10 +16,4 @@ public abstract class AmphibiWa extends Animal {
     super(w, x, y, tame, 'Z');
     setHabitat("Water,Air");
   }
-
-  /**
-   * Menghasilkan suara hewan yang khas.
-   * @return string suara hewan.
-   */
-  public abstract String interact();
 }

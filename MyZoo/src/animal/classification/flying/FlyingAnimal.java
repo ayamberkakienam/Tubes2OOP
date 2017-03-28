@@ -18,11 +18,4 @@ public abstract class FlyingAnimal extends Animal {
     super(w, x, y, tame, 'Z');
     setHabitat("Air");
   }
-
-  /**
-   * Mengembalikan string yang menggambarkan interaksi user dengan hewan.
-   *
-   * @return String sesuai implementasi pada kelas riil turunan
-   */
-  public abstract String interact();
 }
