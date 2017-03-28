@@ -96,7 +96,7 @@ public abstract class Animal {
         System.out.println("Content        : "+content);
         System.out.println("Name           : "+name);
         System.out.println("Location       : ("+loc_x+","+loc_y+")");
-        System.out.println("Weight         : "+String.format("%.5f",weight)+" kg");
+        System.out.println("Weight         : "+String.format("%.5f",weight)+" kg/day");
         System.out.println("Habitat        : "+habitat);
         System.out.println("Type           : "+type);
         System.out.println("Diet           : "+diet);
