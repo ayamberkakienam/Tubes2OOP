@@ -2,6 +2,7 @@ import animal.Animal;
 import building.Zoo;
 
 import java.io.*;
+import java.util.Vector;
 
 import static animal.Animal.GetNAnimal;
 
@@ -120,16 +121,8 @@ public class Driver {
             j = 0;
             jneff = 0;
             while (j < str_temp[i].length()) {
-                switch (map[i][j]) {
-                    case '.' : {my_zoo.createCell('.', i, jneff); jneff++; break;}
-                    case '+' : {my_zoo.createCell('+', i, jneff); jneff++; break;}
-                    case '=' : {my_zoo.createCell('=', i, jneff); jneff++; break;}
-                    case '!' : {my_zoo.createCell('!', i, jneff); jneff++; break;}
-                    case '$' : {my_zoo.createCell('$', i, jneff); jneff++; break;}
-                    case '#' : {my_zoo.createCell('#', i, jneff); jneff++; break;}
-                    case '~' : {my_zoo.createCell('~', i, jneff); jneff++; break;}
-                    case '*' : {my_zoo.createCell('*', i, jneff); jneff++; break;}
-                }
+                my_zoo.createCell(map[i][j], i, jneff);
+                jneff++;
                 j++;
             }
         }
@@ -304,14 +297,14 @@ public class Driver {
         }
     }
 
-int** maze_zoo;
-bool** maze_was_here;
-bool** maze_right_path;
+int [] maze_zoo;
+boolean [] maze_was_here;
+boolean [] maze_right_path;
 int x_masuk, x_keluar, y_masuk, y_keluar, panjang, lebar;
-vector<int> vecx;
-vector<int> vecy;
+Vector vecx = new Vector();
+Vector vecy = new Vector();
 
-bool SolveMaze(int x, int y) {
+boolean SolveMaze(int x, int y) {
   if (!maze_was_here[x][y] && maze_zoo[x][y] != 2) {
     vecx.push_back(x);
     vecy.push_back(y);
@@ -351,23 +344,23 @@ bool SolveMaze(int x, int y) {
      *  F.S :
      */
 
-    void TourZoo() {
+    public void TourZoo() {
         //x dan y adalah posisi awal "pengunjung"
         //asumsi pintu masuk dan keluar paling banyak ada 10
-        int random, n_masuk = 0, masuk_x[10], masuk_y[10];
-        int n_keluar = 0, keluar_x[10], keluar_y[10];
-        panjang = my_zoo->GetSizeBrs();
-        lebar = my_zoo->GetSizeKol();
-        rep(i, panjang) {
-            rep(j, lebar) {
+        int random, n_masuk = 0, masuk_x[], masuk_y[];
+        int n_keluar = 0, keluar_x[], keluar_y[];
+        panjang = my_zoo.getSizeBrs();
+        lebar = my_zoo.getSizeKol();
+        for (int i = 0; i < panjang ; i++) {
+            for (int j = 0; j < lebar; j++) {
                 //cari semua entrance dan exit yang ada
                 if (i == 0 || i == panjang-1 || j == 0 || j == lebar-1) {
-                    if (my_zoo->GetCell()[i][j]->Render() == '=') {
+                    if (my_zoo.getCell()[i][j].render() == '=') {
                         masuk_x[n_masuk] = i;
                         masuk_y[n_masuk] = j;
                         n_masuk++;
                     }
-                    if (my_zoo->GetCell()[i][j]->Render() == '!') {
+                    if (my_zoo.getCell()[i][j].render() == '!') {
                         keluar_x[n_keluar] = i;
                         keluar_y[n_keluar] = j;
                         n_keluar++;
@@ -376,23 +369,20 @@ bool SolveMaze(int x, int y) {
             }
         }
         //random pintu masuk dan keluar
-        srand(time(NULL));
-        random = rand() % n_masuk;
+//        srand(time(NULL));
+//        random = rand() % n_masuk;
         x_masuk = masuk_x[random];
         y_masuk = masuk_y[random];
         x_keluar = keluar_x[random];
         y_keluar = keluar_y[random];
 
         char cont;
-        maze_zoo = new int*[panjang];
-        maze_was_here = new bool*[panjang];
-        maze_right_path = new bool*[panjang];
-        rep(i, panjang) {
-            maze_zoo[i] = new int[lebar];
-            maze_was_here[i] = new bool[lebar];
-            maze_right_path[i] = new bool[lebar];
-            rep(j, lebar) {
-                cont = my_zoo->GetCell()[i][j]->Render();
+        maze_zoo = new int [panjang][lebar];
+        maze_was_here = new boolean[panjang][lebar];
+        maze_right_path = new boolean[panjang][lebar];
+        for (int i = 0; i < panjang; i++) {
+            for (int j = 0; j < lebar; j++) {
+                cont = my_zoo.getCell()[i][j].render();
                 if (cont == '+' || cont == '!' || cont == '=') {
                     maze_zoo[i][j] = 1;
                 } else {
@@ -404,12 +394,12 @@ bool SolveMaze(int x, int y) {
         }
 
         //tour sampai exit (pencarian jalur dengan dfs)
-        bool tour = SolveMaze(x_masuk, y_masuk);
+        boolean tour = SolveMaze(x_masuk, y_masuk);
         tour = !tour;
 
         int xx, yy, k, l, up, down, left, right;
-        rep(i, (int) vecx.size()) {
-            clear();
+        for (int i = 0; i < vecx.size(); i++) {
+            System.out.println("\033[H\033[J");
             xx = vecx.at(i);
             yy = vecy.at(i);
 
@@ -418,24 +408,24 @@ bool SolveMaze(int x, int y) {
             left = yy-1;
             right = yy+1;
 
-            my_zoo->PrintZooAnimalCageTour(xx, yy);
-            my_zoo->MoveAnimal();
+            my_zoo.PrintZooAnimalCageTour(xx, yy);
+            my_zoo.MoveAnimal();
 
             bool found = false, fup = false, fdown = false, fleft = false, fright = false;
             k = 0;
-            while (k < my_zoo->GetSizeCage() && !found) {
+            while (k < my_zoo.GetSizeCage() && !found) {
                 l = 0;
-                while (l < my_zoo->l_cage[k]->GetSize() && !found) {
-                    if (my_zoo->l_cage[k]->GetCellCage(l)->GetX() == up && my_zoo->l_cage[k]->GetCellCage(l)->GetY() == yy) { //look up
+                while (l < my_zoo.l_cage[k].GetSize() && !found) {
+                    if (my_zoo.l_cage[k].GetCellCage(l).GetX() == up && my_zoo.l_cage[k].GetCellCage(l).GetY() == yy) { //look up
                         found = true;
                         fup = true;
-                    } else if (my_zoo->l_cage[k]->GetCellCage(l)->GetX() == down && my_zoo->l_cage[k]->GetCellCage(l)->GetY() == yy) { //look down
+                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == down && my_zoo.l_cage[k].GetCellCage(l).GetY() == yy) { //look down
                         found = true;
                         fdown = true;
-                    } else if (my_zoo->l_cage[k]->GetCellCage(l)->GetX() == xx && my_zoo->l_cage[k]->GetCellCage(l)->GetY() == right) { //right
+                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == xx && my_zoo.l_cage[k].GetCellCage(l).GetY() == right) { //right
                         found = true;
                         fright = true;
-                    } else if (my_zoo->l_cage[k]->GetCellCage(l)->GetX() == xx && my_zoo->l_cage[k]->GetCellCage(l)->GetY() == left) { //left
+                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == xx && my_zoo.l_cage[k].GetCellCage(l).GetY() == left) { //left
                         found = true;
                         fleft = true;
                     } else {
@@ -451,15 +441,15 @@ bool SolveMaze(int x, int y) {
                 rep(lop, 24) visited[lop] = false;
                 char cont;
                 if (fup) {
-                    rep(a, my_zoo->l_cage[k]->GetSize()) {
+                    rep(a, my_zoo.l_cage[k].GetSize()) {
                         rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo->l_cage[k]->GetCellCage(a)->GetX() == my_zoo->GetAnimal()[b]->GetLocX() &&
-                                    my_zoo->l_cage[k]->GetCellCage(a)->GetY() == my_zoo->GetAnimal()[b]->GetLocY()) {
-                                cont = my_zoo->GetAnimal()[b]->GetContent();
+                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
+                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
+                                cont = my_zoo.GetAnimal()[b].GetContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo->GetAnimal()[b]->GetInfo();
+                                    my_zoo.GetAnimal()[b].GetInfo();
                                     visited[cont-65] = 1;
                                 }
                             }
@@ -467,15 +457,15 @@ bool SolveMaze(int x, int y) {
                     }
                 }
                 if (fdown) {
-                    rep(a, my_zoo->l_cage[k]->GetSize()) {
+                    rep(a, my_zoo.l_cage[k].GetSize()) {
                         rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo->l_cage[k]->GetCellCage(a)->GetX() == my_zoo->GetAnimal()[b]->GetLocX() &&
-                                    my_zoo->l_cage[k]->GetCellCage(a)->GetY() == my_zoo->GetAnimal()[b]->GetLocY()) {
-                                cont = my_zoo->GetAnimal()[b]->GetContent();
+                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
+                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
+                                cont = my_zoo.GetAnimal()[b].GetContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo->GetAnimal()[b]->GetInfo();
+                                    my_zoo.GetAnimal()[b].GetInfo();
                                     visited[cont-65] = 1;
                                 }
                             }
@@ -483,15 +473,15 @@ bool SolveMaze(int x, int y) {
                     }
                 }
                 if (fright) {
-                    rep(a, my_zoo->l_cage[k]->GetSize()) {
+                    rep(a, my_zoo.l_cage[k].GetSize()) {
                         rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo->l_cage[k]->GetCellCage(a)->GetX() == my_zoo->GetAnimal()[b]->GetLocX() &&
-                                    my_zoo->l_cage[k]->GetCellCage(a)->GetY() == my_zoo->GetAnimal()[b]->GetLocY()) {
-                                cont = my_zoo->GetAnimal()[b]->GetContent();
+                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
+                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
+                                cont = my_zoo.GetAnimal()[b].GetContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo->GetAnimal()[b]->GetInfo();
+                                    my_zoo.GetAnimal()[b].GetInfo();
                                     visited[cont-65] = 1;
                                 }
                             }
@@ -499,15 +489,15 @@ bool SolveMaze(int x, int y) {
                     }
                 }
                 if (fleft) {
-                    rep(a, my_zoo->l_cage[k]->GetSize()) {
+                    rep(a, my_zoo.l_cage[k].GetSize()) {
                         rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo->l_cage[k]->GetCellCage(a)->GetX() == my_zoo->GetAnimal()[b]->GetLocX() &&
-                                    my_zoo->l_cage[k]->GetCellCage(a)->GetY() == my_zoo->GetAnimal()[b]->GetLocY()) {
-                                cont = my_zoo->GetAnimal()[b]->GetContent();
+                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
+                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
+                                cont = my_zoo.GetAnimal()[b].GetContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo->GetAnimal()[b]->GetInfo();
+                                    my_zoo.GetAnimal()[b].GetInfo();
                                     visited[cont-65] = 1;
                                 }
                             }

@@ -366,4 +366,102 @@ public class Zoo {
         }
     }
 
+    public void PrintZooCage() {
+        for (int i = 0; i < size_brs; i++) {
+            for (int j = 0; j < size_kol; j++) {
+                char c = m_cell[i][j].render();
+                if (c == '*' || c == '#' || c == '~') {
+                    if (m_cell[i][j].isCaged()) {
+                        System.out.print("\033[1;%dm%c\033[0m",31,c);
+                    } else {
+                        System.out.print(c);
+                    }
+                } else {
+                    System.out.print(c);
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    public void PrintZooCageAnimal() {
+
+        for (int i = 0; i < size_brs; i++) {
+            for (int j = 0 ; j < size_kol; j++) {
+
+                char c = m_cell[i][j].render();
+                if (c == '*' || c == '#' || c == '~') {
+                    if (m_cell[i][j].isCaged()) {
+                        boolean ada_hewan = false;
+                        int hewan_n = 0;
+                        for (int k = 0; k < Animal.GetNAnimal(); k++) {
+                            if (l_animal[k].GetLocX() == i && l_animal[k].GetLocY() == j) {
+                                ada_hewan = true;
+                                hewan_n = k;
+                            }
+                        }
+                        if (ada_hewan)
+                            System.out.print("\033[1;%dm%c\033[0m",35,l_animal[hewan_n].GetContent());
+                        else
+                            System.out.print("\033[1;%dm%c\033[0m",31,c);
+                    } else {
+                        System.out.print(c);
+                    }
+                } else {
+                    if (c == '+') {
+                        System.out.print("\033[1;%dm%c\033[0m",37,c);
+                    } else if (c == '.') {
+                        System.out.print("\033[1;%dm%c\033[0m",32,c);
+                    } else if (c == '$') {
+                        System.out.print("\033[1;%dm%c\033[0m",33,c);
+                    } else {
+                        System.out.print(c);
+                    }
+                }
+            }
+            System.out.println("");
+        }
+    }
+
+    void Zoo::PrintZooAnimalCageTour(int x, int y) {
+
+        for (int i = 0; i < size_brs; i++) {
+            for (int j = 0 ; j < size_kol; j++) {
+                if (i == x && j == y) {
+                    System.out.print("\033[1;%dm%c\033[0m",34,'P');
+                } else {
+                    char c = m_cell[i][j].render();
+                    if (c == '*' || c == '#' || c == '~') {
+                        if (m_cell[i][j].isCaged()) {
+                            boolean ada_hewan = false;
+                            int hewan_n = 0;
+                            for (int k = 0; k < Animal.GetNAnimal(); k++) {
+                                if (l_animal[k].GetLocX() == i && l_animal[k].GetLocY() == j) {
+                                    ada_hewan = true;
+                                    hewan_n = k;
+                                }
+                            }
+                            if (ada_hewan)
+                                System.out.print("\033[1;%dm%c\033[0m",35,l_animal[hewan_n].GetContent());
+    						else
+                                System.out.print("\033[1;%dm%c\033[0m",31,c);
+                        } else {
+                            System.out.print(c);
+                        }
+                    } else {
+                        if (c == '+') {
+                            System.out.print("\033[1;%dm%c\033[0m",37,c);
+                        } else if (c == '.') {
+                            System.out.print("\033[1;%dm%c\033[0m",32,c);
+                        } else if (c == '$') {
+                            System.out.print("\033[1;%dm%c\033[0m",33,c);
+                        } else {
+                            System.out.print(c);
+                        }
+                    }
+                }
+            }
+            System.out.println("");
+        }
+    }
 }
