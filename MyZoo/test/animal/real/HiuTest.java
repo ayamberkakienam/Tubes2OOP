@@ -50,7 +50,7 @@ class HiuTest {
 
     @Test
     void isTamed() {
-        System.out.println("Test Weight..");
+        System.out.println("Test Tamed..");
         Animal H = new Hiu(5,4);
         assertTrue(H.IsTamed());
     }
