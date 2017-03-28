@@ -264,47 +264,6 @@ public class Driver {
      *  I.S : my_zoo terdefinisi
      *  F.S : Animal pada map terdefinisi sesuai posisinya
      */
-    /*
-    public Driver() throws FileNotFoundException {
-        int brs = 0;
-        map = new char[500][500];
-        str_temp = new String[500];
-        try {
-            FileInputStream fstream = new FileInputStream("map.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-            String str_line;
-            while ((str_line = br.readLine()) != null) {
-                //System.out.println (str_line);
-                str_temp[brs] = str_line;
-                for (int j = 0; j < str_line.length(); j++) {
-                    map[brs][j] = str_line.charAt(j);
-                    System.out.print(map[brs][j]);
-                }
-                System.out.print("\n");
-                brs++;
-            }
-        } catch (FileNotFoundException fnfe) {
-            System.out.println(fnfe.getMessage());
-        } catch (IOException ioe) {
-            System.out.println(ioe.getMessage());
-        }
-        map_brs = brs - 1;
-        num_cage = Integer.parseInt(str_temp[brs - 1].substring(5));
-        int kol = 0;
-        int x = 0;
-        while (x < str_temp[0].length()) {
-            if ((map[0][x] == 'A') || (map[0][x] == 'W') || (map[0][x] == 'L')) {
-                x = x + 2;
-            } else {
-                x++;
-            }
-            kol++;
-        }
-        map_kol = kol;
-        //my_zoo = new Zoo(map_brs, map_kol, num_cage);
-    }
-
-     */
     void InitAnimal() throws FileNotFoundException {
         int brs = 0;
         map = new char[500][500];
