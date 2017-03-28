@@ -13,9 +13,9 @@ public class BurungHantu extends BirdMeat {
    */
   public BurungHantu(int i, int j) {
     super(2, i, j, true);
-    SetName("Burung Hantu");
-    SetContent('B');
-    consumerate += GetFodder();
+    setName("Burung Hantu");
+    setContent('B');
+    consumerate += getFodder();
   }
 
   /**

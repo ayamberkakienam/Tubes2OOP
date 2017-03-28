@@ -17,9 +17,9 @@ public class Gorilla extends Primata {
    */
   public Gorilla(int i, int j) {
     super(200, i, j, false);
-    SetContent('C');
-    SetName("Gorilla");
-    consumerate += GetFodder();
+    setContent('C');
+    setName("Gorilla");
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

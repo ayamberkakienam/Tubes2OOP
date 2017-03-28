@@ -19,6 +19,6 @@ public abstract class LandAnimal extends Animal {
    */
   public LandAnimal(float w,int x,int y,boolean tame) {
     super(w, x, y, tame, 'Z');
-    SetHabitat("Land");
+    setHabitat("Land");
   }
 }

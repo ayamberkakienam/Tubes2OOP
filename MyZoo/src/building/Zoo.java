@@ -13,12 +13,12 @@ import java.util.Random;
  */
 public class Zoo {
 
-    protected int size_brs;
-    protected int size_kol;
-    protected int num_cage;
-    protected Cell[][] m_cell;
-    protected Cage[] l_cage;
-    protected Animal[] l_animal;
+    private int size_brs;
+    private int size_kol;
+    private int num_cage;
+    private Cell[][] m_cell;
+    private Cage[] l_cage;
+    private Animal[] l_animal;
 
     /**
      * Constructor
@@ -35,11 +35,10 @@ public class Zoo {
         m_cell = new Cell[size_brs][size_kol];
         l_cage = new Cage[num_cage];
         l_animal = new Animal[300];
-
     }
 
     /**
-     * Getter untuk lebar Zoo
+     * getter untuk lebar Zoo
      * @return lebar Zoo
      */
     public int getSizeBrs() {
@@ -47,7 +46,7 @@ public class Zoo {
     }
 
     /**
-     * Getter untuk panjang Zoo
+     * getter untuk panjang Zoo
      * @return panjang Zoo
      */
     public int getSizeKol() {
@@ -55,7 +54,7 @@ public class Zoo {
     }
 
     /**
-     * Getter untuk banyaknya Cage
+     * getter untuk banyaknya Cage
      * @return banyaknya Cage
      */
     public int getNumCage() {
@@ -63,7 +62,7 @@ public class Zoo {
     }
 
     /**
-     * Getter untuk matrix Cell
+     * getter untuk matrix Cell
      * @return matrix Cell
      */
     public Cell [][] getCell() {
@@ -71,7 +70,7 @@ public class Zoo {
     }
 
     /**
-     * Getter untuk array Cage
+     * getter untuk array Cage
      * @return array Cage
      */
     public Cage [] getCage() {
@@ -79,7 +78,7 @@ public class Zoo {
     }
 
     /**
-     * Getter untuk array Animal
+     * getter untuk array Animal
      * @return array Animal
      */
     public Animal [] getAnimal() {
@@ -93,20 +92,20 @@ public class Zoo {
         int x, y, move, j;
         boolean moved = false;
         boolean dist = true;
-        for (int i = 0; i < Animal.GetNAnimal(); i++) {
+        for (int i = 0; i < Animal.getNAnimal(); i++) {
             do {
                 Random rand = new Random();
                 move = rand.nextInt(5) + 1;
-                x = l_animal[i].GetLocX();
-                y = l_animal[i].GetLocY();
+                x = l_animal[i].getLocX();
+                y = l_animal[i].getLocY();
                 switch (move) {
                     // CHECK CELL APAKAH CAGED
                     case 1:
                         x--;
-                        l_animal[i].SetLoc(x, y);
+                        l_animal[i].setLoc(x, y);
                         moved = true;
                         j = 0;
-                        while (j < Animal.GetNAnimal() && dist) {
+                        while (j < Animal.getNAnimal() && dist) {
                             if (i != j) {
                                 dist = l_animal[i].DistLoc(l_animal[j]);
                             }
@@ -114,16 +113,16 @@ public class Zoo {
                         }
                         if (!(m_cell[x][y].isCaged()) || !dist) {
                             x++;
-                            l_animal[i].SetLoc(x, y);
+                            l_animal[i].setLoc(x, y);
                             moved = false;
                         }
                         break;
                     case 2:
                         y++;
-                        l_animal[i].SetLoc(x, y);
+                        l_animal[i].setLoc(x, y);
                         moved = true;
                         j = 0;
-                        while (j < Animal.GetNAnimal() && dist) {
+                        while (j < Animal.getNAnimal() && dist) {
                             if (i != j) {
                                 dist = l_animal[i].DistLoc(l_animal[j]);
                             }
@@ -131,16 +130,16 @@ public class Zoo {
                         }
                         if (!(m_cell[x][y].isCaged()) || !dist) {
                             y--;
-                            l_animal[i].SetLoc(x, y);
+                            l_animal[i].setLoc(x, y);
                             moved = false;
                         }
                         break;
                     case 3:
                         x++;
-                        l_animal[i].SetLoc(x, y);
+                        l_animal[i].setLoc(x, y);
                         moved = true;
                         j = 0;
-                        while (j < Animal.GetNAnimal() && dist) {
+                        while (j < Animal.getNAnimal() && dist) {
                             if (i != j) {
                                 dist = l_animal[i].DistLoc(l_animal[j]);
                             }
@@ -148,16 +147,16 @@ public class Zoo {
                         }
                         if (!(m_cell[x][y].isCaged()) || !dist) {
                             x--;
-                            l_animal[i].SetLoc(x, y);
+                            l_animal[i].setLoc(x, y);
                             moved = false;
                         }
                         break;
                     case 4:
                         y--;
-                        l_animal[i].SetLoc(x, y);
+                        l_animal[i].setLoc(x, y);
                         moved = true;
                         j = 0;
-                        while (j < Animal.GetNAnimal() && dist) {
+                        while (j < Animal.getNAnimal() && dist) {
                             if (i != j) {
                                 dist = l_animal[i].DistLoc(l_animal[j]);
                             }
@@ -165,7 +164,7 @@ public class Zoo {
                         }
                         if (!(m_cell[x][y].isCaged()) || !dist) {
                             y++;
-                            l_animal[i].SetLoc(x, y);
+                            l_animal[i].setLoc(x, y);
                             moved = false;
                         }
                         break;
@@ -178,7 +177,7 @@ public class Zoo {
     }
 
     /**
-     * Setter untuk inisialisasi Cell di Cage
+     * setter untuk inisialisasi Cell di Cage
      * @param n array ke n pada Cage
      * @param nn array ke nn pada Cell di Cage
      * @param i absis pada Zoo
@@ -266,10 +265,10 @@ public class Zoo {
                 int area = l_cage[k].getSize();
                 int max_n_animal =  area*3/10;
                 int n_animal = 0;
-                for (int ii = 0; ii < Animal.GetNAnimal(); ii++) {
+                for (int ii = 0; ii < Animal.getNAnimal(); ii++) {
                     for (int jj = 0; jj < l_cage[k].getSize(); jj++) {
-                        if (l_cage[k].getCell()[jj].getX() == l_animal[ii].GetLocX() &&
-                                l_cage[k].getCell()[jj].getY() == l_animal[ii].GetLocY()) {
+                        if (l_cage[k].getCell()[jj].getX() == l_animal[ii].getLocX() &&
+                                l_cage[k].getCell()[jj].getY() == l_animal[ii].getLocY()) {
                             n_animal++;
                         }
                     }
@@ -372,7 +371,7 @@ public class Zoo {
                 char c = m_cell[i][j].render();
                 if (c == '*' || c == '#' || c == '~') {
                     if (m_cell[i][j].isCaged()) {
-                        System.out.print("\033[1;%dm%c\033[0m",31,c);
+                        System.out.print("\033[1;31m" + c +"\033[0m");
                     } else {
                         System.out.print(c);
                     }
@@ -394,26 +393,26 @@ public class Zoo {
                     if (m_cell[i][j].isCaged()) {
                         boolean ada_hewan = false;
                         int hewan_n = 0;
-                        for (int k = 0; k < Animal.GetNAnimal(); k++) {
-                            if (l_animal[k].GetLocX() == i && l_animal[k].GetLocY() == j) {
+                        for (int k = 0; k < Animal.getNAnimal(); k++) {
+                            if (l_animal[k].getLocX() == i && l_animal[k].getLocY() == j) {
                                 ada_hewan = true;
                                 hewan_n = k;
                             }
                         }
                         if (ada_hewan)
-                            System.out.print("\033[1;%dm%c\033[0m",35,l_animal[hewan_n].GetContent());
+                            System.out.print("\033[1;35m" + l_animal[hewan_n].getContent() +"\033[0m");
                         else
-                            System.out.print("\033[1;%dm%c\033[0m",31,c);
+                            System.out.print("\033[1;31m" + c +"\033[0m");
                     } else {
                         System.out.print(c);
                     }
                 } else {
                     if (c == '+') {
-                        System.out.print("\033[1;%dm%c\033[0m",37,c);
+                        System.out.print("\033[1;37m" + c +"\033[0m");
                     } else if (c == '.') {
-                        System.out.print("\033[1;%dm%c\033[0m",32,c);
+                        System.out.print("\033[1;32m" + c +"\033[0m");
                     } else if (c == '$') {
-                        System.out.print("\033[1;%dm%c\033[0m",33,c);
+                        System.out.print("\033[1;33m" + c +"\033[0m");
                     } else {
                         System.out.print(c);
                     }
@@ -423,38 +422,38 @@ public class Zoo {
         }
     }
 
-    void Zoo::PrintZooAnimalCageTour(int x, int y) {
+    public void PrintZooAnimalCagetour(int x, int y) {
 
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0 ; j < size_kol; j++) {
                 if (i == x && j == y) {
-                    System.out.print("\033[1;%dm%c\033[0m",34,'P');
+                    System.out.print("\033[1;34m" + 'P' +"\033[0m");
                 } else {
                     char c = m_cell[i][j].render();
                     if (c == '*' || c == '#' || c == '~') {
                         if (m_cell[i][j].isCaged()) {
                             boolean ada_hewan = false;
                             int hewan_n = 0;
-                            for (int k = 0; k < Animal.GetNAnimal(); k++) {
-                                if (l_animal[k].GetLocX() == i && l_animal[k].GetLocY() == j) {
+                            for (int k = 0; k < Animal.getNAnimal(); k++) {
+                                if (l_animal[k].getLocX() == i && l_animal[k].getLocY() == j) {
                                     ada_hewan = true;
                                     hewan_n = k;
                                 }
                             }
                             if (ada_hewan)
-                                System.out.print("\033[1;%dm%c\033[0m",35,l_animal[hewan_n].GetContent());
+                                System.out.print("\033[1;35m" + l_animal[hewan_n].getContent() +"\033[0m");
     						else
-                                System.out.print("\033[1;%dm%c\033[0m",31,c);
+                                System.out.print("\033[1;31m" + c +"\033[0m");
                         } else {
                             System.out.print(c);
                         }
                     } else {
                         if (c == '+') {
-                            System.out.print("\033[1;%dm%c\033[0m",37,c);
+                            System.out.print("\033[1;37m" + c +"\033[0m");
                         } else if (c == '.') {
-                            System.out.print("\033[1;%dm%c\033[0m",32,c);
+                            System.out.print("\033[1;32m" + c +"\033[0m");
                         } else if (c == '$') {
-                            System.out.print("\033[1;%dm%c\033[0m",33,c);
+                            System.out.print("\033[1;33m" + c +"\033[0m");
                         } else {
                             System.out.print(c);
                         }

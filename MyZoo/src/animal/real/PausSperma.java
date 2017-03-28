@@ -6,20 +6,20 @@ import animal.classification.water.finned.plankton.FinnedPlankton;
  * Created by Diki Ardian W (13515092) on 3/28/17.
  */
 
-/** @class PausSperma
- * @brief Hewan yang hidup di laut dan berukuran sangat besar
+/** PausSperma
+ *  Hewan yang hidup di laut dan berukuran sangat besar
  */
 public class PausSperma extends FinnedPlankton {
-    /** @brief Constructor.
+    /**  Constructor.
      * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
      */
     public PausSperma(int i, int j) {
         super(7000, i, j, true);
-        SetName("Paus Sperma");
-        SetContent('T');
-        consumerate += GetFodder();
+        setName("Paus Sperma");
+        setContent('T');
+        consumerate += getFodder();
     }
-    /** @brief Menghasilkan suara hewan yang khas
+    /**  Menghasilkan suara hewan yang khas
      * @return string suara hewan.
      */
     public String Interact() {

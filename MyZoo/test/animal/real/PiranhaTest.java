@@ -9,50 +9,50 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by Diki Ardian W (13515092) on 3/28/17.
  */
 
-/**@class PiranhaTest
- * @brief Kelas untuk mengetes kelas Piranha
+/**PiranhaTest
+ *  Kelas untuk mengetes kelas Piranha
  */
 class PiranhaTest {
     @Test
     public void getName() {
         System.out.println("Test Name..");
         Animal H = new Piranha(5, 4);
-        assertTrue(H.GetName().equals("Piranha"));
+        assertTrue(H.getName().equals("Piranha"));
     }
 
     @Test
     void getLocX() {
         System.out.println("Test X Position..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetLocX()==5);
+        assertTrue(H.getLocX()==5);
     }
 
     @Test
     void getLocY() {
         System.out.println("Test Y Position..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetLocY()==4);
+        assertTrue(H.getLocY()==4);
     }
 
     @Test
     void getFodder() {
         System.out.println("Test Fodder..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetFodder()==0.025*H.GetWeight());
+        assertTrue(H.getFodder()==0.025*H.getWeight());
     }
 
     @Test
     void getContent() {
         System.out.println("Test Content..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetContent()=='U');
+        assertTrue(H.getContent()=='U');
     }
 
     @Test
     void getWeight() {
         System.out.println("Test Weight..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetWeight()==(float)0.7);
+        assertTrue(H.getWeight()==(float)0.7);
     }
 
     @Test
@@ -66,7 +66,7 @@ class PiranhaTest {
     void getLegs() {
         System.out.println("Test Legs..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.GetLegs()==0);
+        assertTrue(H.getLegs()==0);
     }
 
     @Test

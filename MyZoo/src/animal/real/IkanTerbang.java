@@ -13,9 +13,9 @@ public class IkanTerbang extends FinnedWAInsect {
    */
   public IkanTerbang(int i, int j) {
     super((float) 2, i, j, true);
-    SetName("Ikan Terbang");
-    SetContent('I');
-    consumerate += GetFodder();
+    setName("Ikan Terbang");
+    setContent('I');
+    consumerate += getFodder();
   }
   /**
    * Mengembalikan string yang menggambarkan interaksi user dengan hewan

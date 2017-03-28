@@ -15,7 +15,7 @@ public abstract class QuadruppedLW extends AmphibiLW {
    */
   public QuadruppedLW(float w, int x, int y, boolean tame) {
         super(w, x, y, tame);
-        SetLeg(4);
+        setLeg(4);
   }
   /**mengembalikan string yang menggambarkan interaksi
    * user dengan hewan

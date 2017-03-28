@@ -67,14 +67,15 @@ abstract public class Cell implements Renderable {
   public int getY() {
     return this.loc_y;
   }
-  /** @brief Mengembalikan nilai boolean jika habitat terletak dalam kandang atau tidak
+  /**
+   * Mengembalikan nilai boolean jika habitat terletak dalam kandang atau tidak
    * @return boolean caged.
    */
   public boolean isCaged() {
     return caged;
   }
-  /** @brief Memberikan atau mengubah nilai boolean dari caged
-   *
+  /**
+   * Memberikan atau mengubah nilai boolean dari caged
    */
   public void setCaged() {
     this.caged = true;

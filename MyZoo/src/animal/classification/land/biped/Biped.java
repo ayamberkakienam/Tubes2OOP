@@ -18,6 +18,6 @@ public abstract class Biped extends LandAnimal {
      */
     public Biped(float w,int x,int y,boolean tame) {
       super(w,x,y,tame);
-      SetLeg(2);
+      setLeg(2);
     }
 }

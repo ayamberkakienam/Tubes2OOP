@@ -6,13 +6,13 @@ package animal.classification.water.finned;
 
 import animal.classification.water.WaterAnimal;
 
-/**@class Finned
+/** Finned
  * Menangani kelas hewan dengan atrbut habitat = "Water"
  * dan legs = 0
  */
 public abstract class Finned extends WaterAnimal {
     /**
-     * @brief Constructor
+     * Constructor
      * @param w Berat hewan
      * @param x Letak hewan berdasarkan indeks baris map zoo
      * @param y Letak hewan berdasarkan indeks kolom map zoo
@@ -20,6 +20,6 @@ public abstract class Finned extends WaterAnimal {
      */
     public Finned(float w, int x, int y, boolean tame) {
         super(w, x, y, tame);
-        SetLeg(0);
+        setLeg(0);
     }
 }

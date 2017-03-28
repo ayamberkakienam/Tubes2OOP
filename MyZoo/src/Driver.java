@@ -2,29 +2,31 @@ import animal.Animal;
 import building.Zoo;
 
 import java.io.*;
+import java.util.Random;
+import java.util.Scanner;
 import java.util.Vector;
 
-import static animal.Animal.GetNAnimal;
+import static animal.Animal.getNAnimal;
 
 /**
  * Created by Diki Ardian W (13515092) on 3/27/17.
  */
 
 /**
- * @class Driver
- * @brief Menangani pembacaan dari file eksternal dan pembuatan map kebun binatang
+ * Driver
+ * Menangani pembacaan dari file eksternal dan pembuatan map kebun binatang
  */
 public class Driver {
     private int map_brs;
     private int map_kol;
     private int num_cage;
-    private char map[][];
-    private String str_temp[];
+    private char [][]map;
+    private String []str_temp;
     private Zoo my_zoo;
 
     /**
      * @throws FileNotFoundException
-     * @brief Constructor.
+     * Constructor.
      * Membaca file eksternal dan menyimpan informasi jumlah baris dan kolom map
      */
     public Driver() throws FileNotFoundException {
@@ -32,21 +34,16 @@ public class Driver {
         map = new char[500][500];
         str_temp = new String[500];
         try {
-            FileInputStream fstream = new FileInputStream("map.txt");
+            FileInputStream fstream = new FileInputStream("MyZoo/map.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String str_line;
             while ((str_line = br.readLine()) != null) {
-                //System.out.println (str_line);
                 str_temp[brs] = str_line;
                 for (int j = 0; j < str_line.length(); j++) {
                     map[brs][j] = str_line.charAt(j);
-                    System.out.print(map[brs][j]);
                 }
-                System.out.print("\n");
                 brs++;
             }
-        } catch (FileNotFoundException fnfe) {
-            System.out.println(fnfe.getMessage());
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -63,58 +60,47 @@ public class Driver {
             kol++;
         }
         map_kol = kol;
-        //my_zoo = new Zoo(map_brs, map_kol, num_cage);
-    }
-    public static void main(String args[]) throws FileNotFoundException {
-        Driver d = new Driver();
-        System.out.println(d.GetMapBrs() + "\n" + d.map_kol + "\n" + d.num_cage);
-        char digit1 = 48;
-        digit1++;
-        System.out.println(digit1);
     }
     /**
      * @return jumlah baris map.
-     * @brief Mengembalikan jumlah baris yang menyusun map
+     * Mengembalikan jumlah baris yang menyusun map
      * I.S : Costructor driver telah dipanggil
      * F.S : Mendapakan jumlah baris map
      */
-    public int GetMapBrs() {
+    public int getMapBrs() {
         return map_brs;
     }
     /**
      * @return jumlah kolom map.
-     * @brief Mengembalikan jumlah kolom yang menyusun map
+     * Mengembalikan jumlah kolom yang menyusun map
      * I.S : Costructor driver telah dipanggil
      * F.S : Mendapakan jumlah kolom map
      */
-    public int GetMapKol() {
+    public int getMapKol() {
         return map_kol;
     }
     /**
      * @return jumlah kandang map.
-     * @brief Mengembalikan jumlah kandang pada map
+     * Mengembalikan jumlah kandang pada map
      * I.S : Costructor driver telah dipanggil
      * F.S : Mendapakan jumlah kandang map
      */
-    public int GetNumCage() {
+    public int getNumCage() {
         return num_cage;
     }
-    /** @brief Getter untuk atribut my_zoo
+    /** getter untuk atribut my_zoo
      * I.S : Costructor driver telah dipanggil
      * F.S : Mendapakan object Zoo yang telah dihidupkan
      * @return Object my_zoo.
      */
-
-    public Zoo GetZoo() {
+    public Zoo getZoo() {
         return my_zoo;
     }
-
-    /** @brief Menginisiasi semua cell pada map
+    /** Menginisiasi semua cell pada map
      *  I.S : my_zoo terdefinisi
      *  F.S : Cell pada my_zoo terbentuk
      */
-
-    void InitCell() {
+    void initCell() {
         int i, jneff;
         int j;
         for (i = 0; i < map_brs; i++) {
@@ -127,12 +113,11 @@ public class Driver {
             }
         }
     }
-
-    /** @brief Menginisiasi semua kandang pada map
+    /** Menginisiasi semua kandang pada map
      *  I.S : my_zoo terdefinisi
      *  F.S : semua kandang pada my_zoo telah diciptakan
      */
-    void InitCage() {
+    void initCage() {
         int j;
         int count = 0, i, jneff, idx;
         char digit1 = 48;
@@ -252,17 +237,16 @@ public class Driver {
             count++;
         }
     }
-
-    /** @brief Menginisiasi semua animal pada map
+    /** Menginisiasi semua animal pada map
      *  I.S : my_zoo terdefinisi
      *  F.S : Animal pada map terdefinisi sesuai posisinya
      */
-    void InitAnimal() throws FileNotFoundException {
+    void initAnimal() throws FileNotFoundException {
         int brs = 0;
         map = new char[500][500];
         str_temp = new String[500];
         try {
-            FileInputStream fstream = new FileInputStream("animal.txt");
+            FileInputStream fstream = new FileInputStream("MyZoo/animal.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String str_line;
             while ((str_line = br.readLine()) != null) {
@@ -272,8 +256,6 @@ public class Driver {
                 }
                 brs++;
             }
-        } catch (FileNotFoundException fnfe) {
-            System.out.println(fnfe.getMessage());
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
@@ -288,7 +270,7 @@ public class Driver {
                         jneff++;
                         break;
                     default:
-                        my_zoo.createAnimal(map[i][j], i, jneff, GetNAnimal());
+                        my_zoo.createAnimal(map[i][j], i, jneff, getNAnimal());
                         jneff++;
                         break;
                 }
@@ -297,17 +279,17 @@ public class Driver {
         }
     }
 
-int [] maze_zoo;
-boolean [] maze_was_here;
-boolean [] maze_right_path;
+int [][] maze_zoo;
+boolean [][] maze_was_here;
+boolean [][] maze_right_path;
 int x_masuk, x_keluar, y_masuk, y_keluar, panjang, lebar;
 Vector vecx = new Vector();
 Vector vecy = new Vector();
 
 boolean SolveMaze(int x, int y) {
   if (!maze_was_here[x][y] && maze_zoo[x][y] != 2) {
-    vecx.push_back(x);
-    vecy.push_back(y);
+    vecx.addElement(x);
+    vecy.addElement(y);
   }
   if (x == x_keluar && y == y_keluar) return true;
   if (maze_zoo[x][y] == 2 || maze_was_here[x][y]) return false;
@@ -336,19 +318,19 @@ boolean SolveMaze(int x, int y) {
       return true;
     }
   }
-  return 0;
+  return false;
 }
-
-    /** @brief Melakukan Tour pada Zoo
-     *  I.S : my_zoo telah terdefinisi beserta cell dan semua cagenya
-     *  F.S :
-     */
 
     public void TourZoo() {
         //x dan y adalah posisi awal "pengunjung"
         //asumsi pintu masuk dan keluar paling banyak ada 10
         int random, n_masuk = 0, masuk_x[], masuk_y[];
         int n_keluar = 0, keluar_x[], keluar_y[];
+        masuk_x = new int[10];
+        masuk_y = new int[10];
+        keluar_x = new int[10];
+        keluar_y = new int[10];
+
         panjang = my_zoo.getSizeBrs();
         lebar = my_zoo.getSizeKol();
         for (int i = 0; i < panjang ; i++) {
@@ -369,8 +351,8 @@ boolean SolveMaze(int x, int y) {
             }
         }
         //random pintu masuk dan keluar
-//        srand(time(NULL));
-//        random = rand() % n_masuk;
+        Random rand = new Random();
+        random = rand.nextInt(n_masuk);
         x_masuk = masuk_x[random];
         y_masuk = masuk_y[random];
         x_keluar = keluar_x[random];
@@ -400,32 +382,32 @@ boolean SolveMaze(int x, int y) {
         int xx, yy, k, l, up, down, left, right;
         for (int i = 0; i < vecx.size(); i++) {
             System.out.println("\033[H\033[J");
-            xx = vecx.at(i);
-            yy = vecy.at(i);
+            xx = (int) vecx.elementAt(i);
+            yy = (int) vecy.elementAt(i);
 
             up = xx-1;
             down = xx+1;
             left = yy-1;
             right = yy+1;
 
-            my_zoo.PrintZooAnimalCageTour(xx, yy);
-            my_zoo.MoveAnimal();
+            my_zoo.PrintZooAnimalCagetour(xx, yy);
+            my_zoo.moveAnimal();
 
-            bool found = false, fup = false, fdown = false, fleft = false, fright = false;
+            boolean found = false, fup = false, fdown = false, fleft = false, fright = false;
             k = 0;
-            while (k < my_zoo.GetSizeCage() && !found) {
+            while (k < my_zoo.getNumCage() && !found) {
                 l = 0;
-                while (l < my_zoo.l_cage[k].GetSize() && !found) {
-                    if (my_zoo.l_cage[k].GetCellCage(l).GetX() == up && my_zoo.l_cage[k].GetCellCage(l).GetY() == yy) { //look up
+                while (l < my_zoo.getCage()[k].getSize() && !found) {
+                    if (my_zoo.getCage()[k].getCell()[l].getX() == up && my_zoo.getCage()[k].getCell()[l].getY() == yy) { //look up
                         found = true;
                         fup = true;
-                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == down && my_zoo.l_cage[k].GetCellCage(l).GetY() == yy) { //look down
+                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == down && my_zoo.getCage()[k].getCell()[l].getY() == yy) { //look down
                         found = true;
                         fdown = true;
-                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == xx && my_zoo.l_cage[k].GetCellCage(l).GetY() == right) { //right
+                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == xx && my_zoo.getCage()[k].getCell()[l].getY() == right) { //right
                         found = true;
                         fright = true;
-                    } else if (my_zoo.l_cage[k].GetCellCage(l).GetX() == xx && my_zoo.l_cage[k].GetCellCage(l).GetY() == left) { //left
+                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == xx && my_zoo.getCage()[k].getCell()[l].getY() == left) { //left
                         found = true;
                         fleft = true;
                     } else {
@@ -437,75 +419,83 @@ boolean SolveMaze(int x, int y) {
             k--;
 
             if (found) {
-                bool visited[24];
-                rep(lop, 24) visited[lop] = false;
-                char cont;
+                boolean [] visited = new boolean[24];
+                for (int lop = 0; lop < 24; lop++) visited[lop] = false;
                 if (fup) {
-                    rep(a, my_zoo.l_cage[k].GetSize()) {
-                        rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
-                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
-                                cont = my_zoo.GetAnimal()[b].GetContent();
+                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
+                        for (int b = 0; b < Animal.getNAnimal(); b++) {
+                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
+                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
+                                cont = my_zoo.getAnimal()[b].getContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo.GetAnimal()[b].GetInfo();
-                                    visited[cont-65] = 1;
+                                    my_zoo.getAnimal()[b].getInfo();
+                                    visited[cont-65] = true;
                                 }
                             }
                         }
                     }
                 }
                 if (fdown) {
-                    rep(a, my_zoo.l_cage[k].GetSize()) {
-                        rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
-                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
-                                cont = my_zoo.GetAnimal()[b].GetContent();
+                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
+                        for (int b = 0; b < Animal.getNAnimal(); b++) {
+                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
+                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
+                                cont = my_zoo.getAnimal()[b].getContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo.GetAnimal()[b].GetInfo();
-                                    visited[cont-65] = 1;
+                                    my_zoo.getAnimal()[b].getInfo();
+                                    visited[cont-65] = true;
                                 }
                             }
                         }
                     }
                 }
                 if (fright) {
-                    rep(a, my_zoo.l_cage[k].GetSize()) {
-                        rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
-                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
-                                cont = my_zoo.GetAnimal()[b].GetContent();
+                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
+                        for (int b = 0; b < Animal.getNAnimal(); b++) {
+                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
+                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
+                                cont = my_zoo.getAnimal()[b].getContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo.GetAnimal()[b].GetInfo();
-                                    visited[cont-65] = 1;
+                                    my_zoo.getAnimal()[b].getInfo();
+                                    visited[cont-65] = true;
                                 }
                             }
                         }
                     }
                 }
                 if (fleft) {
-                    rep(a, my_zoo.l_cage[k].GetSize()) {
-                        rep(b, Animal::GetNAnimal()) {
-                            if (my_zoo.l_cage[k].GetCellCage(a).GetX() == my_zoo.GetAnimal()[b].GetLocX() &&
-                                    my_zoo.l_cage[k].GetCellCage(a).GetY() == my_zoo.GetAnimal()[b].GetLocY()) {
-                                cont = my_zoo.GetAnimal()[b].GetContent();
+                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
+                        for (int b = 0; b < Animal.getNAnimal(); b++) {
+                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
+                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
+                                cont = my_zoo.getAnimal()[b].getContent();
                                 if (visited[cont-65]) {
                                     // sudah
                                 } else {
-                                    my_zoo.GetAnimal()[b].GetInfo();
-                                    visited[cont-65] = 1;
+                                    my_zoo.getAnimal()[b].getInfo();
+                                    visited[cont-65] = true;
                                 }
                             }
                         }
                     }
                 }
             }
-            cout << "Enter to cont.."; cin.ignore();
+            System.out.println("Press \"ENTER\" to continue...");
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
         }
     }
+
+    static public void main (String [] args) throws FileNotFoundException {
+        Driver d = new Driver();
+        d.initCell();
+        d.getZoo().PrintZoo();
+    }
+
 }

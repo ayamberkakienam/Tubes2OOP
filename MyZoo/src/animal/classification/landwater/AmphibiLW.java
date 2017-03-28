@@ -12,7 +12,7 @@ public abstract class AmphibiLW extends Animal {
    */
   public AmphibiLW(float w, int x, int y, boolean tame) {
     super(w, x, y, tame, 'Z');
-    SetHabitat("Land,Water");
+    setHabitat("Land,Water");
   }
 
   /** Menghasilkan suara hewan yang khas

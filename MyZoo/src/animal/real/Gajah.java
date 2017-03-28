@@ -17,9 +17,9 @@ public class Gajah extends QuadrupedLeaf {
    */
   public Gajah(int i, int j) {
     super(3500, i, j, true);
-    SetContent('E');
-    SetName("Gajah");
-    consumerate += GetFodder();
+    setContent('E');
+    setName("Gajah");
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.

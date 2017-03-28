@@ -6,12 +6,12 @@ package animal.classification.water.legged.plankton;
 
 import animal.classification.water.legged.Legged;
 
-/**@class LeggedPlankton
+/**LeggedPlankton
  * Kelas yang menangani hewan dengan habitat = "Water"
  * leg = 10, type = "Omnivore" dan diet = "Plankton"
  */
 public abstract class LeggedPlankton extends Legged {
-    /**@brief Constructor
+    /** Constructor
      * Melakukan inisialisasi kelas LeggedPlankton
      * @param w untuk weight
      * @param x untuk koordinat x pada map
@@ -20,7 +20,7 @@ public abstract class LeggedPlankton extends Legged {
      */
     public LeggedPlankton(float w, int x, int y, boolean tame) {
         super(w, x, y, tame);
-        SetType("Omnivore");
-        SetDiet("Plankton");
+        setType("Omnivore");
+        setDiet("Plankton");
     }
 }

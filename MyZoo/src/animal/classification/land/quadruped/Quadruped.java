@@ -20,6 +20,6 @@ public abstract class Quadruped extends LandAnimal {
    */
   public Quadruped(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetLeg(4);
+    setLeg(4);
   }
 }

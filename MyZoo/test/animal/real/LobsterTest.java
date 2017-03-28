@@ -9,50 +9,50 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by Diki Ardian W (13515092) on 3/28/17.
  */
 
-/**@class LobsterTest
- * @brief Kelas untuk mengetes kelas Lobster
+/**LobsterTest
+ *  Kelas untuk mengetes kelas Lobster
  */
 class LobsterTest {
     @Test
     public void getName() {
         System.out.println("Test Name..");
         Animal H = new Lobster(5, 4);
-        assertTrue(H.GetName().equals("Lobster"));
+        assertTrue(H.getName().equals("Lobster"));
     }
 
     @Test
     void getLocX() {
         System.out.println("Test X Position..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetLocX()==5);
+        assertTrue(H.getLocX()==5);
     }
 
     @Test
     void getLocY() {
         System.out.println("Test Y Position..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetLocY()==4);
+        assertTrue(H.getLocY()==4);
     }
 
     @Test
     void getFodder() {
         System.out.println("Test Fodder..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetFodder()==0.025*H.GetWeight());
+        assertTrue(H.getFodder()==0.025*H.getWeight());
     }
 
     @Test
     void getContent() {
         System.out.println("Test Content..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetContent()=='P');
+        assertTrue(H.getContent()=='P');
     }
 
     @Test
     void getWeight() {
         System.out.println("Test Weight..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetWeight()==0.5);
+        assertTrue(H.getWeight()==0.5);
     }
 
     @Test
@@ -66,7 +66,7 @@ class LobsterTest {
     void getLegs() {
         System.out.println("Test Legs..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.GetLegs()==10);
+        assertTrue(H.getLegs()==10);
     }
 
     @Test

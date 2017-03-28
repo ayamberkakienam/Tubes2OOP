@@ -13,9 +13,9 @@ public class Elang extends BirdMeat {
    */
   public Elang(int i, int j) {
     super(3, i, j, false);
-    SetName("Elang");
-    SetContent('D');
-    consumerate += GetFodder();
+    setName("Elang");
+    setContent('D');
+    consumerate += getFodder();
   }
 
   /**

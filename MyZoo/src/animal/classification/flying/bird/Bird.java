@@ -16,7 +16,7 @@ public abstract class Bird extends FlyingAnimal {
    */
   public Bird(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
-    SetLeg(2);
+    setLeg(2);
   }
 
   /**

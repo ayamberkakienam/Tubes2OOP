@@ -19,8 +19,8 @@ public abstract class InsectNectar extends Insect {
    */
   public InsectNectar(float w, int x, int y, boolean tame) {
         super(w, x, y, tame);
-        SetType("Herbivore");
-        SetDiet("Nectar");
+        setType("Herbivore");
+        setDiet("Nectar");
     }
   /**
    * mengembalikan string yang menggambarkan interaksi

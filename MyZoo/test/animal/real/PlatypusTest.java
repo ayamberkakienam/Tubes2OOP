@@ -3,8 +3,6 @@ package animal.real;
 import animal.Animal;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -13,37 +11,37 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlatypusTest {
     @Test
     public void getLocX() {
-        System.out.println("Test GetLocX");
+        System.out.println("Test getLocX");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetLocX() == 2);
+        assertTrue(A.getLocX() == 2);
     }
 
     @Test
     public void getLocY() {
-        System.out.println("Test GetLocY");
+        System.out.println("Test getLocY");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetLocY() == 5);
+        assertTrue(A.getLocY() == 5);
     }
 
     @Test
     public void getFodder() {
-        System.out.println("Test GetFodder");
+        System.out.println("Test getFodder");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetFodder() == (0.025*A.GetWeight()));
+        assertTrue(A.getFodder() == (0.025*A.getWeight()));
     }
 
     @Test
     public void getContent() {
-        System.out.println("Test GetContent");
+        System.out.println("Test getContent");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetContent() == 'Z');
+        assertTrue(A.getContent() == 'Z');
     }
 
     @Test
     public void getWeight()  {
-        System.out.println("Test GetWeight");
+        System.out.println("Test getWeight");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetWeight() == 5);
+        assertTrue(A.getWeight() == 5);
     }
 
     @Test
@@ -54,9 +52,9 @@ class PlatypusTest {
     }
     @Test
     public void getLegs() {
-        System.out.println("Test GetLegs");
+        System.out.println("Test getLegs");
         Animal A = new Platypus(2,5);
-        assertTrue(A.GetLegs() == 4);
+        assertTrue(A.getLegs() == 4);
     }
 
     @Test

@@ -13,7 +13,7 @@ public abstract class AmphibiWA extends Animal {
    */
   public AmphibiWA(float w, int x, int y, boolean tame) {
     super(w, x, y, tame, 'Z');
-    SetHabitat("Water,Air");
+    setHabitat("Water,Air");
   }
 
   /**

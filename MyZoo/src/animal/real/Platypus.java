@@ -11,9 +11,9 @@ public class Platypus extends QuadruppedLWInsect {
    */
   public Platypus(int i, int j) {
     super(5, i, j, true);
-    SetName("Platypus");
-    SetContent('Z');
-    consumerate += GetFodder();
+    setName("Platypus");
+    setContent('Z');
+    consumerate += getFodder();
   }
   /** Menghasilkan suara hewan yang khas
    * @return string suara hewan.

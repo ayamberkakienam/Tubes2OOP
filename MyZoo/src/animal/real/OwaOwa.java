@@ -17,9 +17,9 @@ public class OwaOwa extends Primata {
    */
   public OwaOwa(int i, int j) {
     super(70, i, j, true);
-    SetName("OwaOwa");
-    SetContent('S');
-    consumerate += GetFodder();
+    setName("OwaOwa");
+    setContent('S');
+    consumerate += getFodder();
   }
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.
