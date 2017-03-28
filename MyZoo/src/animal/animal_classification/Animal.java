@@ -64,8 +64,12 @@ public abstract class Animal {
         return 0.025 * weight;
     }
 
-    char GetContent() {
+    public char GetContent() {
         return content;
+    }
+
+    public float GetWeight() {
+        return weight;
     }
 
     public boolean IsTamed() {
