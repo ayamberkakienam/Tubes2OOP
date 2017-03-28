@@ -284,49 +284,52 @@ public class Driver {
         }
     }
 
-int [][] maze_zoo;
-boolean [][] maze_was_here;
-boolean [][] maze_right_path;
-int x_masuk, x_keluar, y_masuk, y_keluar, panjang, lebar;
-Vector vecx = new Vector();
-Vector vecy = new Vector();
+    private int [][] maze_zoo;
+    private boolean [][] maze_was_here;
+    private boolean [][] maze_right_path;
+    private int x_keluar;
+    private int y_keluar;
+    private int panjang;
+    private int lebar;
+    private Vector<Integer> vecx = new Vector<>();
+    private Vector<Integer> vecy = new Vector<>();
 
-boolean SolveMaze(int x, int y) {
-  if (!maze_was_here[x][y] && maze_zoo[x][y] != 2) {
-    vecx.addElement(x);
-    vecy.addElement(y);
-  }
-  if (x == x_keluar && y == y_keluar) return true;
-  if (maze_zoo[x][y] == 2 || maze_was_here[x][y]) return false;
-  maze_was_here[x][y] = true;
-  if (x != 0) {
-    if (SolveMaze(x-1, y)) {
-      maze_right_path[x][y] = true;
-      return true;
+    private boolean SolveMaze(int x, int y) {
+      if (!maze_was_here[x][y] && maze_zoo[x][y] != 2) {
+        vecx.addElement(x);
+        vecy.addElement(y);
+      }
+      if (x == x_keluar && y == y_keluar) return true;
+      if (maze_zoo[x][y] == 2 || maze_was_here[x][y]) return false;
+      maze_was_here[x][y] = true;
+      if (x != 0) {
+        if (SolveMaze(x-1, y)) {
+          maze_right_path[x][y] = true;
+          return true;
+        }
+      }
+      if (x != panjang - 1) {
+        if (SolveMaze(x+1, y)) {
+          maze_right_path[x][y] = true;
+          return true;
+        }
+      }
+      if (y != 0) {
+        if (SolveMaze(x, y-1)) {
+          maze_right_path[x][y] = true;
+          return true;
+        }
+      }
+      if (y != lebar - 1) {
+        if (SolveMaze(x, y+1)) {
+          maze_right_path[x][y] = true;
+          return true;
+        }
+      }
+      return false;
     }
-  }
-  if (x != panjang - 1) {
-    if (SolveMaze(x+1, y)) {
-      maze_right_path[x][y] = true;
-      return true;
-    }
-  }
-  if (y != 0) {
-    if (SolveMaze(x, y-1)) {
-      maze_right_path[x][y] = true;
-      return true;
-    }
-  }
-  if (y != lebar - 1) {
-    if (SolveMaze(x, y+1)) {
-      maze_right_path[x][y] = true;
-      return true;
-    }
-  }
-  return false;
-}
 
-    public void TourZoo() {
+    void TourZoo() {
         //x dan y adalah posisi awal "pengunjung"
         //asumsi pintu masuk dan keluar paling banyak ada 10
         int random, n_masuk = 0, masuk_x[], masuk_y[];
@@ -358,8 +361,8 @@ boolean SolveMaze(int x, int y) {
         //random pintu masuk dan keluar
         Random rand = new Random();
         random = rand.nextInt(n_masuk);
-        x_masuk = masuk_x[random];
-        y_masuk = masuk_y[random];
+        int x_masuk = masuk_x[random];
+        int y_masuk = masuk_y[random];
         x_keluar = keluar_x[random];
         y_keluar = keluar_y[random];
 
@@ -387,15 +390,15 @@ boolean SolveMaze(int x, int y) {
         int xx, yy, k, l, up, down, left, right;
         for (int i = 0; i < vecx.size(); i++) {
             System.out.println("\033[H\033[J");
-            xx = (int) vecx.elementAt(i);
-            yy = (int) vecy.elementAt(i);
+            xx = vecx.elementAt(i);
+            yy = vecy.elementAt(i);
 
             up = xx-1;
             down = xx+1;
             left = yy-1;
             right = yy+1;
 
-            my_zoo.PrintZooAnimalCagetour(xx, yy);
+            my_zoo.printZooAnimalCageTour(xx, yy);
             my_zoo.moveAnimal();
 
             boolean found = false, fup = false, fdown = false, fleft = false, fright = false;
@@ -497,10 +500,6 @@ boolean SolveMaze(int x, int y) {
         }
     }
 
-    static public void main (String [] args) throws FileNotFoundException {
-        Driver d = new Driver();
-        d.initCell();
-        d.getZoo().PrintZoo();
-    }
+
 
 }

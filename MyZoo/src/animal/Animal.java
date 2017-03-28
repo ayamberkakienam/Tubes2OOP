@@ -32,6 +32,7 @@ public abstract class Animal {
     loc_y = y;
     tamed = tame;
     content = _content;
+    n_animal++;
   }
   /** Menetapkan nama dari sebuah animal
    * @param names Nama hewan

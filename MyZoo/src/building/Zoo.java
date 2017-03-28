@@ -7,11 +7,23 @@ import building.habitat.real.*;
 
 import java.util.Random;
 
+
+
 /**
  * Created by um-13515026
  * on 28/03/17.
  */
 public class Zoo {
+
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_BLACK = "\u001B[30m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_YELLOW = "\u001B[33m";
+    private static final String ANSI_BLUE = "\u001B[34m";
+    private static final String ANSI_PURPLE = "\u001B[35m";
+    private static final String ANSI_CYAN = "\u001B[36m";
+    private static final String ANSI_WHITE = "\u001B[37m";
 
     private int size_brs;
     private int size_kol;
@@ -193,6 +205,7 @@ public class Zoo {
         }
         l_cage[n].getCell()[nn].setCaged();
         l_cage[n].incSize();
+        m_cell[i][j].setCaged();
     }
 
     /**
@@ -246,117 +259,116 @@ public class Zoo {
      * @param n jumlah total hewan yang ada pada Zoo
      */
     public void createAnimal(char c, int i, int j, int n) {
-        if (m_cell[i][j].render() == '#') {
-            if (m_cell[i][j].isCaged()) {
-                int k = 0;
-                boolean found = false;
-                while (k < getNumCage() && !found) {
-                    int l = 0;
-                    while (l < l_cage[k].getSize() && !found) {
-                        if (l_cage[k].getCell()[l].getX() == i && l_cage[k].getCell()[l].getY() == j) {
-                            found = true;
-                        } else {
-                            l++;
-                        }
-                    }
-                    k++;
-                }
-                k--;
-                int area = l_cage[k].getSize();
-                int max_n_animal =  area*3/10;
-                int n_animal = 0;
-                for (int ii = 0; ii < Animal.getNAnimal(); ii++) {
-                    for (int jj = 0; jj < l_cage[k].getSize(); jj++) {
-                        if (l_cage[k].getCell()[jj].getX() == l_animal[ii].getLocX() &&
-                                l_cage[k].getCell()[jj].getY() == l_animal[ii].getLocY()) {
-                            n_animal++;
-                        }
+        if (m_cell[i][j].isCaged()) {
+            int k = 0;
+            boolean found = false;
+            while (k < getNumCage() && !found) {
+                int l = 0;
+                while (l < l_cage[k].getSize() && !found) {
+                    if (l_cage[k].getCell()[l].getX() == i && l_cage[k].getCell()[l].getY() == j) {
+                        found = true;
+                    } else {
+                        l++;
                     }
                 }
-                if (n_animal < max_n_animal) {
-                    switch (c) {
-                        case 'A':
-                            l_animal[n] = new Bekantan(i, j);
-                            break;
-                        case 'B':
-                            l_animal[n] = new BurungHantu(i, j);
-                            break;
-                        case 'C':
-                            l_animal[n] = new Codot(i, j);
-                            break;
-                        case 'D':
-                            l_animal[n] = new Elang(i, j);
-                            break;
-                        case 'E':
-                            l_animal[n] = new Gajah(i, j);
-                            break;
-                        case 'F':
-                            l_animal[n] = new Gorilla(i, j);
-                            break;
-                        case 'G':
-                            l_animal[n] = new Harimau(i, j);
-                            break;
-                        case 'H':
-                            l_animal[n] = new Hiu(i, j);
-                            break;
-                        case 'I':
-                            l_animal[n] = new IkanTerbang(i, j);
-                            break;
-                        case 'J':
-                            l_animal[n] = new Jerapah(i, j);
-                            break;
-                        case 'K':
-                            l_animal[n] = new Kancil(i, j);
-                            break;
-                        case 'L':
-                            l_animal[n] = new Kepik(i, j);
-                            break;
-                        case 'M':
-                            l_animal[n] = new Kepiting(i, j);
-                            break;
-                        case 'N':
-                            l_animal[n] = new KumbangHutan(i, j);
-                            break;
-                        case 'O':
-                            l_animal[n] = new KupuKupu(i, j);
-                            break;
-                        case 'P':
-                            l_animal[n] = new Lobster(i, j);
-                            break;
-                        case 'Q':
-                            l_animal[n] = new LumbaLumba(i, j);
-                            break;
-                        case 'R':
-                            l_animal[n] = new MacanTutul(i, j);
-                            break;
-                        case 'S':
-                            l_animal[n] = new OwaOwa(i, j);
-                            break;
-                        case 'T':
-                            l_animal[n] = new PausSperma(i, j);
-                            break;
-                        case 'U':
-                            l_animal[n] = new Piranha(i, j);
-                            break;
-                        case 'V':
-                            l_animal[n] = new Platypus(i, j);
-                            break;
-                        case 'W':
-                            l_animal[n] = new Singa(i, j);
-                            break;
-                        case 'X':
-                            l_animal[n] = new SingaLaut(i, j);
-                            break;
+                k++;
+            }
+            k--;
+            int area = l_cage[k].getSize();
+            int max_n_animal =  area*3/10;
+            int n_animal = 0;
+            for (int ii = 0; ii < Animal.getNAnimal(); ii++) {
+                for (int jj = 0; jj < l_cage[k].getSize(); jj++) {
+                    if (l_cage[k].getCell()[jj].getX() == l_animal[ii].getLocX() &&
+                            l_cage[k].getCell()[jj].getY() == l_animal[ii].getLocY()) {
+                        n_animal++;
                     }
                 }
             }
+            if (n_animal < max_n_animal) {
+                switch (c) {
+                    case 'A':
+                        l_animal[n] = new Bekantan(i, j);
+                        break;
+                    case 'B':
+                        l_animal[n] = new BurungHantu(i, j);
+                        break;
+                    case 'C':
+                        l_animal[n] = new Codot(i, j);
+                        break;
+                    case 'D':
+                        l_animal[n] = new Elang(i, j);
+                        break;
+                    case 'E':
+                        l_animal[n] = new Gajah(i, j);
+                        break;
+                    case 'F':
+                        l_animal[n] = new Gorilla(i, j);
+                        break;
+                    case 'G':
+                        l_animal[n] = new Harimau(i, j);
+                        break;
+                    case 'H':
+                        l_animal[n] = new Hiu(i, j);
+                        break;
+                    case 'I':
+                        l_animal[n] = new IkanTerbang(i, j);
+                        break;
+                    case 'J':
+                        l_animal[n] = new Jerapah(i, j);
+                        break;
+                    case 'K':
+                        l_animal[n] = new Kancil(i, j);
+                        break;
+                    case 'L':
+                        l_animal[n] = new Kepik(i, j);
+                        break;
+                    case 'M':
+                        l_animal[n] = new Kepiting(i, j);
+                        break;
+                    case 'N':
+                        l_animal[n] = new KumbangHutan(i, j);
+                        break;
+                    case 'O':
+                        l_animal[n] = new KupuKupu(i, j);
+                        break;
+                    case 'P':
+                        l_animal[n] = new Lobster(i, j);
+                        break;
+                    case 'Q':
+                        l_animal[n] = new LumbaLumba(i, j);
+                        break;
+                    case 'R':
+                        l_animal[n] = new MacanTutul(i, j);
+                        break;
+                    case 'S':
+                        l_animal[n] = new OwaOwa(i, j);
+                        break;
+                    case 'T':
+                        l_animal[n] = new PausSperma(i, j);
+                        break;
+                    case 'U':
+                        l_animal[n] = new Piranha(i, j);
+                        break;
+                    case 'V':
+                        l_animal[n] = new Platypus(i, j);
+                        break;
+                    case 'W':
+                        l_animal[n] = new Singa(i, j);
+                        break;
+                    case 'X':
+                        l_animal[n] = new SingaLaut(i, j);
+                        break;
+                }
+            }
         }
+
     }
 
     /**
      * Print Zoo pada layar
      */
-    public void PrintZoo() {
+    public void printZoo() {
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0; j < size_kol; j++) {
                 System.out.print(m_cell[i][j].render());
@@ -365,13 +377,13 @@ public class Zoo {
         }
     }
 
-    public void PrintZooCage() {
+    public void printZooCage() {
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0; j < size_kol; j++) {
                 char c = m_cell[i][j].render();
                 if (c == '*' || c == '#' || c == '~') {
                     if (m_cell[i][j].isCaged()) {
-                        System.out.print("\033[1;31m" + c +"\033[0m");
+                        System.out.print(ANSI_RED + c + ANSI_RESET);
                     } else {
                         System.out.print(c);
                     }
@@ -383,7 +395,7 @@ public class Zoo {
         }
     }
 
-    public void PrintZooCageAnimal() {
+    public void printZooCageAnimal(int x1, int y1, int x2, int y2) {
 
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0 ; j < size_kol; j++) {
@@ -399,35 +411,37 @@ public class Zoo {
                                 hewan_n = k;
                             }
                         }
-                        if (ada_hewan)
-                            System.out.print("\033[1;35m" + l_animal[hewan_n].getContent() +"\033[0m");
-                        else
-                            System.out.print("\033[1;31m" + c +"\033[0m");
+                        if (i >= x1 && i <= x2 && j >= y1 &&j <= y2)
+                            if (ada_hewan)
+                                System.out.print(ANSI_PURPLE + l_animal[hewan_n].getContent() + ANSI_RESET);
+                            else
+                                System.out.print(ANSI_RED + c + ANSI_RESET);
                     } else {
-                        System.out.print(c);
+                        if (i >= x1 && i <= x2 && j >= y1 &&j <= y2) System.out.print(c);
                     }
                 } else {
-                    if (c == '+') {
-                        System.out.print("\033[1;37m" + c +"\033[0m");
-                    } else if (c == '.') {
-                        System.out.print("\033[1;32m" + c +"\033[0m");
-                    } else if (c == '$') {
-                        System.out.print("\033[1;33m" + c +"\033[0m");
-                    } else {
-                        System.out.print(c);
-                    }
+                    if (i >= x1 && i <= x2 && j >= y1 &&j <= y2)
+                        if (c == '+') {
+                            System.out.print(ANSI_WHITE + c + ANSI_RESET);
+                        } else if (c == '.') {
+                            System.out.print(ANSI_GREEN + c + ANSI_RESET);
+                        } else if (c == '$') {
+                            System.out.print(ANSI_YELLOW + c + ANSI_RESET);
+                        } else {
+                            System.out.print(c);
+                        }
                 }
             }
             System.out.println("");
         }
     }
 
-    public void PrintZooAnimalCagetour(int x, int y) {
+    public void printZooAnimalCageTour(int x, int y) {
 
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0 ; j < size_kol; j++) {
                 if (i == x && j == y) {
-                    System.out.print("\033[1;34m" + 'P' +"\033[0m");
+                    System.out.print(ANSI_BLUE + 'P' + ANSI_RESET);
                 } else {
                     char c = m_cell[i][j].render();
                     if (c == '*' || c == '#' || c == '~') {
@@ -441,19 +455,19 @@ public class Zoo {
                                 }
                             }
                             if (ada_hewan)
-                                System.out.print("\033[1;35m" + l_animal[hewan_n].getContent() +"\033[0m");
+                                System.out.print(ANSI_PURPLE + l_animal[hewan_n].getContent() + ANSI_RESET);
     						else
-                                System.out.print("\033[1;31m" + c +"\033[0m");
+                                System.out.print(ANSI_RED + c + ANSI_RESET);
                         } else {
                             System.out.print(c);
                         }
                     } else {
                         if (c == '+') {
-                            System.out.print("\033[1;37m" + c +"\033[0m");
+                            System.out.print(ANSI_WHITE + c + ANSI_RESET);
                         } else if (c == '.') {
-                            System.out.print("\033[1;32m" + c +"\033[0m");
+                            System.out.print(ANSI_GREEN + c + ANSI_RESET);
                         } else if (c == '$') {
-                            System.out.print("\033[1;33m" + c +"\033[0m");
+                            System.out.print(ANSI_YELLOW + c + ANSI_RESET);
                         } else {
                             System.out.print(c);
                         }
