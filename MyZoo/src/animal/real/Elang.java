@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.bird.meat.BirdMeat;
 
 /**
- * Elang
+ * Elang.
  * Hewan yang memiliki cakar yang kuat dan memakan daging
  */
 public class Elang extends BirdMeat {
@@ -19,7 +19,7 @@ public class Elang extends BirdMeat {
   }
 
   /**
-   * Menghasilkan suara hewan yang khas
+   * Menghasilkan suara hewan yang khas.
    *
    * @return string suara hewan.
    */

@@ -48,7 +48,7 @@ class ElangTest {
     public void isTamed()  {
         System.out.println("Test isTamed");
         animal.Animal A = new Elang(2,5);
-        assertTrue(!A.IsTamed());
+        assertTrue(!A.isTamed());
     }
     @Test
     public void getLegs() {

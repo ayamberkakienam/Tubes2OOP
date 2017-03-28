@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.bird.fruit.BirdFruit;
 
 /**
- * Codot
+ * Codot.
  * Hewan jenis kelelawar yang memakan buah-buahan
  */
 public class Codot extends BirdFruit {
@@ -19,7 +19,7 @@ public class Codot extends BirdFruit {
   }
 
   /**
-   * Menghasilkan suara hewan yang khas
+   * Menghasilkan suara hewan yang khas.
    *
    * @return string suara hewan.
    */

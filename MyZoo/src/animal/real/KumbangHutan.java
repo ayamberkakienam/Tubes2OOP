@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.insect.nectar.InsectNectar;
 
 /**
- * KumbangHutan
+ * KumbangHutan.
  * Serangga yang bercula
  */
 public class KumbangHutan extends InsectNectar {
@@ -19,7 +19,7 @@ public class KumbangHutan extends InsectNectar {
   }
 
   /**
-   * Mencetak informasi spesifik hewan
+   * Mencetak informasi spesifik hewan.
    */
   public String interact() {
     return "Kruk kruk kruk";

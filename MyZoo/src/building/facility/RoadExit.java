@@ -6,12 +6,12 @@ package building.facility;
  */
 
 /**
- * RoadExit
+ * RoadExit.
  * Menangani objek exit  yang merupakan pintu keluar kebun binatang
  */
 public class RoadExit extends Road {
   /**
-   * Melakukan inisialisasi kelas RoadExit dengan parameter absis dan ordinat lokasi facility
+   * Melakukan inisialisasi kelas RoadExit dengan parameter absis dan ordinat lokasi facility.
    *
    * @param i Absis
    * @param j Ordinat

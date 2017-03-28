@@ -57,7 +57,7 @@ class JerapahTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Jerapah(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test

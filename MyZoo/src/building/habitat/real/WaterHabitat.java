@@ -7,8 +7,8 @@ import building.habitat.Habitat;
  * on 27/03/17.
  */
 public class WaterHabitat extends Habitat {
-    public WaterHabitat(int i, int j) {
-        super(i, j);
-        setContent('~');
-    }
+  public WaterHabitat(int i, int j) {
+    super(i, j);
+    setContent('~');
+  }
 }

@@ -59,7 +59,7 @@ class HiuTest {
     void isTamed() {
         System.out.println("Test Tamed..");
         Animal H = new Hiu(5,4);
-        assertTrue(H.IsTamed());
+        assertTrue(H.isTamed());
     }
 
     @Test

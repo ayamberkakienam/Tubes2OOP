@@ -57,7 +57,7 @@ class BekantanTest {
   void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test

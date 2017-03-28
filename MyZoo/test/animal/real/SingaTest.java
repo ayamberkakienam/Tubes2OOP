@@ -57,7 +57,7 @@ class SingaTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Singa(1, 2);
-    assertTrue(!b.IsTamed());
+    assertTrue(!b.isTamed());
   }
 
   @Test

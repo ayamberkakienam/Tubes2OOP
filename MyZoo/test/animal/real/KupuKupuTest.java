@@ -48,7 +48,7 @@ class KupuKupuTest {
     public void isTamed()  {
         System.out.println("Test isTamed");
         Animal A = new KupuKupu(2,5);
-        assertTrue(A.IsTamed());
+        assertTrue(A.isTamed());
     }
     @Test
     public void getLegs() {

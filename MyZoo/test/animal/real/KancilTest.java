@@ -57,7 +57,7 @@ class KancilTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Kancil(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test

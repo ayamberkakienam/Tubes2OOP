@@ -8,14 +8,20 @@ import java.util.Scanner;
  */
 public class Main {
 
-  static public void main (String [] args) throws FileNotFoundException {
+  /**
+   * Main Program.
+   *
+   * @param args aturan main
+   * @throws FileNotFoundException if file not found
+   */
+  public static void main(String[] args) throws FileNotFoundException {
     Driver d = new Driver();
-    Scanner scan = new Scanner(System.in);
 
     System.out.println("Initialisation Cell..");
     d.initCell();
     d.getZoo().printZoo();
 
+    Scanner scan = new Scanner(System.in);
     System.out.println("Press \"ENTER\" to continue...");
     scan.nextLine();
 
@@ -38,7 +44,11 @@ public class Main {
     System.out.println("Press \"ENTER\" to continue...");
     scan.nextLine();
 
-    int pil, x1, x2, y1, y2;
+    int pil;
+    int x1;
+    int x2;
+    int y1;
+    int y2;
     String c = "a";
 
     do {
@@ -52,12 +62,17 @@ public class Main {
       pil = scan.nextInt();
       switch (pil) {
         case 1:
-          System.out.println("Zoo Size = " + d.getZoo().getSizeBrs() + "x" + d.getZoo().getSizeKol());
-          System.out.print("Masukkan x1 = "); x1 = scan.nextInt();
-          System.out.print("Masukkan y1 = "); y1 = scan.nextInt();
-          System.out.print("Masukkan x2 = "); x2 = scan.nextInt();
-          System.out.print("Masukkan y2 = "); y2 = scan.nextInt();
-          while(c != "x" && c != "X") {
+          System.out.println("Zoo Size = " + d.getZoo().getSizeBrs()
+                              + "x" + d.getZoo().getSizeKol());
+          System.out.print("Masukkan x1 = ");
+          x1 = scan.nextInt();
+          System.out.print("Masukkan y1 = ");
+          y1 = scan.nextInt();
+          System.out.print("Masukkan x2 = ");
+          x2 = scan.nextInt();
+          System.out.print("Masukkan y2 = ");
+          y2 = scan.nextInt();
+          while (c != "x" && c != "X") {
             System.out.println("\033[H\033[J");
             d.getZoo().moveAnimal();
             d.getZoo().printZooCageAnimal(x1, y1, x2, y2);

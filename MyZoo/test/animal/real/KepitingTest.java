@@ -59,7 +59,7 @@ class KepitingTest {
     void isTamed() {
         System.out.println("Test Tamed..");
         Animal H = new Kepiting(5,4);
-        assertTrue(H.IsTamed());
+        assertTrue(H.isTamed());
     }
 
     @Test

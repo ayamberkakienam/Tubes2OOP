@@ -48,7 +48,7 @@ class BurungHantuTest {
     public void isTamed()  {
         System.out.println("Test isTamed");
         animal.Animal A = new animal.real.BurungHantu(2,5);
-        assertTrue(A.IsTamed());
+        assertTrue(A.isTamed());
     }
     @Test
     public void getLegs() {

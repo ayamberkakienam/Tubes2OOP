@@ -6,12 +6,14 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
 
-/** Singa
+/**
+ * Singa.
  * Hewan kucing-kucingan yang memiliki rambut lebat di kepala dan memakan daging
  */
-public class Singa  extends QuadrupedMeat {
+public class Singa extends QuadrupedMeat {
   /**
-   * Melakukan inisialisasi kelas Singa dengan parameter absis dan ordinat lokasi
+   * Melakukan inisialisasi kelas Singa dengan parameter absis dan ordinat lokasi.
+   *
    * @param i Absis
    * @param j Ordinat
    */
@@ -21,7 +23,10 @@ public class Singa  extends QuadrupedMeat {
     setContent('W');
     consumerate += getFodder();
   }
-  /**  Menghasilkan suara hewan yang khas
+
+  /**
+   * Menghasilkan suara hewan yang khas.
+   *
    * @return string suara hewan.
    */
   public String interact() {

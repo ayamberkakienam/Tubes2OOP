@@ -10,10 +10,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
-import static animal.Animal.getNAnimal;
-
 /**
- * Driver
+ * Driver.
  * Menangani pembacaan dari file eksternal dan pembuatan map kebun binatang
  * <p></p>
  * Created by Diki Ardian W (13515092) on 3/27/17.
@@ -73,7 +71,6 @@ public class Driver {
    * F.S : Mendapakan jumlah baris map
    * @return jumlah baris map.
    */
-
   public int getMapBrs() {
     return mapBrs;
   }
@@ -84,7 +81,6 @@ public class Driver {
    * F.S : Mendapakan jumlah kolom map
    * @return jumlah kolom map.
    */
-
   public int getMapKol() {
     return mapKol;
   }
@@ -95,7 +91,6 @@ public class Driver {
    * F.S : Mendapakan jumlah kandang map
    * @return jumlah kandang map.
    */
-
   public int getNumCage() {
     return numCage;
   }
@@ -105,7 +100,6 @@ public class Driver {
    * F.S : Mendapakan object Zoo yang telah dihidupkan
    * @return Object myZoo.
    */
-
   public Zoo getZoo() {
     return myZoo;
   }
@@ -114,7 +108,6 @@ public class Driver {
    *  I.S : myZoo terdefinisi
    *  F.S : Cell pada myZoo terbentuk
    */
-
   void initCell() {
     int i;
     int jneff;
@@ -137,7 +130,6 @@ public class Driver {
    *  I.S : myZoo terdefinisi
    *  F.S : semua kandang pada myZoo telah diciptakan
    */
-
   void initCage() {
     int j;
     int count = 0;
@@ -257,7 +249,6 @@ public class Driver {
    * F.S : Animal pada map terdefinisi sesuai posisinya
    * @throws FileNotFoundException if file not found
    */
-
   void initAnimal() throws FileNotFoundException {
     int brs = 0;
     map = new char[500][500];
@@ -287,7 +278,7 @@ public class Driver {
             jneff++;
             break;
           default:
-            myZoo.createAnimal(map[i][j], i, jneff, getNAnimal());
+            myZoo.createAnimal(map[i][j], i, jneff, Animal.getNAnimal());
             jneff++;
             break;
         }

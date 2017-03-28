@@ -3,13 +3,13 @@ package animal.classification.flying.insect;
 import animal.classification.flying.FlyingAnimal;
 
 /**
- * Insect
+ * Insect.
  * Kelas yang menangani hewan dengan habitat = "Air"
  * dan Legs = 6
  */
 public abstract class Insect extends FlyingAnimal {
   /**
-   * Constructor
+   * Constructor.
    * Melakukan inisialisasi kelas Insect
    *
    * @param w    untuk weight
@@ -24,7 +24,7 @@ public abstract class Insect extends FlyingAnimal {
 
   /**
    * Mengembalikan string yang menggambarkan interaksi
-   * user dengan hewan
+   * user dengan hewan.
    *
    * @return suara hewan
    */

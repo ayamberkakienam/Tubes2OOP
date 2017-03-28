@@ -6,20 +6,23 @@ package animal.classification.water.legged;
 
 import animal.classification.water.WaterAnimal;
 
-/**Legged
+/**
+ * Legged.
  * Kelas yang menangani hewan dengan habitat = "Water"
  * dan leg = 10
  */
 public abstract class Legged extends WaterAnimal {
-    /** Constructor.
-     * Melakukan inisialisasi kelas Legged
-     * @param w untuk weight
-     * @param x untuk koordinat x pada map
-     * @param y untuk koordinat y pada map
-     * @param tame true jika jinak, false jika tidak jinak
-     */
-    public Legged(float w, int x, int y, boolean tame) {
-        super(w, x, y, tame);
-        setLeg(10);
-    }
+  /**
+   * Constructor.
+   * Melakukan inisialisasi kelas Legged
+   *
+   * @param w    untuk weight
+   * @param x    untuk koordinat x pada map
+   * @param y    untuk koordinat y pada map
+   * @param tame true jika jinak, false jika tidak jinak
+   */
+  public Legged(float w, int x, int y, boolean tame) {
+    super(w, x, y, tame);
+    setLeg(10);
+  }
 }
