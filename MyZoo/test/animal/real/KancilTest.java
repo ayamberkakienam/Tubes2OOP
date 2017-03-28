@@ -57,7 +57,7 @@ class KancilTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Kancil(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class KancilTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Kancil(1, 2);
-    assertTrue(Objects.equals("Ngik ngik ngik", b.Interact()));
+    assertTrue(Objects.equals("Ngik ngik ngik", b.interact()));
   }
 }

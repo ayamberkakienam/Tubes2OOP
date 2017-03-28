@@ -45,7 +45,7 @@ class CodotTest {
     public void isTamed()  {
         System.out.println("Test isTamed");
         Animal A = new Codot(2,5);
-        assertTrue(!A.IsTamed());
+        assertTrue(!A.isTamed());
     }
     @Test
     public void getLegs() {
@@ -58,7 +58,7 @@ class CodotTest {
     public void interact() {
         System.out.println("Test interact");
         Animal A = new Codot(2,5);
-        assertTrue(A.Interact().equals("Cit cit cit"));
+        assertTrue(A.interact().equals("Cit cit cit"));
     }
 
 }

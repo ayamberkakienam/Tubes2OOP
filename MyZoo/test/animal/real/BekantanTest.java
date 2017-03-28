@@ -57,7 +57,7 @@ class BekantanTest {
   void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class BekantanTest {
 
   @Test
   void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Bekantan(1, 2);
-    assertTrue(Objects.equals("Uuuuuuu", b.Interact()));
+    assertTrue(Objects.equals("Uuuuuuu", b.interact()));
   }
 }

@@ -6,12 +6,14 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
 
-/** Harimau
+/**
+ * Harimau.
  * Hewan kucing-kucingan yang memiliki tubuh besar dan memakan daging
  */
-public class Harimau  extends QuadrupedMeat {
+public class Harimau extends QuadrupedMeat {
   /**
-   * Melakukan inisialisasi kelas Harimau dengan parameter absis dan ordinat lokasi
+   * Melakukan inisialisasi kelas Harimau dengan parameter absis dan ordinat lokasi.
+   *
    * @param i Absis
    * @param j Ordinat
    */
@@ -21,10 +23,13 @@ public class Harimau  extends QuadrupedMeat {
     setContent('G');
     consumerate += getFodder();
   }
-  /**  Menghasilkan suara hewan yang khas
+
+  /**
+   * Menghasilkan suara hewan yang khas.
+   *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Roarrrr";
   }
 }

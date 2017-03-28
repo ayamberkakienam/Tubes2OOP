@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.insect.nectar.InsectNectar;
 
 /**
- * Kepik
+ * Kepik.
  * Serangga berukuran kecil dan memiliki tubuhnya berwarna-warni
  */
 public class Kepik extends InsectNectar {
@@ -19,10 +19,10 @@ public class Kepik extends InsectNectar {
   }
 
   /**
+   * Menghasilkan suara hewan yang khas.
    * @return string suara hewan.
-   * Menghasilkan suara hewan yang khas
    */
-  public String Interact() {
+  public String interact() {
     return "Krik krik krik";
   }
 }

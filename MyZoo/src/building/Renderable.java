@@ -5,9 +5,10 @@ package building;
  * on 27/03/17.
  */
 public interface Renderable {
-    /**
-     * Melakukan render
-     * @return content pada Cell
-     */
-    char render();
+  /**
+   * Melakukan render.
+   *
+   * @return content pada Cell
+   */
+  char render();
 }

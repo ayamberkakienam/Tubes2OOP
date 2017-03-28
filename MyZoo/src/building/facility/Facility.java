@@ -7,12 +7,14 @@ import building.Cell;
  * on 27/03/17.
  */
 
-/** Facility
+/**
+ * Facility.
  * Menangani objek facility yang merupakan fasilitas yang tersedia pada kebun binatang
  */
 public class Facility extends Cell {
   /**
-   * Melakukan inisialisasi kelas facility dengan parameter absis dan ordinat lokasi facility
+   * Melakukan inisialisasi kelas facility dengan parameter absis dan ordinat lokasi facility.
+   *
    * @param i Absis
    * @param j Ordinat
    */

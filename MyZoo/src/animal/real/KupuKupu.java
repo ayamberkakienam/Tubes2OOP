@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.insect.nectar.InsectNectar;
 
 /**
- * KupuKupu
+ * KupuKupu.
  * Serangga yang memiliki warna sayap berwarna-warni
  */
 public class KupuKupu extends InsectNectar {
@@ -12,18 +12,18 @@ public class KupuKupu extends InsectNectar {
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
    */
   public KupuKupu(int i, int j) {
-      super((float) 0.03, i, j, true);
-      setName("Kupu-kupu");
-      setContent('O');
-      consumerate += getFodder();
+    super((float) 0.03, i, j, true);
+    setName("Kupu-kupu");
+    setContent('O');
+    consumerate += getFodder();
   }
 
   /**
-   * Menghasilkan suara hewan yang khas
+   * Menghasilkan suara hewan yang khas.
    *
    * @return string suara hewan.
    */
-  public String Interact() {
-        return "Wir wir";
-    }
+  public String interact() {
+    return "Wir wir";
+  }
 }

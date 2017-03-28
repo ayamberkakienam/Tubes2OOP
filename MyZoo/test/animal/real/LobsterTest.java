@@ -59,7 +59,7 @@ class LobsterTest {
     void isTamed() {
         System.out.println("Test Tamed..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.IsTamed());
+        assertTrue(H.isTamed());
     }
 
     @Test
@@ -71,8 +71,8 @@ class LobsterTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new Lobster(5,4);
-        assertTrue(H.Interact().equals("Crek crek crek"));
+        assertTrue(H.interact().equals("Crek crek crek"));
     }
 }

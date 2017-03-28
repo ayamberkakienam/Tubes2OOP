@@ -48,7 +48,7 @@ class KumbangHutanTest {
     public void isTamed()  {
         System.out.println("Test isTamed");
         Animal A = new KumbangHutan(2,5);
-        assertTrue(A.IsTamed());
+        assertTrue(A.isTamed());
     }
     @Test
     public void getLegs() {
@@ -61,7 +61,7 @@ class KumbangHutanTest {
     public void interact() {
         System.out.println("Test interact");
         Animal A = new KumbangHutan(2,5);
-        assertTrue(A.Interact().equals("Kruk kruk kruk"));
+        assertTrue(A.interact().equals("Kruk kruk kruk"));
     }
 
 }

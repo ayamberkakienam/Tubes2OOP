@@ -3,7 +3,7 @@ package animal.real;
 import animal.classification.flying.bird.meat.BirdMeat;
 
 /**
- * BurungHantu
+ * BurungHantu.
  * Hewan yang tidur di siang hari dan berburu di malam hari
  */
 public class BurungHantu extends BirdMeat {
@@ -19,11 +19,11 @@ public class BurungHantu extends BirdMeat {
   }
 
   /**
-   * Menghasilkan suara hewan yang khas
+   * Menghasilkan suara hewan yang khas.
    *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Kur kur kur";
   }
 }

@@ -6,40 +6,48 @@ package building;
  */
 
 /**
- * Cage
+ * Cage.
  * Menangani objek cage yang merupakan area hidup hewan
  */
 public class Cage {
-  protected Cell[] a_cell;
+  protected Cell[] arrCell;
   protected int size;
+
   /**
-   * Constructor
+   * Constructor.
    */
   public Cage() {
-    a_cell = new Cell[300];
+    arrCell = new Cell[300];
+    size = 0;
   }
+
   /**
-   * getter ukuran cage
+   * Getter ukuran cage.
+   *
    * @return Ukuran cage
    */
   public int getSize() {
     return size;
   }
+
   /**
-   * getter array cell yang merupakan wilayah cage
+   * Getter array cell yang merupakan wilayah cage.
+   *
    * @return Array cell yang menjadi wilayah cage
    */
   public Cell[] getCell() {
-    return a_cell;
+    return arrCell;
   }
+
   /**
-   * Memperbesar wilayah cage
+   * Memperbesar wilayah cage.
    */
   public void incSize() {
     size++;
   }
+
   /**
-   * Memperkecil wilayah cage
+   * Memperkecil wilayah cage.
    */
   public void decSize() {
     size--;

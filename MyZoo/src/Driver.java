@@ -1,505 +1,525 @@
 import animal.Animal;
 import building.Zoo;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
-import static animal.Animal.getNAnimal;
-
 /**
+ * Driver.
+ * Menangani pembacaan dari file eksternal dan pembuatan map kebun binatang
+ * <p></p>
  * Created by Diki Ardian W (13515092) on 3/27/17.
  */
-
-/**
- * Driver
- * Menangani pembacaan dari file eksternal dan pembuatan map kebun binatang
- */
 public class Driver {
-    private int map_brs;
-    private int map_kol;
-    private int num_cage;
-    private char [][]map;
-    private String []str_temp;
-    private Zoo my_zoo;
+  private int mapBrs;
+  private int mapKol;
+  private int numCage;
+  private char [][]map;
+  private String []strTemp;
+  private Zoo myZoo;
 
-    /**
-     * @throws FileNotFoundException
-     * Constructor.
-     * Membaca file eksternal dan menyimpan informasi jumlah baris dan kolom map
-     */
-    public Driver() throws FileNotFoundException {
-        int brs = 0;
-        map = new char[500][500];
-        str_temp = new String[500];
-        try {
-            FileInputStream fstream = new FileInputStream("MyZoo/map.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-            String str_line;
-            while ((str_line = br.readLine()) != null) {
-                str_temp[brs] = str_line;
-                for (int j = 0; j < str_line.length(); j++) {
-                    map[brs][j] = str_line.charAt(j);
-                }
-                brs++;
-            }
-        } catch (IOException ioe) {
-            System.out.println(ioe.getMessage());
+  /**
+   * Constructor.
+   * Membaca file eksternal dan menyimpan informasi jumlah baris dan kolom map
+   * @throws FileNotFoundException if file not found
+   */
+  public Driver() {
+    int brs = 0;
+    map = new char[500][500];
+    strTemp = new String[500];
+    try {
+      FileInputStream fstream = new FileInputStream("map.txt");
+      BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+      String strLine;
+      while ((strLine = br.readLine()) != null) {
+        strTemp[brs] = strLine;
+        for (int j = 0; j < strLine.length(); j++) {
+          map[brs][j] = strLine.charAt(j);
         }
-        map_brs = brs - 1;
-        num_cage = Integer.parseInt(str_temp[brs - 1].substring(5));
-        int kol = 0;
-        int x = 0;
-        while (x < str_temp[0].length()) {
-            if ((map[0][x] == 'A') || (map[0][x] == 'W') || (map[0][x] == 'L')) {
-                x = x + 2;
-            } else {
-                x++;
-            }
-            kol++;
-        }
-        map_kol = kol;
-//        System.out.println(map_brs + " " + map_kol + " " + num_cage);
-        my_zoo = new Zoo(map_brs, map_kol, num_cage);
+        brs++;
+      }
+    } catch (IOException ioe) {
+      System.out.println(ioe.getMessage());
     }
-    /**
-     * @return jumlah baris map.
-     * Mengembalikan jumlah baris yang menyusun map
-     * I.S : Costructor driver telah dipanggil
-     * F.S : Mendapakan jumlah baris map
-     */
-    public int getMapBrs() {
-        return map_brs;
+    mapBrs = brs - 1;
+    numCage = Integer.parseInt(strTemp[brs - 1].substring(5));
+    int kol = 0;
+    int x = 0;
+    while (x < strTemp[0].length()) {
+      if ((map[0][x] == 'A')
+          || (map[0][x] == 'W')
+          || (map[0][x] == 'L')) {
+        x = x + 2;
+      } else {
+        x++;
+      }
+      kol++;
     }
-    /**
-     * @return jumlah kolom map.
-     * Mengembalikan jumlah kolom yang menyusun map
-     * I.S : Costructor driver telah dipanggil
-     * F.S : Mendapakan jumlah kolom map
-     */
-    public int getMapKol() {
-        return map_kol;
-    }
-    /**
-     * @return jumlah kandang map.
-     * Mengembalikan jumlah kandang pada map
-     * I.S : Costructor driver telah dipanggil
-     * F.S : Mendapakan jumlah kandang map
-     */
-    public int getNumCage() {
-        return num_cage;
-    }
-    /** getter untuk atribut my_zoo
-     * I.S : Costructor driver telah dipanggil
-     * F.S : Mendapakan object Zoo yang telah dihidupkan
-     * @return Object my_zoo.
-     */
-    public Zoo getZoo() {
-        return my_zoo;
-    }
-    /** Menginisiasi semua cell pada map
-     *  I.S : my_zoo terdefinisi
-     *  F.S : Cell pada my_zoo terbentuk
-     */
-    void initCell() {
-        int i, jneff;
-        int j;
-        for (i = 0; i < map_brs; i++) {
-            j = 0;
-            jneff = 0;
-            while (j < str_temp[i].length()) {
-                char c = map[i][j];
-                if (c < 48 || c > 57) {
-                    my_zoo.createCell(map[i][j], i, jneff);
-                    jneff++;
-                }
-                j++;
-            }
-        }
-    }
-    /** Menginisiasi semua kandang pada map
-     *  I.S : my_zoo terdefinisi
-     *  F.S : semua kandang pada my_zoo telah diciptakan
-     */
-    void initCage() {
-        int j;
-        int count = 0, i, jneff, idx;
-        char digit1 = 48;
-        char digit2 = 49;
-        while (count < num_cage) {
-            idx = 0;
-            for (i = 0; i < map_brs; i++) {
-                j = 0;
-                jneff = 0;
-                while (j < str_temp[i].length()) {
-                    if (count < 9) {
-                        if (map[i][j] == digit2) {
-                            if ((map[i][j+1] == '#') ||
-                                    (map[i][j+1] == '~') ||
-                                    (map[i][j+1] == '*')) {
-                                my_zoo.setCellCage(count, idx, i, jneff);
-                                j = j+2;
-                                idx++;
-                                jneff++;
-                            }
-                            else { //angka sama tapi beda belakangnya (dua digit)
-                                j = j+3;
-                                jneff++;
-                            }
-                        }
-                        else if ((map[i][j]=='#') ||
-                                (map[i][j]=='~') ||
-                                (map[i][j]=='*') ||
-                                (map[i][j]=='.') ||
-                                (map[i][j]=='+') ||
-                                (map[i][j]=='=') ||
-                                (map[i][j]=='$') ||
-                                (map[i][j]=='!')) {
-                            j++;
-                            jneff++;
-                        }
-                        else { // angka satu digit beda
-                            if ((map[i][j+1]=='#') ||
-                                    (map[i][j+1]=='~') ||
-                                    (map[i][j+1]=='*') ||
-                                    (map[i][j+1]=='.') ||
-                                    (map[i][j+1]=='+') ||
-                                    (map[i][j+1]=='=') ||
-                                    (map[i][j+1]=='$') ||
-                                    (map[i][j+1]=='!')) {
-                                j = j+2;
-                                jneff++;
-                            }
-                            else { //dua digit
-                                j = j+3;
-                                jneff++;
-                            }
-                        }
-                    }
-                    else {
-                        if (map[i][j] == digit1) {
-                            if (map[i][j+1] == digit2) {
-                                my_zoo.setCellCage(count, idx, i, jneff);
-                                j = j+3;
-                                idx++;
-                                jneff++;
-                            }
-                            else if ((map[i][j+1]=='#') ||
-                                    (map[i][j+1]=='~') ||
-                                    (map[i][j+1]=='*') ||
-                                    (map[i][j+1]=='.') ||
-                                    (map[i][j+1]=='+') ||
-                                    (map[i][j+1]=='=') ||
-                                    (map[i][j+1]=='$') ||
-                                    (map[i][j+1]=='!')) {
-                                j = j+2;
-                                jneff++;
-                            }
-                            else { //dua digit beda
-                                j = j+3;
-                                jneff++;
-                            }
-                        }
-                        else if ((map[i][j]=='#') ||
-                                (map[i][j]=='~') ||
-                                (map[i][j]=='*') ||
-                                (map[i][j]=='.') ||
-                                (map[i][j]=='+') ||
-                                (map[i][j]=='=') ||
-                                (map[i][j]=='$') ||
-                                (map[i][j]=='!')) { //bukan angka
-                            j++;
-                            jneff++;
-                        }
-                        else { //angka tapi beda
-                            if ((map[i][j+1]=='#') ||
-                                    (map[i][j+1]=='~') ||
-                                    (map[i][j+1]=='*') ||
-                                    (map[i][j+1]=='.') ||
-                                    (map[i][j+1]=='+') ||
-                                    (map[i][j+1]=='=') ||
-                                    (map[i][j+1]=='$') ||
-                                    (map[i][j+1]=='!')) {
-                                j = j+2;
-                                jneff++;
-                            }
-                            else { // dua digit
-                                j = j+3;
-                                jneff++;
-                            }
-                        }
-                    }
-                }
-            }
-            if (count%10 == 8) {
-                digit1++;
-                digit2 = 48;
-            }
-            else {
-                digit2++;
-            }
-            count++;
-        }
-    }
-    /** Menginisiasi semua animal pada map
-     *  I.S : my_zoo terdefinisi
-     *  F.S : Animal pada map terdefinisi sesuai posisinya
-     */
-    void initAnimal() throws FileNotFoundException {
-        int brs = 0;
-        map = new char[500][500];
-        str_temp = new String[500];
-        try {
-            FileInputStream fstream = new FileInputStream("MyZoo/animal.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-            String str_line;
-            while ((str_line = br.readLine()) != null) {
-                str_temp[brs] = str_line;
-                for (int j = 0; j < str_line.length(); j++) {
-                    map[brs][j] = str_line.charAt(j);
-                }
-                brs++;
-            }
-        } catch (IOException ioe) {
-            System.out.println(ioe.getMessage());
-        }
+    mapKol = kol;
+    myZoo = new Zoo(mapBrs, mapKol, numCage);
+  }
 
-        int i, j, jneff;
-        for (i = 0; i < map_brs; i++) {
-            j = 0;
-            jneff = 0;
-            while (j < str_temp[i].length()) {
-                switch (map[i][j]) {
-                    case '-' :
-                        jneff++;
-                        break;
-                    default:
-                        my_zoo.createAnimal(map[i][j], i, jneff, getNAnimal());
-                        jneff++;
-                        break;
-                }
-                j++;
-            }
+  /**
+   * Mengembalikan jumlah baris yang menyusun map
+   * I.S : Costructor driver telah dipanggil
+   * F.S : Mendapakan jumlah baris map
+   * @return jumlah baris map.
+   */
+  public int getMapBrs() {
+    return mapBrs;
+  }
+
+  /**
+   * Mengembalikan jumlah kolom yang menyusun map
+   * I.S : Costructor driver telah dipanggil
+   * F.S : Mendapakan jumlah kolom map
+   * @return jumlah kolom map.
+   */
+  public int getMapKol() {
+    return mapKol;
+  }
+
+  /**
+   * Mengembalikan jumlah kandang pada map
+   * I.S : Costructor driver telah dipanggil
+   * F.S : Mendapakan jumlah kandang map
+   * @return jumlah kandang map.
+   */
+  public int getNumCage() {
+    return numCage;
+  }
+
+  /** getter untuk atribut myZoo
+   * I.S : Costructor driver telah dipanggil
+   * F.S : Mendapakan object Zoo yang telah dihidupkan
+   * @return Object myZoo.
+   */
+  public Zoo getZoo() {
+    return myZoo;
+  }
+
+  /** Menginisiasi semua cell pada map
+   *  I.S : myZoo terdefinisi
+   *  F.S : Cell pada myZoo terbentuk
+   */
+  void initCell() {
+    int i;
+    int jneff;
+    int j;
+    for (i = 0; i < mapBrs; i++) {
+      j = 0;
+      jneff = 0;
+      while (j < strTemp[i].length()) {
+        char c = map[i][j];
+        if (c < 48 || c > 57) {
+          myZoo.createCell(map[i][j], i, jneff);
+          jneff++;
         }
+        j++;
+      }
+    }
+  }
+
+  /** Menginisiasi semua kandang pada map
+   *  I.S : myZoo terdefinisi
+   *  F.S : semua kandang pada myZoo telah diciptakan
+   */
+  void initCage() {
+    int j;
+    int count = 0;
+    int i;
+    int jneff;
+    int idx;
+    char digit1 = 48;
+    char digit2 = 49;
+    while (count < numCage) {
+      idx = 0;
+      for (i = 0; i < mapBrs; i++) {
+        j = 0;
+        jneff = 0;
+        while (j < strTemp[i].length()) {
+          if (count < 9) {
+            if (map[i][j] == digit2) {
+              if ((map[i][j + 1] == '#')
+                  || (map[i][j + 1] == '~')
+                  || (map[i][j + 1] == '*')) {
+                myZoo.setCellCage(count, idx, i, jneff);
+                j = j + 2;
+                idx++;
+                jneff++;
+              } else { //angka sama tapi beda belakangnya (dua digit)
+                j = j + 3;
+                jneff++;
+              }
+            } else if ((map[i][j] == '#')
+                || (map[i][j] == '~')
+                || (map[i][j] == '*')
+                || (map[i][j] == '.')
+                || (map[i][j] == '+')
+                || (map[i][j] == '=')
+                || (map[i][j] == '$')
+                || (map[i][j] == '!')) {
+              j++;
+              jneff++;
+            } else { // angka satu digit beda
+              if ((map[i][j + 1] == '#')
+                  || (map[i][j + 1] == '~')
+                  || (map[i][j + 1] == '*')
+                  || (map[i][j + 1] == '.')
+                  || (map[i][j + 1] == '+')
+                  || (map[i][j + 1] == '=')
+                  || (map[i][j + 1] == '$')
+                  || (map[i][j + 1] == '!')) {
+                j = j + 2;
+                jneff++;
+              } else { //dua digit
+                j = j + 3;
+                jneff++;
+              }
+            }
+          } else {
+            if (map[i][j] == digit1) {
+              if (map[i][j + 1] == digit2) {
+                myZoo.setCellCage(count, idx, i, jneff);
+                j = j + 3;
+                idx++;
+                jneff++;
+              } else if ((map[i][j + 1] == '#')
+                  || (map[i][j + 1] == '~')
+                  || (map[i][j + 1] == '*')
+                  || (map[i][j + 1] == '.')
+                  || (map[i][j + 1] == '+')
+                  || (map[i][j + 1] == '=')
+                  || (map[i][j + 1] == '$')
+                  || (map[i][j + 1] == '!')) {
+                j = j + 2;
+                jneff++;
+              } else { //dua digit beda
+                j = j + 3;
+                jneff++;
+              }
+            } else if ((map[i][j] == '#')
+                || (map[i][j] == '~')
+                || (map[i][j] == '*')
+                || (map[i][j] == '.')
+                || (map[i][j] == '+')
+                || (map[i][j] == '=')
+                || (map[i][j] == '$')
+                || (map[i][j] == '!')) { //bukan angka
+              j++;
+              jneff++;
+            } else { //angka tapi beda
+              if ((map[i][j + 1] == '#')
+                  || (map[i][j + 1] == '~')
+                  || (map[i][j + 1] == '*')
+                  || (map[i][j + 1] == '.')
+                  || (map[i][j + 1] == '+')
+                  || (map[i][j + 1] == '=')
+                  || (map[i][j + 1] == '$')
+                  || (map[i][j + 1] == '!')) {
+                j = j + 2;
+                jneff++;
+              } else { // dua digit
+                j = j + 3;
+                jneff++;
+              }
+            }
+          }
+        }
+      }
+      if (count % 10 == 8) {
+        digit1++;
+        digit2 = 48;
+      } else {
+        digit2++;
+      }
+      count++;
+    }
+  }
+
+  /**
+   * Menginisiasi semua animal pada map
+   * I.S : myZoo terdefinisi
+   * F.S : Animal pada map terdefinisi sesuai posisinya
+   * @throws FileNotFoundException if file not found
+   */
+  void initAnimal() {
+    int brs = 0;
+    map = new char[500][500];
+    strTemp = new String[500];
+    try {
+      FileInputStream fstream = new FileInputStream("animal.txt");
+      BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+      String strLine;
+      while ((strLine = br.readLine()) != null) {
+        strTemp[brs] = strLine;
+        for (int j = 0; j < strLine.length(); j++) {
+          map[brs][j] = strLine.charAt(j);
+        }
+        brs++;
+      }
+    } catch (IOException ioe) {
+      System.out.println(ioe.getMessage());
     }
 
-    private int [][] maze_zoo;
-    private boolean [][] maze_was_here;
-    private boolean [][] maze_right_path;
-    private int x_keluar;
-    private int y_keluar;
-    private int panjang;
-    private int lebar;
-    private Vector<Integer> vecx = new Vector<>();
-    private Vector<Integer> vecy = new Vector<>();
+    int jneff;
+    for (int i = 0; i < mapBrs; i++) {
+      int j = 0;
+      jneff = 0;
+      while (j < strTemp[i].length()) {
+        switch (map[i][j]) {
+          case '-' :
+            jneff++;
+            break;
+          default:
+            myZoo.createAnimal(map[i][j], i, jneff, Animal.getNAnimal());
+            jneff++;
+            break;
+        }
+        j++;
+      }
+    }
+  }
 
-    private boolean SolveMaze(int x, int y) {
-      if (!maze_was_here[x][y] && maze_zoo[x][y] != 2) {
-        vecx.addElement(x);
-        vecy.addElement(y);
-      }
-      if (x == x_keluar && y == y_keluar) return true;
-      if (maze_zoo[x][y] == 2 || maze_was_here[x][y]) return false;
-      maze_was_here[x][y] = true;
-      if (x != 0) {
-        if (SolveMaze(x-1, y)) {
-          maze_right_path[x][y] = true;
-          return true;
-        }
-      }
-      if (x != panjang - 1) {
-        if (SolveMaze(x+1, y)) {
-          maze_right_path[x][y] = true;
-          return true;
-        }
-      }
-      if (y != 0) {
-        if (SolveMaze(x, y-1)) {
-          maze_right_path[x][y] = true;
-          return true;
-        }
-      }
-      if (y != lebar - 1) {
-        if (SolveMaze(x, y+1)) {
-          maze_right_path[x][y] = true;
-          return true;
-        }
-      }
+  private int [][] mazeZoo;
+  private boolean [][] mazeWasHere;
+  private int xxKeluar;
+  private int yyKeluar;
+  private int panjang;
+  private int lebar;
+  private Vector<Integer> vecx = new Vector<>();
+  private Vector<Integer> vecy = new Vector<>();
+
+  private boolean solveMaze(int x, int y) {
+    if (!mazeWasHere[x][y] && mazeZoo[x][y] != 2) {
+      vecx.addElement(x);
+      vecy.addElement(y);
+    }
+    if (x == xxKeluar && y == yyKeluar) {
+      return true;
+    }
+    if (mazeZoo[x][y] == 2 || mazeWasHere[x][y]) {
       return false;
     }
+    mazeWasHere[x][y] = true;
+    if (x != 0) {
+      if (solveMaze(x - 1, y)) {
+        return true;
+      }
+    }
+    if (x != panjang - 1) {
+      if (solveMaze(x + 1, y)) {
+        return true;
+      }
+    }
+    if (y != 0) {
+      if (solveMaze(x, y - 1)) {
+        return true;
+      }
+    }
+    if (y != lebar - 1) {
+      if (solveMaze(x, y + 1)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
-    void TourZoo() {
-        //x dan y adalah posisi awal "pengunjung"
-        //asumsi pintu masuk dan keluar paling banyak ada 10
-        int random, n_masuk = 0, masuk_x[], masuk_y[];
-        int n_keluar = 0, keluar_x[], keluar_y[];
-        masuk_x = new int[10];
-        masuk_y = new int[10];
-        keluar_x = new int[10];
-        keluar_y = new int[10];
+  void tourZoo() {
 
-        panjang = my_zoo.getSizeBrs();
-        lebar = my_zoo.getSizeKol();
-        for (int i = 0; i < panjang ; i++) {
-            for (int j = 0; j < lebar; j++) {
-                //cari semua entrance dan exit yang ada
-                if (i == 0 || i == panjang-1 || j == 0 || j == lebar-1) {
-                    if (my_zoo.getCell()[i][j].render() == '=') {
-                        masuk_x[n_masuk] = i;
-                        masuk_y[n_masuk] = j;
-                        n_masuk++;
-                    }
-                    if (my_zoo.getCell()[i][j].render() == '!') {
-                        keluar_x[n_keluar] = i;
-                        keluar_y[n_keluar] = j;
-                        n_keluar++;
-                    }
-                }
-            }
+    //x dan y adalah posisi awal "pengunjung"
+    //asumsi pintu masuk dan keluar paling banyak ada 10
+    int numMasuk = 0;
+    int numKeluar = 0;
+    int [] masukX;
+    masukX = new int[10];
+    int [] masukY;
+    masukY = new int[10];
+    int [] keluarX;
+    keluarX = new int[10];
+    int [] keluarY;
+    keluarY = new int[10];
+
+    panjang = myZoo.getSizeBrs();
+    lebar = myZoo.getSizeKol();
+    for (int i = 0; i < panjang ; i++) {
+      for (int j = 0; j < lebar; j++) {
+        //cari semua entrance dan exit yang ada
+        if (i == 0 || i == panjang - 1 || j == 0 || j == lebar - 1) {
+          if (myZoo.getCell()[i][j].render() == '=') {
+            masukX[numMasuk] = i;
+            masukY[numMasuk] = j;
+            numMasuk++;
+          }
+          if (myZoo.getCell()[i][j].render() == '!') {
+            keluarX[numKeluar] = i;
+            keluarY[numKeluar] = j;
+            numKeluar++;
+          }
         }
-        //random pintu masuk dan keluar
-        Random rand = new Random();
-        random = rand.nextInt(n_masuk);
-        int x_masuk = masuk_x[random];
-        int y_masuk = masuk_y[random];
-        x_keluar = keluar_x[random];
-        y_keluar = keluar_y[random];
+      }
+    }
+    int random;
+    //random pintu masuk dan keluar
+    Random rand = new Random();
+    random = rand.nextInt(numMasuk);
 
-        char cont;
-        maze_zoo = new int [panjang][lebar];
-        maze_was_here = new boolean[panjang][lebar];
-        maze_right_path = new boolean[panjang][lebar];
-        for (int i = 0; i < panjang; i++) {
-            for (int j = 0; j < lebar; j++) {
-                cont = my_zoo.getCell()[i][j].render();
-                if (cont == '+' || cont == '!' || cont == '=') {
-                    maze_zoo[i][j] = 1;
-                } else {
-                    maze_zoo[i][j] = 2;
-                }
-                maze_was_here[i][j] = false;
-                maze_right_path[i][j] = false;
-            }
+    xxKeluar = keluarX[random];
+    yyKeluar = keluarY[random];
+
+    char cont;
+    mazeZoo = new int [panjang][lebar];
+    mazeWasHere = new boolean[panjang][lebar];
+    for (int i = 0; i < panjang; i++) {
+      for (int j = 0; j < lebar; j++) {
+        cont = myZoo.getCell()[i][j].render();
+        if (cont == '+' || cont == '!' || cont == '=') {
+          mazeZoo[i][j] = 1;
+        } else {
+          mazeZoo[i][j] = 2;
         }
-
-        //tour sampai exit (pencarian jalur dengan dfs)
-        boolean tour = SolveMaze(x_masuk, y_masuk);
-        tour = !tour;
-
-        int xx, yy, k, l, up, down, left, right;
-        for (int i = 0; i < vecx.size(); i++) {
-            System.out.println("\033[H\033[J");
-            xx = vecx.elementAt(i);
-            yy = vecy.elementAt(i);
-
-            up = xx-1;
-            down = xx+1;
-            left = yy-1;
-            right = yy+1;
-
-            my_zoo.printZooAnimalCageTour(xx, yy);
-            my_zoo.moveAnimal();
-
-            boolean found = false, fup = false, fdown = false, fleft = false, fright = false;
-            k = 0;
-            while (k < my_zoo.getNumCage() && !found) {
-                l = 0;
-                while (l < my_zoo.getCage()[k].getSize() && !found) {
-                    if (my_zoo.getCage()[k].getCell()[l].getX() == up && my_zoo.getCage()[k].getCell()[l].getY() == yy) { //look up
-                        found = true;
-                        fup = true;
-                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == down && my_zoo.getCage()[k].getCell()[l].getY() == yy) { //look down
-                        found = true;
-                        fdown = true;
-                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == xx && my_zoo.getCage()[k].getCell()[l].getY() == right) { //right
-                        found = true;
-                        fright = true;
-                    } else if (my_zoo.getCage()[k].getCell()[l].getX() == xx && my_zoo.getCage()[k].getCell()[l].getY() == left) { //left
-                        found = true;
-                        fleft = true;
-                    } else {
-                        l++;
-                    }
-                }
-                k++;
-            }
-            k--;
-
-            if (found) {
-                boolean [] visited = new boolean[24];
-                for (int lop = 0; lop < 24; lop++) visited[lop] = false;
-                if (fup) {
-                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
-                        for (int b = 0; b < Animal.getNAnimal(); b++) {
-                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
-                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
-                                cont = my_zoo.getAnimal()[b].getContent();
-                                if (visited[cont-65]) {
-                                    // sudah
-                                } else {
-                                    my_zoo.getAnimal()[b].getInfo();
-                                    visited[cont-65] = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (fdown) {
-                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
-                        for (int b = 0; b < Animal.getNAnimal(); b++) {
-                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
-                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
-                                cont = my_zoo.getAnimal()[b].getContent();
-                                if (visited[cont-65]) {
-                                    // sudah
-                                } else {
-                                    my_zoo.getAnimal()[b].getInfo();
-                                    visited[cont-65] = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (fright) {
-                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
-                        for (int b = 0; b < Animal.getNAnimal(); b++) {
-                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
-                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
-                                cont = my_zoo.getAnimal()[b].getContent();
-                                if (visited[cont-65]) {
-                                    // sudah
-                                } else {
-                                    my_zoo.getAnimal()[b].getInfo();
-                                    visited[cont-65] = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (fleft) {
-                    for (int a = 0; a < my_zoo.getCage()[k].getSize(); a++) {
-                        for (int b = 0; b < Animal.getNAnimal(); b++) {
-                            if (my_zoo.getCage()[k].getCell()[a].getX() == my_zoo.getAnimal()[b].getLocX() &&
-                                    my_zoo.getCage()[k].getCell()[a].getY() == my_zoo.getAnimal()[b].getLocY()) {
-                                cont = my_zoo.getAnimal()[b].getContent();
-                                if (visited[cont-65]) {
-                                    // sudah
-                                } else {
-                                    my_zoo.getAnimal()[b].getInfo();
-                                    visited[cont-65] = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            System.out.println("Press \"ENTER\" to continue...");
-            Scanner scanner = new Scanner(System.in);
-            scanner.nextLine();
-        }
+        mazeWasHere[i][j] = false;
+      }
     }
 
+    int xxMasuk = masukX[random];
+    int yyMasuk = masukY[random];
+    //tour sampai exit (pencarian jalur dengan dfs)
+    boolean tour = solveMaze(xxMasuk, yyMasuk);
 
+    int xx;
+    int yy;
+    int k;
+    int l;
+    int up;
+    int down;
+    int left;
+    int right;
+    for (int i = 0; i < vecx.size(); i++) {
+      System.out.println("\033[H\033[J");
+      xx = vecx.elementAt(i);
+      yy = vecy.elementAt(i);
 
+      up = xx - 1;
+      down = xx + 1;
+      left = yy - 1;
+      right = yy + 1;
+
+      myZoo.printZooAnimalCageTour(xx, yy);
+      myZoo.moveAnimal();
+
+      boolean found = false;
+      boolean fup = false;
+      boolean fdown = false;
+      boolean fleft = false;
+      boolean fright = false;
+      k = 0;
+      while (k < myZoo.getNumCage() && !found) {
+        l = 0;
+        while (l < myZoo.getCage()[k].getSize() && !found) {
+          if (myZoo.getCage()[k].getCell()[l].getX() == up
+              && myZoo.getCage()[k].getCell()[l].getY() == yy) { //look up
+            found = true;
+            fup = true;
+          } else if (myZoo.getCage()[k].getCell()[l].getX() == down
+              && myZoo.getCage()[k].getCell()[l].getY() == yy) { //look down
+            found = true;
+            fdown = true;
+          } else if (myZoo.getCage()[k].getCell()[l].getX() == xx
+              && myZoo.getCage()[k].getCell()[l].getY() == right) { //right
+            found = true;
+            fright = true;
+          } else if (myZoo.getCage()[k].getCell()[l].getX() == xx
+              && myZoo.getCage()[k].getCell()[l].getY() == left) { //left
+            found = true;
+            fleft = true;
+          } else {
+            l++;
+          }
+        }
+        k++;
+      }
+      k--;
+
+      if (found) {
+        boolean [] visited = new boolean[24];
+        for (int lop = 0; lop < 24; lop++) {
+          visited[lop] = false;
+        }
+        if (fup) {
+          for (int a = 0; a < myZoo.getCage()[k].getSize(); a++) {
+            for (int b = 0; b < Animal.getNAnimal(); b++) {
+              if (myZoo.getCage()[k].getCell()[a].getX() == myZoo.getAnimal()[b].getLocX()
+                  && myZoo.getCage()[k].getCell()[a].getY() == myZoo.getAnimal()[b].getLocY()) {
+                cont = myZoo.getAnimal()[b].getContent();
+                if (visited[cont - 65]) {
+                  // sudah
+                } else {
+                  myZoo.getAnimal()[b].getInfo();
+                  visited[cont - 65] = true;
+                }
+              }
+            }
+          }
+        }
+        if (fdown) {
+          for (int a = 0; a < myZoo.getCage()[k].getSize(); a++) {
+            for (int b = 0; b < Animal.getNAnimal(); b++) {
+              if (myZoo.getCage()[k].getCell()[a].getX() == myZoo.getAnimal()[b].getLocX()
+                  && myZoo.getCage()[k].getCell()[a].getY() == myZoo.getAnimal()[b].getLocY()) {
+                cont = myZoo.getAnimal()[b].getContent();
+                if (visited[cont - 65]) {
+                  // sudah
+                } else {
+                  myZoo.getAnimal()[b].getInfo();
+                  visited[cont - 65] = true;
+                }
+              }
+            }
+          }
+        }
+        if (fright) {
+          for (int a = 0; a < myZoo.getCage()[k].getSize(); a++) {
+            for (int b = 0; b < Animal.getNAnimal(); b++) {
+              if (myZoo.getCage()[k].getCell()[a].getX() == myZoo.getAnimal()[b].getLocX()
+                  && myZoo.getCage()[k].getCell()[a].getY() == myZoo.getAnimal()[b].getLocY()) {
+                cont = myZoo.getAnimal()[b].getContent();
+                if (visited[cont - 65]) {
+                  // sudah
+                } else {
+                  myZoo.getAnimal()[b].getInfo();
+                  visited[cont - 65] = true;
+                }
+              }
+            }
+          }
+        }
+        if (fleft) {
+          for (int a = 0; a < myZoo.getCage()[k].getSize(); a++) {
+            for (int b = 0; b < Animal.getNAnimal(); b++) {
+              if (myZoo.getCage()[k].getCell()[a].getX() == myZoo.getAnimal()[b].getLocX()
+                  && myZoo.getCage()[k].getCell()[a].getY() == myZoo.getAnimal()[b].getLocY()) {
+                cont = myZoo.getAnimal()[b].getContent();
+                if (visited[cont - 65]) {
+                  // sudah
+                } else {
+                  myZoo.getAnimal()[b].getInfo();
+                  visited[cont - 65] = true;
+                }
+              }
+            }
+          }
+        }
+      }
+      System.out.println("Press \"ENTER\" to continue...");
+      Scanner scanner = new Scanner(System.in);
+      scanner.nextLine();
+    }
+  }
 }

@@ -8,9 +8,7 @@ import building.Cell;
  */
 public class Habitat extends Cell {
 
-    protected Habitat(int i, int j) {
-        super(i,j);
-
-    }
-
+  protected Habitat(int i, int j) {
+    super(i, j);
+  }
 }

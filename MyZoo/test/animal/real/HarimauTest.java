@@ -57,7 +57,7 @@ class HarimauTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Harimau(1, 2);
-    assertTrue(!b.IsTamed());
+    assertTrue(!b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class HarimauTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Harimau(1, 2);
-    assertTrue(Objects.equals("Roarrrr", b.Interact()));
+    assertTrue(Objects.equals("Roarrrr", b.interact()));
   }
 }

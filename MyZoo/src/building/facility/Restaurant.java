@@ -6,12 +6,12 @@ package building.facility;
  */
 
 /**
- * restaurant
+ * Restaurant.
  * Menangani objek restaurant yang merupakan fasilitas umum kebun binatang
  */
 public class Restaurant extends Facility {
   /**
-   * Melakukan inisialisasi kelas restaurant dengan parameter absis dan ordinat lokasi facility
+   * Melakukan inisialisasi kelas restaurant dengan parameter absis dan ordinat lokasi facility.
    *
    * @param i Absis
    * @param j Ordinat

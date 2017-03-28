@@ -48,7 +48,7 @@ class PlatypusTest {
     void isTamed()  {
         System.out.println("Test isTamed");
         Animal A = new Platypus(2,5);
-        assertTrue(A.IsTamed());
+        assertTrue(A.isTamed());
     }
     @Test
     void getLegs() {
@@ -61,6 +61,6 @@ class PlatypusTest {
     void interact() {
         System.out.println("Test interact");
         Animal A = new Platypus(2,5);
-        assertTrue(A.Interact().equals("Krr krr"));
+        assertTrue(A.interact().equals("Krr krr"));
     }
 }

@@ -4,11 +4,11 @@ import animal.classification.flying.bird.Bird;
 
 /**
  * Menangani kelas hewan dengan atrbut habitat = "Air",
- * legs = 2, dan diet = "Fruit"
+ * legs = 2, dan diet = "Fruit".
  */
 public abstract class BirdFruit extends Bird {
   /**
-   * Constructor
+   * Constructor.
    *
    * @param w    Berat hewan
    * @param x    Letak hewan berdasarkan indeks baris map zoo
@@ -22,9 +22,9 @@ public abstract class BirdFruit extends Bird {
   }
 
   /**
-   * Mengembalikan string yang menggambarkan interaksi user dengan hewan
+   * Mengembalikan string yang menggambarkan interaksi user dengan hewan.
    *
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

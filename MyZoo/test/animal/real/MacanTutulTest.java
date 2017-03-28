@@ -57,7 +57,7 @@ class MacanTutulTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new MacanTutul(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class MacanTutulTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new MacanTutul(1, 2);
-    assertTrue(Objects.equals("Aummmm", b.Interact()));
+    assertTrue(Objects.equals("Aummmm", b.interact()));
   }
 }

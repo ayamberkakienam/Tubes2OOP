@@ -6,12 +6,14 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
 
-/** Bekantan
+/**
+ * Macan Tutul.
  * Hewan kucing-kucingan yang memiliki tubuh bertutul
  */
 public class MacanTutul extends QuadrupedMeat {
   /**
-   * Melakukan inisialisasi kelas MacanTutul dengan parameter absis dan ordinat lokasi
+   * Melakukan inisialisasi kelas MacanTutul dengan parameter absis dan ordinat lokasi.
+   *
    * @param i Absis
    * @param j Ordinat
    */
@@ -21,10 +23,13 @@ public class MacanTutul extends QuadrupedMeat {
     setContent('R');
     consumerate += getFodder();
   }
-  /**  Menghasilkan suara hewan yang khas
+
+  /**
+   * Menghasilkan suara hewan yang khas.
+   *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Aummmm";
   }
 }

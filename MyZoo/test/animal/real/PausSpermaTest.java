@@ -59,7 +59,7 @@ class PausSpermaTest {
     void isTamed() {
         System.out.println("Test Tamed..");
         Animal H = new PausSperma(5,4);
-        assertTrue(H.IsTamed());
+        assertTrue(H.isTamed());
     }
 
     @Test
@@ -71,9 +71,9 @@ class PausSpermaTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new PausSperma(5,4);
-        assertTrue(H.Interact().equals("Srosh srosh"));
+        assertTrue(H.interact().equals("Srosh srosh"));
     }
 
 }

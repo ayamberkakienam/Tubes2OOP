@@ -6,12 +6,12 @@ package building.facility;
  */
 
 /**
- * RoadEntrance
+ * RoadEntrance.
  * Menangani objek entrance  yang merupakan pintu masuk kebun binatang
  */
 public class RoadEntrance extends Road {
   /**
-   * Melakukan inisialisasi kelas RoadEntrance dengan parameter absis dan ordinat lokasi facility
+   * Melakukan inisialisasi kelas RoadEntrance dengan parameter absis dan ordinat lokasi facility.
    *
    * @param i Absis
    * @param j Ordinat

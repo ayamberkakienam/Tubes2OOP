@@ -7,16 +7,18 @@ package animal.classification.land.biped.fruit;
 import animal.classification.land.biped.Biped;
 
 /**
- * Menangani kelas hewan dengan atribut habitat = "Land" dan legs = 2
+ * Menangani kelas hewan dengan atribut habitat = "Land" dan legs = 2.
  */
+
 public abstract class Primata extends Biped {
-  /** Constructor
+  /** Constructor.
    * Melakukan inisialisasi kelas Primata
    * @param w untuk weight
    * @param x untuk koordinat x pada map
    * @param y untuk koordinat y pada map
    * @param tame true jika jinak, false jika tidak jinak
    */
+
   public Primata(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
     setType("Herbivore");

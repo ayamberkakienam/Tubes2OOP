@@ -57,7 +57,7 @@ class JerapahTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Jerapah(1, 2);
-    assertTrue(b.IsTamed());
+    assertTrue(b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class JerapahTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Jerapah(1, 2);
-    assertTrue(Objects.equals("Ngoet ngoet", b.Interact()));
+    assertTrue(Objects.equals("Ngoet ngoet", b.interact()));
   }
 }

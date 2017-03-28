@@ -1,12 +1,12 @@
 package animal.real;
 
-import animal.classification.waterair.finned.insect.FinnedWAInsect;
+import animal.classification.waterair.finned.insect.FinnedWaInsect;
 
 /**
- * IkanTerbang
+ * IkanTerbang.
  * Hewan amphibi yang dapat hidup di air dan udara
  */
-public class IkanTerbang extends FinnedWAInsect {
+public class IkanTerbang extends FinnedWaInsect {
   /**
    * Constructor.
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
@@ -17,12 +17,13 @@ public class IkanTerbang extends FinnedWAInsect {
     setContent('I');
     consumerate += getFodder();
   }
+
   /**
-   * Mengembalikan string yang menggambarkan interaksi user dengan hewan
+   * Mengembalikan string yang menggambarkan interaksi user dengan hewan.
    *
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  public String Interact() {
+  public String interact() {
     return "Cepok cepok cepok";
   }
 }

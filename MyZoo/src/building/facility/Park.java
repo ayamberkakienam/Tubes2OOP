@@ -5,12 +5,14 @@ package building.facility;
  * on 27/03/17.
  */
 
-/** Park
+/**
+ * Park.
  * Menangani objek park yang merupakan fasilitas umum kebun binatang
  */
 public class Park extends Facility {
   /**
-   * Melakukan inisialisasi kelas park dengan parameter absis dan ordinat lokasi facility
+   * Melakukan inisialisasi kelas park dengan parameter absis dan ordinat lokasi facility.
+   *
    * @param i Absis
    * @param j Ordinat
    */

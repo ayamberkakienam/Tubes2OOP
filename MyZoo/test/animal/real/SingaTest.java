@@ -57,7 +57,7 @@ class SingaTest {
   public void isTamed() {
     System.out.println("Test Tamed..");
     Animal b = new Singa(1, 2);
-    assertTrue(!b.IsTamed());
+    assertTrue(!b.isTamed());
   }
 
   @Test
@@ -69,8 +69,8 @@ class SingaTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Singa(1, 2);
-    assertTrue(Objects.equals("Groarrr", b.Interact()));
+    assertTrue(Objects.equals("Groarrr", b.interact()));
   }
 }
