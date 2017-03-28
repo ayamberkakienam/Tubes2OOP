@@ -1,5 +1,6 @@
-import Animal.*;
+import animal.*;
 /**
+ *
  * Created by root on 3/27/17.
  */
 public class Test {

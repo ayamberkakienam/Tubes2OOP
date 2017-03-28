@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class SingaLautTest {
     @Test
+    public void getName() {
+        System.out.println("Test Name..");
+        Animal H = new SingaLaut(5, 4);
+        assertTrue(H.GetName().equals("Singa Laut"));
+    }
+
+    @Test
     void getLocX() {
         System.out.println("Test X Position..");
         Animal H = new SingaLaut(5,4);
@@ -50,7 +57,7 @@ class SingaLautTest {
 
     @Test
     void isTamed() {
-        System.out.println("Test Weight..");
+        System.out.println("Test Tamed..");
         Animal H = new SingaLaut(5,4);
         assertTrue(!H.IsTamed());
     }
