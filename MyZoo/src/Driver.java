@@ -29,7 +29,7 @@ public class Driver {
    * Membaca file eksternal dan menyimpan informasi jumlah baris dan kolom map
    * @throws FileNotFoundException if file not found
    */
-  public Driver() throws FileNotFoundException {
+  public Driver() {
     int brs = 0;
     map = new char[500][500];
     strTemp = new String[500];
@@ -249,7 +249,7 @@ public class Driver {
    * F.S : Animal pada map terdefinisi sesuai posisinya
    * @throws FileNotFoundException if file not found
    */
-  void initAnimal() throws FileNotFoundException {
+  void initAnimal() {
     int brs = 0;
     map = new char[500][500];
     strTemp = new String[500];
@@ -289,7 +289,6 @@ public class Driver {
 
   private int [][] mazeZoo;
   private boolean [][] mazeWasHere;
-  private boolean [][] mazeRightPath;
   private int xxKeluar;
   private int yyKeluar;
   private int panjang;
@@ -311,25 +310,21 @@ public class Driver {
     mazeWasHere[x][y] = true;
     if (x != 0) {
       if (solveMaze(x - 1, y)) {
-        mazeRightPath[x][y] = true;
         return true;
       }
     }
     if (x != panjang - 1) {
       if (solveMaze(x + 1, y)) {
-        mazeRightPath[x][y] = true;
         return true;
       }
     }
     if (y != 0) {
       if (solveMaze(x, y - 1)) {
-        mazeRightPath[x][y] = true;
         return true;
       }
     }
     if (y != lebar - 1) {
       if (solveMaze(x, y + 1)) {
-        mazeRightPath[x][y] = true;
         return true;
       }
     }
@@ -381,7 +376,6 @@ public class Driver {
     char cont;
     mazeZoo = new int [panjang][lebar];
     mazeWasHere = new boolean[panjang][lebar];
-    mazeRightPath = new boolean[panjang][lebar];
     for (int i = 0; i < panjang; i++) {
       for (int j = 0; j < lebar; j++) {
         cont = myZoo.getCell()[i][j].render();
@@ -391,7 +385,6 @@ public class Driver {
           mazeZoo[i][j] = 2;
         }
         mazeWasHere[i][j] = false;
-        mazeRightPath[i][j] = false;
       }
     }
 
@@ -399,7 +392,6 @@ public class Driver {
     int yyMasuk = masukY[random];
     //tour sampai exit (pencarian jalur dengan dfs)
     boolean tour = solveMaze(xxMasuk, yyMasuk);
-    tour = !tour;
 
     int xx;
     int yy;
