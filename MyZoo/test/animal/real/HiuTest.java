@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class HiuTest {
     @Test
+    public void getName() {
+        System.out.println("Test Name..");
+        Animal H = new Hiu(5, 4);
+        assertTrue(H.GetName().equals("Hiu"));
+    }
+
+    @Test
     void getLocX() {
         System.out.println("Test X Position..");
         Animal H = new Hiu(5,4);

@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class KepitingTest {
     @Test
+    public void getName() {
+        System.out.println("Test Name..");
+        Animal H = new Kepiting(5, 4);
+        assertTrue(H.GetName().equals("Kepiting"));
+    }
+
+    @Test
     void getLocX() {
         System.out.println("Test X Position..");
         Animal H = new Kepiting(5,4);
@@ -50,7 +57,7 @@ class KepitingTest {
 
     @Test
     void isTamed() {
-        System.out.println("Test Weight..");
+        System.out.println("Test Tamed..");
         Animal H = new Kepiting(5,4);
         assertTrue(H.IsTamed());
     }
