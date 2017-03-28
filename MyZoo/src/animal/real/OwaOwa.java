@@ -10,8 +10,10 @@ import animal.classification.land.biped.fruit.Primata;
  * Hewan primata yang tidak berekor dan dn bertangan panjang
  */
 public class OwaOwa extends Primata {
-  /**  Constructor.
-   * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
+  /**
+   * Melakukan inisialisasi kelas OwaOwa dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public OwaOwa(int i, int j) {
     super(70, i, j, true);

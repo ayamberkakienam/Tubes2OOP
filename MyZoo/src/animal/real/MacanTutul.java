@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Hewan kucing-kucingan yang memiliki tubuh bertutul
  */
 public class MacanTutul extends QuadrupedMeat {
-  /**  Constructor.
+  /**
    * Melakukan inisialisasi kelas MacanTutul dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public MacanTutul(int i, int j) {
     super(350, i, j, true);

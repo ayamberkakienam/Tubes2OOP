@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.leaf.QuadrupedLeaf;
  * Hewan yang bertubuh kecil dan suka mencuri mentimun
  */
 public class Kancil extends QuadrupedLeaf {
-  /**  Constructor.
-   * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
+  /**
+   * Melakukan inisialisasi kelas Kancil dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Kancil(int i, int j) {
     super(60, i, j, true);

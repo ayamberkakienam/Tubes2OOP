@@ -10,8 +10,10 @@ import animal.classification.land.biped.fruit.Primata;
  *  Hewan primata yang berukuran besar
  */
 public class Gorilla extends Primata {
-  /**  Constructor.
-   * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
+  /**
+   * Melakukan inisialisasi kelas Gorilla dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Gorilla(int i, int j) {
     super(200, i, j, false);

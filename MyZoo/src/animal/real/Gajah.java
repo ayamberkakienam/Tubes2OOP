@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.leaf.QuadrupedLeaf;
  * Hewan yang berukuran besar dan memiliki belalai
  */
 public class Gajah extends QuadrupedLeaf {
-  /**  Constructor.
-   * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
+  /**
+   * Melakukan inisialisasi kelas Gajah dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Gajah(int i, int j) {
     super(3500, i, j, true);

@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.leaf.QuadrupedLeaf;
  * Hewan yang memiliki leher panjang dan memakan dedaunan
  */
 public class Jerapah extends QuadrupedLeaf {
-  /**  Constructor.
+  /**
    * Melakukan inisialisasi kelas Jerapah dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Jerapah(int i, int j) {
     super(500, i, j, true);

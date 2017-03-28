@@ -10,8 +10,10 @@ import animal.classification.land.biped.fruit.Primata;
  * Hewan primata yang memiliki hidung panjang dan besar
  */
 public class Bekantan extends Primata {
-  /**  Constructor.
+  /**
    * Melakukan inisialisasi kelas Bekantan dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Bekantan(int i, int j) {
     super(50, i, j, true);

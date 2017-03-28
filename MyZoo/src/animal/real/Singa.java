@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Hewan kucing-kucingan yang memiliki rambut lebat di kepala dan memakan daging
  */
 public class Singa  extends QuadrupedMeat {
-  /**  Constructor.
+  /**
    * Melakukan inisialisasi kelas Singa dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Singa(int i, int j) {
     super(400, i, j, false);

@@ -5,6 +5,11 @@ import animal.classification.land.quadruped.Quadruped;
 /**
  * Created by Husnulzaki Wibisono Haryadi (13515005) on 3/28/17.
  */
+
+/** QuadrupedMeat
+ * Kelas yang menangani hewan dengan habitat = "Land"
+ * leg = 4 dan diet = "Meat"
+ */
 public abstract class QuadrupedMeat extends Quadruped {
   /** Constructor
  * Melakukan inisialisasi kelas QuadrupedMeat

@@ -10,8 +10,10 @@ import animal.classification.land.quadruped.meat.QuadrupedMeat;
  * Hewan kucing-kucingan yang memiliki tubuh besar dan memakan daging
  */
 public class Harimau  extends QuadrupedMeat {
-  /**  Constructor.
+  /**
    * Melakukan inisialisasi kelas Harimau dengan parameter absis dan ordinat lokasi
+   * @param i Absis
+   * @param j Ordinat
    */
   public Harimau(int i, int j) {
     super(450, i, j, false);
