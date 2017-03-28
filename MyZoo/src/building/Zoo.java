@@ -323,7 +323,7 @@ public class Zoo {
       for (int ii = 0; ii < Animal.getNAnimal(); ii++) {
         for (int jj = 0; jj < listCage[k].getSize(); jj++) {
           if (listCage[k].getCell()[jj].getX() == listAnimal[ii].getLocX()
-              && listCage[k].getCell()[jj].getY() == listAnimal[ii].getLocY()) {
+            && listCage[k].getCell()[jj].getY() == listAnimal[ii].getLocY()) {
             numAnimal++;
           }
         }
@@ -412,7 +412,7 @@ public class Zoo {
   }
 
   /**
-   * Print Zoo pada layar.
+   * Melakukan print Zoo pada layar.
    */
   public void printZoo() {
     for (int i = 0; i < sizeBrs; i++) {
@@ -424,7 +424,7 @@ public class Zoo {
   }
 
   /**
-   * Print Cage yang ada di Zoo pada layar.
+   * Melakukan print Cage yang ada di Zoo pada layar.
    */
   public void printZooCage() {
     for (int i = 0; i < sizeBrs; i++) {
@@ -445,7 +445,7 @@ public class Zoo {
   }
 
   /**
-   * Print Animal yang ada di Cage yang ada di Zoo pada layar.
+   * Melakukan print Animal yang ada di Cage yang ada di Zoo pada layar.
    */
   public void printZooCageAnimal(int x1, int y1, int x2, int y2) {
 
@@ -494,7 +494,7 @@ public class Zoo {
   }
 
   /**
-   * Print complete Zoo disertai tour pada layar.
+   * Melakukan print complete Zoo disertai tour pada layar.
    */
   public void printZooAnimalCageTour(int x, int y) {
 
