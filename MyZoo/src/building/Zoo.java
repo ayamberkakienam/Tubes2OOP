@@ -15,46 +15,80 @@ public class Zoo {
 
     protected int size_brs;
     protected int size_kol;
-    protected int size_cage;
+    protected int num_cage;
     protected Cell[][] m_cell;
     protected Cage[] l_cage;
     protected Animal[] l_animal;
 
-    public Zoo(int size_brs, int size_kol, int size_cage) {
+    /**
+     * Constructor
+     * Melakukan inisialisasi kelas Zoo
+     * @param size_brs ukuran baris (lebar) Zoo
+     * @param size_kol ukuran kolom (panjang) Zoo
+     * @param num_cage banyaknya kandang pada Zoo
+     */
+    public Zoo(int size_brs, int size_kol, int num_cage) {
         this.size_brs = size_brs;
         this.size_kol = size_kol;
-        this.size_cage = size_cage;
+        this.num_cage = num_cage;
 
         m_cell = new Cell[size_brs][size_kol];
-        l_cage = new Cage[size_cage];
+        l_cage = new Cage[num_cage];
         l_animal = new Animal[300];
 
     }
 
+    /**
+     * Getter untuk lebar Zoo
+     * @return lebar Zoo
+     */
     public int getSizeBrs() {
         return size_brs;
     }
 
+    /**
+     * Getter untuk panjang Zoo
+     * @return panjang Zoo
+     */
     public int getSizeKol() {
         return size_kol;
     }
 
-    public int getSizeCage() {
-        return size_cage;
+    /**
+     * Getter untuk banyaknya Cage
+     * @return banyaknya Cage
+     */
+    public int getNumCage() {
+        return num_cage;
     }
 
+    /**
+     * Getter untuk matrix Cell
+     * @return matrix Cell
+     */
     public Cell [][] getCell() {
         return m_cell;
     }
 
+    /**
+     * Getter untuk array Cage
+     * @return array Cage
+     */
     public Cage [] getCage() {
         return l_cage;
     }
 
+    /**
+     * Getter untuk array Animal
+     * @return array Animal
+     */
     public Animal [] getAnimal() {
         return l_animal;
     }
 
+    /**
+     * Method untuk membuat Animal bergerak
+     */
     public void moveAnimal() {
         int x, y, move, j;
         boolean moved = false;
@@ -143,6 +177,13 @@ public class Zoo {
         }
     }
 
+    /**
+     * Setter untuk inisialisasi Cell di Cage
+     * @param n array ke n pada Cage
+     * @param nn array ke nn pada Cell di Cage
+     * @param i absis pada Zoo
+     * @param j ordinat pada Zoo
+     */
     public void setCellCage(int n, int nn, int i, int j) {
         if (m_cell[i][j].render() == '*') {
             l_cage[n].getCell()[nn] = new AirHabitat(i, j);
@@ -155,10 +196,20 @@ public class Zoo {
         l_cage[n].incSize();
     }
 
+    /**
+     * Create Cage pada Zoo
+     * @param n array ke n pada Cage
+     */
     public void createCage(int n) {
         l_cage[n] = new Cage();
     }
 
+    /**
+     * Create Cell pada Zoo
+     * @param c content yang ada pada Cell di Zoo
+     * @param i absis pada Cell di Zoo
+     * @param j ordinat pada Cell di Zoo
+     */
     public void createCell(char c, int i, int j) {
         switch (c) {
             case '*':
@@ -188,12 +239,19 @@ public class Zoo {
         }
     }
 
-    public void crateAnimal(char c, int i, int j, int n) {
+    /**
+     * Create Animal pada Zoo
+     * @param c content yang ada pada Animal di Zoo
+     * @param i absis pada Animal di Zoo
+     * @param j ordinat pada Animal di Zoo
+     * @param n jumlah total hewan yang ada pada Zoo
+     */
+    public void createAnimal(char c, int i, int j, int n) {
         if (m_cell[i][j].render() == '#') {
             if (m_cell[i][j].isCaged()) {
                 int k = 0;
                 boolean found = false;
-                while (k < getSizeCage() && !found) {
+                while (k < getNumCage() && !found) {
                     int l = 0;
                     while (l < l_cage[k].getSize() && !found) {
                         if (l_cage[k].getCell()[l].getX() == i && l_cage[k].getCell()[l].getY() == j) {
@@ -296,6 +354,9 @@ public class Zoo {
         }
     }
 
+    /**
+     * Print Zoo pada layar
+     */
     public void PrintZoo() {
         for (int i = 0; i < size_brs; i++) {
             for (int j = 0; j < size_kol; j++) {
@@ -304,4 +365,5 @@ public class Zoo {
             System.out.println("");
         }
     }
+
 }
