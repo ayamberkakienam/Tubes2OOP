@@ -19,5 +19,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
+    <orderEntry type="library" name="com.puppycrawl.tools:checkstyle:7.1.1" level="project" />
   </component>
 </module>
