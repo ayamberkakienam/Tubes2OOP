@@ -41,7 +41,7 @@ class KepikTest {
     public void getWeight()  {
         System.out.println("Test getWeight");
         Animal A = new Kepik(2,5);
-        assertTrue(A.getWeight() == 0.01);
+        assertTrue(A.getWeight() == (float)0.01);
     }
 
     @Test

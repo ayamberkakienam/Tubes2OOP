@@ -41,7 +41,7 @@ class KumbangHutanTest {
     public void getWeight()  {
         System.out.println("Test getWeight");
         Animal A = new KumbangHutan(2,5);
-        assertTrue(A.getWeight() == 0.05);
+        assertTrue(A.getWeight() == (float)0.05);
     }
 
     @Test
