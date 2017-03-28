@@ -1,4 +1,9 @@
+import animal.Animal;
+import building.Zoo;
+
 import java.io.*;
+
+import static animal.Animal.GetNAnimal;
 
 /**
  * Created by Diki Ardian W (13515092) on 3/27/17.
@@ -14,7 +19,7 @@ public class Driver {
     private int num_cage;
     private char map[][];
     private String str_temp[];
-    //private Zoo my_zoo;
+    private Zoo my_zoo;
 
     /**
      * @throws FileNotFoundException
@@ -66,7 +71,6 @@ public class Driver {
         digit1++;
         System.out.println(digit1);
     }
-
     /**
      * @return jumlah baris map.
      * @brief Mengembalikan jumlah baris yang menyusun map
@@ -99,16 +103,16 @@ public class Driver {
      * F.S : Mendapakan object Zoo yang telah dihidupkan
      * @return Object my_zoo.
      */
-    /*
+
     public Zoo GetZoo() {
         return my_zoo;
     }
-    */
+
     /** @brief Menginisiasi semua cell pada map
      *  I.S : my_zoo terdefinisi
      *  F.S : Cell pada my_zoo terbentuk
      */
-    /*
+
     void InitCell() {
         int i, jneff;
         int j;
@@ -117,25 +121,24 @@ public class Driver {
             jneff = 0;
             while (j < str_temp[i].length()) {
                 switch (map[i][j]) {
-                    case '.' : {my_zoo->CreatePark(i, jneff); jneff++; break;}
-                    case '+' : {my_zoo->CreateRoad(i, jneff); jneff++; break;}
-                    case '=' : {my_zoo->CreateRoadEntrance(i, jneff); jneff++; break;}
-                    case '!' : {my_zoo->CreateRoadExit(i, jneff); jneff++; break;}
-                    case '$' : {my_zoo->CreateRestaurant(i, jneff); jneff++; break;}
-                    case '#' : {my_zoo->CreateLandHabitat(i, jneff); jneff++; break;}
-                    case '~' : {my_zoo->CreateWaterHabitat(i, jneff); jneff++; break;}
-                    case '*' : {my_zoo->CreateAirHabitat(i, jneff); jneff++; break;}
+                    case '.' : {my_zoo.createCell('.', i, jneff); jneff++; break;}
+                    case '+' : {my_zoo.createCell('+', i, jneff); jneff++; break;}
+                    case '=' : {my_zoo.createCell('=', i, jneff); jneff++; break;}
+                    case '!' : {my_zoo.createCell('!', i, jneff); jneff++; break;}
+                    case '$' : {my_zoo.createCell('$', i, jneff); jneff++; break;}
+                    case '#' : {my_zoo.createCell('#', i, jneff); jneff++; break;}
+                    case '~' : {my_zoo.createCell('~', i, jneff); jneff++; break;}
+                    case '*' : {my_zoo.createCell('*', i, jneff); jneff++; break;}
                 }
                 j++;
             }
         }
     }
-    */
+
     /** @brief Menginisiasi semua kandang pada map
      *  I.S : my_zoo terdefinisi
-     *  F.S :
+     *  F.S : semua kandang pada my_zoo telah diciptakan
      */
-    /*
     void InitCage() {
         int j;
         int count = 0, i, jneff, idx;
@@ -152,7 +155,7 @@ public class Driver {
                             if ((map[i][j+1] == '#') ||
                                     (map[i][j+1] == '~') ||
                                     (map[i][j+1] == '*')) {
-                                my_zoo->SetCellCage(count, idx, i, jneff);
+                                my_zoo.setCellCage(count, idx, i, jneff);
                                 j = j+2;
                                 idx++;
                                 jneff++;
@@ -194,7 +197,7 @@ public class Driver {
                     else {
                         if (map[i][j] == digit1) {
                             if (map[i][j+1] == digit2) {
-                                my_zoo->SetCellCage(count, idx, i, jneff);
+                                my_zoo.setCellCage(count, idx, i, jneff);
                                 j = j+3;
                                 idx++;
                                 jneff++;
@@ -256,59 +259,111 @@ public class Driver {
             count++;
         }
     }
-    */
+
     /** @brief Menginisiasi semua animal pada map
-     *  I.S :
-     *  F.S :
+     *  I.S : my_zoo terdefinisi
+     *  F.S : Animal pada map terdefinisi sesuai posisinya
      */
     /*
-    void InitAnimal() {
+    public Driver() throws FileNotFoundException {
         int brs = 0;
-        map = new string[100];
-        ifstream file("animal.txt");
-        while (getline(file, map[brs])) {
-            brs++;
+        map = new char[500][500];
+        str_temp = new String[500];
+        try {
+            FileInputStream fstream = new FileInputStream("map.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String str_line;
+            while ((str_line = br.readLine()) != null) {
+                //System.out.println (str_line);
+                str_temp[brs] = str_line;
+                for (int j = 0; j < str_line.length(); j++) {
+                    map[brs][j] = str_line.charAt(j);
+                    System.out.print(map[brs][j]);
+                }
+                System.out.print("\n");
+                brs++;
+            }
+        } catch (FileNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+        map_brs = brs - 1;
+        num_cage = Integer.parseInt(str_temp[brs - 1].substring(5));
+        int kol = 0;
+        int x = 0;
+        while (x < str_temp[0].length()) {
+            if ((map[0][x] == 'A') || (map[0][x] == 'W') || (map[0][x] == 'L')) {
+                x = x + 2;
+            } else {
+                x++;
+            }
+            kol++;
+        }
+        map_kol = kol;
+        //my_zoo = new Zoo(map_brs, map_kol, num_cage);
+    }
+
+     */
+    void InitAnimal() throws FileNotFoundException {
+        int brs = 0;
+        map = new char[500][500];
+        str_temp = new String[500];
+        try {
+            FileInputStream fstream = new FileInputStream("animal.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String str_line;
+            while ((str_line = br.readLine()) != null) {
+                str_temp[brs] = str_line;
+                for (int j = 0; j < str_line.length(); j++) {
+                    map[brs][j] = str_line.charAt(j);
+                }
+                brs++;
+            }
+        } catch (FileNotFoundException fnfe) {
+            System.out.println(fnfe.getMessage());
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
         }
 
         int i, jneff;
-        unsigned int j;
+        int j;
         for (i = 0; i < map_brs; i++) {
             j = 0;
             jneff = 0;
-            while (j < map[i].length()) {
+            while (j < str_temp[i].length()) {
                 switch (map[i][j]) {
                     case '-' : {jneff++; break;}
-                    case 'A' : {my_zoo->CreateBekantan(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'B' : {my_zoo->CreateBurungHantu(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'C' : {my_zoo->CreateCodot(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'D' : {my_zoo->CreateElang(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'E' : {my_zoo->CreateGajah(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'F' : {my_zoo->CreateGorilla(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'G' : {my_zoo->CreateHarimau(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'H' : {my_zoo->CreateHiu(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'I' : {my_zoo->CreateIkanTerbang(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'J' : {my_zoo->CreateJerapah(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'K' : {my_zoo->CreateKancil(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'L' : {my_zoo->CreateKepik(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'M' : {my_zoo->CreateKepiting(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'N' : {my_zoo->CreateKumbangHutan(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'O' : {my_zoo->CreateKupuKupu(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'P' : {my_zoo->CreateLobster(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'Q' : {my_zoo->CreateLumbaLumba(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'R' : {my_zoo->CreateMacanTutul(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'S' : {my_zoo->CreateOwaOwa(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'T' : {my_zoo->CreatePausSperma(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'U' : {my_zoo->CreatePiranha(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'V' : {my_zoo->CreatePlatypus(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'W' : {my_zoo->CreateSinga(i, jneff, Animal::GetNAnimal()); jneff++; break;}
-                    case 'X' : {my_zoo->CreateSingaLaut(i, jneff, Animal::GetNAnimal()); jneff++; break;}
+                    case 'A' : {my_zoo.createAnimal('A',i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'B' : {my_zoo.createAnimal('B', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'C' : {my_zoo.createAnimal('C',i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'D' : {my_zoo.createAnimal('D', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'E' : {my_zoo.createAnimal('E', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'F' : {my_zoo.createAnimal('F', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'G' : {my_zoo.createAnimal('G', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'H' : {my_zoo.createAnimal('H', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'I' : {my_zoo.createAnimal('I', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'J' : {my_zoo.createAnimal('J', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'K' : {my_zoo.createAnimal('K', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'L' : {my_zoo.createAnimal('L', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'M' : {my_zoo.createAnimal('M', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'N' : {my_zoo.createAnimal('N', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'O' : {my_zoo.createAnimal('O', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'P' : {my_zoo.createAnimal('P', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'Q' : {my_zoo.createAnimal('Q', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'R' : {my_zoo.createAnimal('R', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'S' : {my_zoo.createAnimal('S', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'T' : {my_zoo.createAnimal('T', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'U' : {my_zoo.createAnimal('U', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'V' : {my_zoo.createAnimal('V', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'W' : {my_zoo.createAnimal('W', i, jneff, GetNAnimal()); jneff++; break;}
+                    case 'X' : {my_zoo.createAnimal('X', i, jneff, GetNAnimal()); jneff++; break;}
                 }
                 j++;
             }
         }
     }
-    */
-    /*
+
 int** maze_zoo;
 bool** maze_was_here;
 bool** maze_right_path;
@@ -350,13 +405,12 @@ bool SolveMaze(int x, int y) {
   }
   return 0;
 }
-    */
 
     /** @brief Melakukan Tour pada Zoo
      *  I.S : my_zoo telah terdefinisi beserta cell dan semua cagenya
      *  F.S :
      */
-    /*
+
     void TourZoo() {
         //x dan y adalah posisi awal "pengunjung"
         //asumsi pintu masuk dan keluar paling banyak ada 10
@@ -524,5 +578,4 @@ bool SolveMaze(int x, int y) {
             cout << "Enter to cont.."; cin.ignore();
         }
     }
-    */
 }
