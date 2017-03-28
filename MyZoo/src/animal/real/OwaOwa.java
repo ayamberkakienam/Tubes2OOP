@@ -8,7 +8,7 @@ import animal.classification.land.biped.fruit.Primata;
 
 /**
  * OwaOwa.
- * Hewan primata yang tidak berekor dan dn bertangan panjang
+ * Hewan primata yang tidak berekor dan bertangan panjang
  */
 public class OwaOwa extends Primata {
   /**
