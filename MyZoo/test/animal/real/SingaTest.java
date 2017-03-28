@@ -69,8 +69,8 @@ class SingaTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Singa(1, 2);
-    assertTrue(Objects.equals("Groarrr", b.Interact()));
+    assertTrue(Objects.equals("Groarrr", b.interact()));
   }
 }

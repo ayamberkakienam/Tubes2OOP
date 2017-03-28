@@ -28,5 +28,5 @@ public abstract class Insect extends FlyingAnimal {
    *
    * @return suara hewan
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

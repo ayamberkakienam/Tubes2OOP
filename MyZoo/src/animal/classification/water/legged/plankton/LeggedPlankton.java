@@ -11,7 +11,7 @@ import animal.classification.water.legged.Legged;
  * leg = 10, type = "Omnivore" dan diet = "Plankton"
  */
 public abstract class LeggedPlankton extends Legged {
-    /** Constructor
+    /** Constructor.
      * Melakukan inisialisasi kelas LeggedPlankton
      * @param w untuk weight
      * @param x untuk koordinat x pada map

@@ -192,7 +192,7 @@ public abstract class Animal {
    * interaksi user dengan hewan
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  abstract public String Interact();
+  abstract public String interact();
   /**
    * Mengembalikan berat total makanan yang dikonsumsi semua hewan per hari
    * @return Berat makanan yang dikonsumsi semua jenis hewan pada map zoo per hari

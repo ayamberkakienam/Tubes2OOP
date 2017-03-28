@@ -61,7 +61,7 @@ class BurungHantuTest {
     public void interact() {
         System.out.println("Test interact");
         animal.Animal A = new animal.real.BurungHantu(2,5);
-        assertTrue(A.Interact().equals("Kur kur kur"));
+        assertTrue(A.interact().equals("Kur kur kur"));
     }
 
 }

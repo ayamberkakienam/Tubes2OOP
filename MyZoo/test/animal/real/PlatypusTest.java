@@ -61,6 +61,6 @@ class PlatypusTest {
     void interact() {
         System.out.println("Test interact");
         Animal A = new Platypus(2,5);
-        assertTrue(A.Interact().equals("Krr krr"));
+        assertTrue(A.interact().equals("Krr krr"));
     }
 }

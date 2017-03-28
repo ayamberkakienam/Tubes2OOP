@@ -71,8 +71,8 @@ class PiranhaTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new Piranha(5,4);
-        assertTrue(H.Interact().equals("Kraus kraus"));
+        assertTrue(H.interact().equals("Kraus kraus"));
     }
 }

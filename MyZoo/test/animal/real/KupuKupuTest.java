@@ -61,7 +61,7 @@ class KupuKupuTest {
     public void interact() {
         System.out.println("Test interact");
         Animal A = new KupuKupu(2,5);
-        assertTrue(A.Interact().equals("Wir wir"));
+        assertTrue(A.interact().equals("Wir wir"));
     }
 
 }

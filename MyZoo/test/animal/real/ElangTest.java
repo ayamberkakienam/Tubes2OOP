@@ -61,6 +61,6 @@ class ElangTest {
     public void interact() {
         System.out.println("Test interact");
         animal.Animal A = new Elang(2,5);
-        assertTrue(A.Interact().equals("Koak koakk koakk"));
+        assertTrue(A.interact().equals("Koak koakk koakk"));
     }
 }

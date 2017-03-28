@@ -71,9 +71,9 @@ class KepitingTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new Kepiting(5,4);
-        assertTrue(H.Interact().equals("Kuikk kuikk"));
+        assertTrue(H.interact().equals("Kuikk kuikk"));
     }
 
 }

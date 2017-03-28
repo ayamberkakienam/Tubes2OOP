@@ -22,7 +22,7 @@ public class Hiu extends FinnedMeat {
     /** Menghasilkan suara hewan yang khas
      * @return string suara hewan.
      */
-    public String Interact() {
+    public String interact() {
         return "Shush shush";
     }
 }

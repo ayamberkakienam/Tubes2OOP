@@ -23,7 +23,7 @@ public class Codot extends BirdFruit {
    *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Cit cit cit";
   }
 }

@@ -71,8 +71,8 @@ class SingaLautTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new SingaLaut(5,4);
-        assertTrue(H.Interact().equals("Ou Ou Ou"));
+        assertTrue(H.interact().equals("Ou Ou Ou"));
     }
 }

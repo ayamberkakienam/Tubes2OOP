@@ -1,11 +1,11 @@
 package animal.real;
 
-import animal.classification.landwater.quadrupped.insect.QuadruppedLWInsect;
+import animal.classification.landwater.quadrupped.insect.QuadruppedLwInsect;
 
 /** Platypus
  * Hewan yang bertelur sekaligus menyusui
  */
-public class Platypus extends QuadruppedLWInsect {
+public class Platypus extends QuadruppedLwInsect {
   /** Constructor.
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
    */
@@ -18,7 +18,7 @@ public class Platypus extends QuadruppedLWInsect {
   /** Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Krr krr";
   }
 }

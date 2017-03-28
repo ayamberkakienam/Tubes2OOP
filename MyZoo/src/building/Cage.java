@@ -17,6 +17,7 @@ public class Cage {
    */
   public Cage() {
     a_cell = new Cell[300];
+    size = 0;
   }
   /**
    * getter ukuran cage

@@ -10,7 +10,7 @@ import animal.Animal;
  * Kelas yang menangani hewan dengan habitat = "Water"
  */
 public abstract class WaterAnimal extends Animal {
-    /** Constructor
+    /** Constructor.
      * Melakukan inisialisasi kelas WaterAnimal
      * @param w untuk weight
      * @param x untuk koordinat x pada map

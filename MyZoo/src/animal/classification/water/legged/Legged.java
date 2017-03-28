@@ -11,7 +11,7 @@ import animal.classification.water.WaterAnimal;
  * dan leg = 10
  */
 public abstract class Legged extends WaterAnimal {
-    /** Constructor
+    /** Constructor.
      * Melakukan inisialisasi kelas Legged
      * @param w untuk weight
      * @param x untuk koordinat x pada map

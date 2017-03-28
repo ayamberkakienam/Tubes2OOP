@@ -23,7 +23,7 @@ public class KupuKupu extends InsectNectar {
    *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
         return "Wir wir";
     }
 }

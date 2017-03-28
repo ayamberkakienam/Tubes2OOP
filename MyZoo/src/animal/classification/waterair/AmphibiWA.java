@@ -20,5 +20,5 @@ public abstract class AmphibiWA extends Animal {
    * Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

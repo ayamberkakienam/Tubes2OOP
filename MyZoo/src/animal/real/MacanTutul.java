@@ -24,7 +24,7 @@ public class MacanTutul extends QuadrupedMeat {
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Aummmm";
   }
 }

@@ -23,7 +23,7 @@ public class BurungHantu extends BirdMeat {
    *
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Kur kur kur";
   }
 }

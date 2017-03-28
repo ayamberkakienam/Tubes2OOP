@@ -26,5 +26,5 @@ public abstract class BirdMeat extends Bird {
    *
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

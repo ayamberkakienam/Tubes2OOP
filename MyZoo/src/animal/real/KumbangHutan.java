@@ -12,16 +12,16 @@ public class KumbangHutan extends InsectNectar {
    * Melakukan inisialisasi kelas dengan parameter absis dan ordinat lokasi
    */
   public KumbangHutan(int i, int j) {
-      super((float) 0.05, i, j, true);
-      setName("Kumbang Hutan");
-      setContent('N');
-      consumerate += getFodder();
-    }
+    super((float) 0.05, i, j, true);
+    setName("Kumbang Hutan");
+    setContent('N');
+    consumerate += getFodder();
+  }
 
   /**
    * Mencetak informasi spesifik hewan
    */
-  public String Interact() {
-        return "Kruk kruk kruk";
-    }
+  public String interact() {
+    return "Kruk kruk kruk";
+  }
 }

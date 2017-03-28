@@ -24,7 +24,7 @@ public class Kancil extends QuadrupedLeaf {
   /**  Menghasilkan suara hewan yang khas
    * @return string suara hewan.
    */
-  public String Interact() {
+  public String interact() {
     return "Ngik ngik ngik";
   }
 }

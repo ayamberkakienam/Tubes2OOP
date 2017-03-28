@@ -22,7 +22,7 @@ public class Kepik extends InsectNectar {
    * @return string suara hewan.
    * Menghasilkan suara hewan yang khas
    */
-  public String Interact() {
+  public String interact() {
     return "Krik krik krik";
   }
 }

@@ -71,9 +71,9 @@ class PausSpermaTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new PausSperma(5,4);
-        assertTrue(H.Interact().equals("Srosh srosh"));
+        assertTrue(H.interact().equals("Srosh srosh"));
     }
 
 }

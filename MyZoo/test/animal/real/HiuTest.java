@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Created by Diki Ardian W (13515092) on 3/28/17.
  */
 
-/** class HiuTest
+/** HiuTest.
  * Kelas untuk mengetes kelas Hiu
  */
 class HiuTest {
@@ -71,9 +71,9 @@ class HiuTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new Hiu(5,4);
-        assertTrue(H.Interact().equals("Shush shush"));
+        assertTrue(H.interact().equals("Shush shush"));
     }
 
 }

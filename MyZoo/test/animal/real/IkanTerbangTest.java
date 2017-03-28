@@ -61,6 +61,6 @@ class IkanTerbangTest {
     public void interact() {
         System.out.println("Test interact");
         animal.Animal A = new IkanTerbang(2,5);
-        assertTrue(A.Interact().equals("Cepok cepok cepok"));
+        assertTrue(A.interact().equals("Cepok cepok cepok"));
     }
 }

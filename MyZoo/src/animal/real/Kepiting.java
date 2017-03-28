@@ -22,7 +22,7 @@ public class Kepiting extends LeggedPlankton {
     /**  Menghasilkan suara hewan yang khas
      * @return string suara hewan.
      */
-    public String Interact() {
+    public String interact() {
         return "Kuikk kuikk";
     }
 }

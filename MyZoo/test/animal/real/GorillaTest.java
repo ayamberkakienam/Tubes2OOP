@@ -69,8 +69,8 @@ class GorillaTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new Gorilla(1, 2);
-    assertTrue(Objects.equals("Huhahuha", b.Interact()));
+    assertTrue(Objects.equals("Huhahuha", b.interact()));
   }
 }

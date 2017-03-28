@@ -6,18 +6,21 @@ package animal.classification.land.quadruped;
 
 import animal.classification.land.LandAnimal;
 
-/** Quadruped
+/** Quadruped.
  * Kelas yang menangani hewan dengan habitat = "Land"
  * dan leg = 4
  */
+
 public abstract class Quadruped extends LandAnimal {
-  /** Constructor
+
+  /** Constructor.
    * Melakukan inisialisasi kelas Quadruped
    * @param w untuk weight
    * @param x untuk koordinat x pada map
    * @param y untuk koordinat y pada map
    * @param tame true jika jinak, false jika tidak jinak
    */
+
   public Quadruped(float w, int x, int y, boolean tame) {
     super(w, x, y, tame);
     setLeg(4);

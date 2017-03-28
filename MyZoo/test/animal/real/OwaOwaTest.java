@@ -69,8 +69,8 @@ class OwaOwaTest {
 
   @Test
   public void interact() {
-    System.out.println("Test Interact..");
+    System.out.println("Test interact..");
     Animal b = new OwaOwa(1, 2);
-    assertTrue(Objects.equals("Huhuhuhu", b.Interact()));
+    assertTrue(Objects.equals("Huhuhuhu", b.interact()));
   }
 }

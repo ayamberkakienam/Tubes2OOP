@@ -71,8 +71,8 @@ class LumbaLumbaTest {
 
     @Test
     void interact() {
-        System.out.println("Test Interact..");
+        System.out.println("Test interact..");
         Animal H = new LumbaLumba(5,4);
-        assertTrue(H.Interact().equals("Cet cet cet"));
+        assertTrue(H.interact().equals("Cet cet cet"));
     }
 }

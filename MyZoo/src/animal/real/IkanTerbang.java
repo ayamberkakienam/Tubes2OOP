@@ -22,7 +22,7 @@ public class IkanTerbang extends FinnedWAInsect {
    *
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  public String Interact() {
+  public String interact() {
     return "Cepok cepok cepok";
   }
 }

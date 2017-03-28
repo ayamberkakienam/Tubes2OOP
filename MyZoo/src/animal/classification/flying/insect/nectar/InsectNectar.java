@@ -28,5 +28,5 @@ public abstract class InsectNectar extends Insect {
    *
    * @return suara hewan
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

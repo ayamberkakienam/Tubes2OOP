@@ -22,5 +22,5 @@ public abstract class FlyingAnimal extends Animal {
    *
    * @return String sesuai implementasi pada kelas riil turunan
    */
-  abstract public String Interact();
+  public abstract String interact();
 }

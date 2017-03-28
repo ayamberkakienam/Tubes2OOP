@@ -61,6 +61,6 @@ class KepikTest {
     public void interact() {
         System.out.println("Test interact");
         Animal A = new Kepik(2,5);
-        assertTrue(A.Interact().equals("Krik krik krik"));
+        assertTrue(A.interact().equals("Krik krik krik"));
     }
 }
