@@ -323,7 +323,7 @@ public class Zoo {
       for (int ii = 0; ii < Animal.getNAnimal(); ii++) {
         for (int jj = 0; jj < listCage[k].getSize(); jj++) {
           if (listCage[k].getCell()[jj].getX() == listAnimal[ii].getLocX()
-            && listCage[k].getCell()[jj].getY() == listAnimal[ii].getLocY()) {
+              && listCage[k].getCell()[jj].getY() == listAnimal[ii].getLocY()) {
             numAnimal++;
           }
         }
