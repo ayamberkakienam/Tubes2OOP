@@ -1,4 +1,4 @@
-import Animal.Animal_Classification.*;
+import Animal.*;
 /**
  * Created by root on 3/27/17.
  */
